@@ -400,31 +400,6 @@
         .testimonial-author { font-weight: 700; color: var(--primary-dark); }
         .testimonial-role { color: var(--text-light); font-size: 0.9rem; }
 
-        /* --- TRUST BADGES --- */
-        .trust-section { background: var(--white); border-top: 1px solid #E2E8F0; width: 100%; max-width: 100%; }
-        
-        .badges-grid {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .badge {
-            background: var(--bg-body);
-            padding: 1rem 2rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow-sm);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-width: 140px;
-        }
-
-        .badge-icon { font-size: 2rem; margin-bottom: 0.5rem; }
-        .badge-text { font-weight: 600; color: var(--primary-dark); font-size: 0.9rem; }
-
         /* --- FAQ --- */
         .faq-container { max-width: 800px; margin: 0 auto; }
 
@@ -509,7 +484,7 @@
             background: var(--gold);
         }
 
-        .footer-section p, .footer-section a {
+        .footer-section p, .footer-section a:not(.highlight-link) {
             color: #94A3B8;
             text-decoration: none;
             line-height: 2.2;
@@ -518,7 +493,26 @@
             transition: 0.3s;
         }
 
-        .footer-section a:hover { color: var(--gold); padding-left: 5px; }
+        .footer-section a:not(.highlight-link):hover { color: var(--gold); padding-left: 5px; }
+
+        /* Footer Highlight Link Style */
+        .highlight-link {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--primary-dark) !important;
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-top: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            font-size: 0.9rem;
+        }
+        
+        .highlight-link:hover {
+            background: var(--white);
+            transform: translateY(-2px);
+        }
 
         .footer-bottom {
             max-width: 1200px;
@@ -817,35 +811,6 @@
         </div>
     </section>
 
-    <section class="trust-section">
-        <div class="container">
-            <h2 class="section-title" style="padding-top: 3rem;">Trusted &amp; Verified</h2>
-            <p class="section-subtitle">Government approved and certified publication company</p>
-            <div class="badges-grid" style="padding-bottom: 3rem;">
-                <div class="badge fade-in">
-                    <div class="badge-icon">🏛️</div>
-                    <div class="badge-text">Govt Registered</div>
-                </div>
-                <div class="badge fade-in">
-                    <div class="badge-icon">✅</div>
-                    <div class="badge-text">ISO Certified</div>
-                </div>
-                <div class="badge fade-in">
-                    <div class="badge-icon">🔒</div>
-                    <div class="badge-text">Secure Payments</div>
-                </div>
-                <div class="badge fade-in">
-                    <div class="badge-icon">⭐</div>
-                    <div class="badge-text">5 Star Rated</div>
-                </div>
-                <div class="badge fade-in">
-                    <div class="badge-icon">📜</div>
-                    <div class="badge-text">MSME Registered</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section id="faq">
         <h2 class="section-title">Frequently Asked Questions</h2>
         <p class="section-subtitle">Everything you need to know</p>
@@ -926,7 +891,7 @@
                 <a href="#about">About Us</a>
                 <a href="#pricing">Pricing Plans</a>
                 <a href="#faq">FAQ</a>
-                <a href="https://t.me/+RsuVx2N2HgFiNzll" target="_blank">Join Now</a>
+                <a href="https://t.me/+RsuVx2N2HgFiNzll" target="_blank" class="highlight-link">Join Now</a>
             </div>
             <div class="footer-section">
                 <h3>Legal</h3>
