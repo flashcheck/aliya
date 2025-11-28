@@ -59,8 +59,11 @@
         }
 
         .logo {
-            height: 50px;
+            height: 60px;
             width: auto;
+            border-radius: 8px;
+            background: var(--white);
+            padding: 2px;
         }
 
         .brand-text h1 {
@@ -130,31 +133,58 @@
         /* Hero Section */
         .hero {
             position: relative;
-            min-height: 600px;
+            min-height: auto;
+            padding: 4rem 1.5rem;
+            background: linear-gradient(135deg, rgba(94, 82, 64, 0.05) 0%, rgba(139, 115, 85, 0.1) 100%);
             display: flex;
             align-items: center;
             overflow: hidden;
         }
 
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-content {
+            z-index: 10;
+            text-align: left;
+            color: var(--brown-dark);
+        }
+
+        .hero-visuals {
+            position: relative;
+            width: 100%;
+            height: 500px; /* This sets the height of the slider area */
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px var(--shadow-lg);
+            border: 4px solid var(--white);
+            background: var(--white);
+        }
+
         .carousel {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .carousel-slide {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 0;
-        }
-
-        .carousel-slide {
-            position: absolute;
-            width: 100%;
-            height: 100%;
             opacity: 0;
-            transition: opacity 1s ease-in-out;
+            transition: opacity 0.8s ease-in-out;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, rgba(94, 82, 64, 0.85) 0%, rgba(139, 115, 85, 0.85) 100%);
+            background: var(--white);
         }
 
         .carousel-slide.active {
@@ -164,34 +194,23 @@
         .carousel-slide img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
-            max-height: 600px;
-            opacity: 0.3;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 10;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 3rem 1.5rem;
-            text-align: center;
-            color: var(--white);
+            object-fit: contain; /* Keeps whole image visible */
+            background-color: #fbf8f3; 
         }
 
         .hero h2 {
-            font-size: 2.8rem;
+            font-size: 3rem;
             font-weight: 800;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            color: var(--brown-dark);
             animation: fadeInUp 1s ease-out;
         }
 
         .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            color: var(--gold-light);
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            color: var(--brown-medium);
             animation: fadeInUp 1s ease-out 0.2s both;
         }
 
@@ -199,6 +218,7 @@
             font-size: 1.2rem;
             padding: 1rem 3rem;
             animation: fadeInUp 1s ease-out 0.4s both;
+            display: inline-block;
         }
 
         @keyframes fadeInUp {
@@ -428,13 +448,6 @@
             color: var(--gold-light);
         }
 
-        .chart-container {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2rem;
-            border-radius: 15px;
-            margin-top: 2rem;
-        }
-
         /* FAQ Section */
         .faq-container {
             max-width: 800px;
@@ -652,6 +665,7 @@
                 flex-direction: column;
                 padding: 1rem;
                 gap: 1rem;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
             }
 
             nav ul.active {
@@ -660,6 +674,21 @@
 
             .mobile-menu-toggle {
                 display: block;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .hero-content {
+                text-align: center;
+                order: 2;
+            }
+
+            .hero-visuals {
+                height: 400px;
+                order: 1;
             }
 
             .hero h2 {
@@ -681,11 +710,7 @@
             }
 
             .logo {
-                height: 40px;
-            }
-
-            .brand-text h1 {
-                font-size: 1.1rem;
+                height: 50px;
             }
         }
 
@@ -693,33 +718,17 @@
             .hero h2 {
                 font-size: 1.6rem;
             }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            section {
-                padding: 2rem 1rem;
-            }
-
-            .join-btn {
-                padding: 0.5rem 1.2rem;
-                font-size: 0.9rem;
-            }
-
-            .hero .join-btn {
-                padding: 0.8rem 2rem;
-                font-size: 1rem;
+            .hero-visuals {
+                height: 350px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <div class="header-container">
             <div class="logo-section">
-                <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/58c1e6c8-8f66-4962-ac28-cd12aae6c077" alt="Aliya Publication Logo" class="logo">
+                <img src="images/logo.jpeg" alt="Aliya Publication Logo" class="logo">
                 <div class="brand-text">
                     <h1>Aliya Publication</h1>
                     <p>Handwriting Projects</p>
@@ -739,33 +748,33 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="carousel" id="carousel">
-            <div class="carousel-slide active">
-                <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/ebe4005f-0a62-47e9-89e4-d14208c066b7" alt="Handwriting Project Sample 1">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h2>Earn From Home Through Handwriting Work</h2>
+                <p>Transform your beautiful handwriting into a steady income stream. Work for students, housewives, and anyone seeking flexible income.</p>
+                <a href="https://t.me/+RsuVx2N2HgFiNzll" target="_blank" class="join-btn">JOIN TELEGRAM &amp; START</a>
             </div>
-            <div class="carousel-slide">
-                <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/ee6fbbc4-d3ce-48a5-a8b1-1935a8fba25e" alt="Handwriting Project Sample 2">
+            
+            <div class="hero-visuals">
+                <div class="carousel" id="carousel">
+                    <div class="carousel-slide active">
+                        <img src="images/slide1.jpeg" alt="Handwriting Notebook">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/slide2.jpeg" alt="Salary Details">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/slide3.jpeg" alt="Statistics">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/slide4.jpeg" alt="Pricing Plans">
+                    </div>
+                </div>
             </div>
-            <div class="carousel-slide">
-                <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/d66ddca8-da90-4c89-a7e0-ccd60c390f0e" alt="Handwriting Project Sample 3">
-            </div>
-            <div class="carousel-slide">
-                <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/bd4ae7d4-ad25-4460-8705-5fd1ea4d5507" alt="Handwriting Project Sample 4">
-            </div>
-            <div class="carousel-slide">
-                <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/49aa5502-4605-408c-a629-ac7c23795c62" alt="Handwriting Project Sample 5">
-            </div>
-        </div>
-        <div class="hero-content">
-            <h2>Earn From Home Through Handwriting Work</h2>
-            <p>Transform Your Beautiful Handwriting Into a Steady Income Stream</p>
-            <a href="https://t.me/+RsuVx2N2HgFiNzll" target="_blank" class="join-btn">JOIN NOW &amp; START EARNING</a>
         </div>
     </section>
 
-    <!-- Features Section -->
     <section class="features" id="about">
         <h2 class="section-title">Why Choose Aliya Publication?</h2>
         <p class="section-subtitle">Join thousands of satisfied workers earning from home</p>
@@ -803,7 +812,6 @@
         </div>
     </section>
 
-    <!-- Pricing Section -->
     <section id="pricing">
         <h2 class="section-title">Earning Plans</h2>
         <p class="section-subtitle">Choose your target and start earning today</p>
@@ -844,7 +852,6 @@
         </div>
     </section>
 
-    <!-- How It Works -->
     <section style="background: var(--cream-light);">
         <h2 class="section-title">How It Works</h2>
         <p class="section-subtitle">Simple 5-step process to start earning</p>
@@ -877,7 +884,6 @@
         </div>
     </section>
 
-    <!-- Statistics Section -->
     <section class="stats">
         <h2 class="section-title" style="color: var(--white);">Our Success in Numbers</h2>
         <p class="section-subtitle" style="color: var(--gold-light);">Real results from real people</p>
@@ -901,7 +907,6 @@
         </div>
     </section>
 
-    <!-- Testimonials -->
     <section>
         <h2 class="section-title">What Our Workers Say</h2>
         <p class="section-subtitle">Success stories from our community</p>
@@ -924,7 +929,6 @@
         </div>
     </section>
 
-    <!-- Trust Section -->
     <section class="trust-section">
         <h2 class="section-title">Trusted &amp; Verified</h2>
         <p class="section-subtitle">Government approved and certified publication company</p>
@@ -952,7 +956,6 @@
         </div>
     </section>
 
-    <!-- FAQ Section -->
     <section id="faq">
         <h2 class="section-title">Frequently Asked Questions</h2>
         <p class="section-subtitle">Everything you need to know</p>
@@ -1014,14 +1017,12 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
     <section style="background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%); text-align: center; padding: 4rem 1.5rem;">
         <h2 class="section-title" style="color: var(--brown-dark);">Ready to Start Earning?</h2>
         <p class="section-subtitle" style="color: var(--brown-dark); font-size: 1.2rem;">Join thousands of workers already earning from home</p>
         <a href="https://t.me/+RsuVx2N2HgFiNzll" target="_blank" class="join-btn" style="font-size: 1.3rem; padding: 1rem 3rem; margin-top: 1rem;">JOIN NOW - IT'S FREE</a>
     </section>
 
-    <!-- Footer -->
     <footer id="contact">
         <div class="footer-content">
             <div class="footer-section">
@@ -1095,6 +1096,13 @@
             navMenu.classList.toggle('active');
         });
 
+        // Close menu when clicking a link (Mobile)
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
         // Carousel Auto-Slide
         let currentSlide = 0;
         const slides = document.querySelectorAll('.carousel-slide');
@@ -1110,8 +1118,8 @@
             showSlide(currentSlide);
         }
 
-        // Auto-slide every 5 seconds
-        setInterval(nextSlide, 5000);
+        // Auto-slide every 3 seconds
+        setInterval(nextSlide, 3000);
 
         // FAQ Toggle
         const faqItems = document.querySelectorAll('.faq-item');
@@ -1207,9 +1215,6 @@
                         top: offsetPosition,
                         behavior: 'smooth'
                     });
-
-                    // Close mobile menu if open
-                    navMenu.classList.remove('active');
                 }
             });
         });
