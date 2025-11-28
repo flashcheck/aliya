@@ -3,48 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Aliya Publication - Earn from home through handwriting projects. Flexible income from ₹3000/day to ₹20000/week.">
-    <title>Aliya Publication - Handwriting Work From Home</title>
+    <meta name="description" content="Aliya Publication - Earn from home through handwriting projects. Secure, flexible income opportunities.">
+    <title>Aliya Publication | Premium Handwriting Projects</title>
     <style>
         :root {
-            --cream-bg: #FBF8F3;
-            --cream-light: #FFFCF7;
-            --brown-dark: #5E5240;
-            --brown-medium: #8B7355;
-            --gold: #C9A869;
-            --gold-light: #E5D4A6;
-            --text-dark: #3A3128;
+            /* Professional Color Palette */
+            --primary-dark: #0F172A;   /* Deep Navy */
+            --primary-light: #1E293B;  /* Slate Blue */
+            --accent: #F59E0B;         /* Vibrant Amber/Gold */
+            --accent-hover: #D97706;   /* Darker Amber */
+            --text-main: #334155;      /* Dark Slate */
+            --text-light: #64748B;     /* Light Slate */
+            --bg-body: #F8FAFC;        /* Cool White/Grey */
             --white: #FFFFFF;
-            --shadow: rgba(94, 82, 64, 0.15);
-            --shadow-lg: rgba(94, 82, 64, 0.25);
+            
+            /* Shadows & Effects */
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+            --shadow-accent: 0 10px 20px -5px rgba(245, 158, 11, 0.4);
+            
+            --radius: 12px;
+            --container-width: 1200px;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--cream-bg);
-            color: var(--text-dark);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
             line-height: 1.6;
+            font-size: 16px; /* Base size */
             overflow-x: hidden;
         }
 
-        /* Header Styles */
+        /* --- Typography --- */
+        h1, h2, h3 {
+            color: var(--primary-dark);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .section-title {
+            font-size: 2.25rem;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* --- Buttons --- */
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: var(--accent);
+            color: var(--primary-dark);
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-md);
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.95rem;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-accent);
+        }
+
+        .btn-large {
+            padding: 16px 40px;
+            font-size: 1.1rem;
+        }
+
+        /* --- Header --- */
         header {
-            background: linear-gradient(135deg, var(--brown-dark) 0%, var(--brown-medium) 100%);
-            padding: 1rem 0;
+            background: var(--white);
+            height: 70px;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px var(--shadow);
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            align-items: center;
         }
 
-        .header-container {
-            max-width: 1200px;
+        .nav-container {
+            width: 100%;
+            max-width: var(--container-width);
             margin: 0 auto;
             padding: 0 1.5rem;
             display: flex;
@@ -52,139 +121,120 @@
             align-items: center;
         }
 
-        .logo-section {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
         .logo {
-            height: 60px;
-            width: auto;
-            border-radius: 8px;
-            background: var(--white);
-            padding: 2px;
-        }
-
-        .brand-text h1 {
-            color: var(--white);
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin: 0;
-        }
-
-        .brand-text p {
-            color: var(--gold-light);
-            font-size: 0.75rem;
-            margin: 0;
-        }
-
-        nav {
             display: flex;
             align-items: center;
-            gap: 2rem;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 40px;
+            border-radius: 6px;
+        }
+
+        .logo-text h1 {
+            font-size: 1.25rem;
+            margin: 0;
+            color: var(--primary-dark);
+        }
+
+        .logo-text span {
+            font-size: 0.75rem;
+            color: var(--accent);
+            font-weight: 600;
+            display: block;
+            margin-top: -3px;
         }
 
         nav ul {
             display: flex;
             list-style: none;
             gap: 2rem;
+            align-items: center;
         }
 
-        nav a {
-            color: var(--white);
+        nav a.nav-link {
+            color: var(--text-main);
             text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.2s;
         }
 
-        nav a:hover {
-            color: var(--gold);
+        nav a.nav-link:hover {
+            color: var(--accent);
         }
 
-        .join-btn {
-            background: var(--gold);
-            color: var(--brown-dark);
-            padding: 0.6rem 1.5rem;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(201, 168, 105, 0.3);
-        }
-
-        .join-btn:hover {
-            background: var(--gold-light);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(201, 168, 105, 0.4);
-        }
-
-        .mobile-menu-toggle {
+        .mobile-toggle {
             display: none;
+            font-size: 1.8rem;
             background: none;
             border: none;
-            color: var(--white);
-            font-size: 1.5rem;
+            color: var(--primary-dark);
             cursor: pointer;
         }
 
-        /* Hero Section */
+        /* --- Hero Section --- */
         .hero {
             position: relative;
-            min-height: auto;
             padding: 4rem 1.5rem;
-            background: linear-gradient(135deg, rgba(94, 82, 64, 0.05) 0%, rgba(139, 115, 85, 0.1) 100%);
-            display: flex;
-            align-items: center;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-light) 100%);
+            color: var(--white);
             overflow: hidden;
         }
 
-        .hero-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
         }
 
-        .hero-content {
+        .hero-grid {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 3rem;
+            align-items: center;
+            position: relative;
             z-index: 10;
-            text-align: left;
-            color: var(--brown-dark);
+        }
+
+        .hero-content h2 {
+            color: var(--white);
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            color: #CBD5E1;
+            margin-bottom: 2rem;
+            max-width: 90%;
         }
 
         .hero-visuals {
             position: relative;
-            width: 100%;
-            height: 500px; /* This sets the height of the slider area */
-            border-radius: 20px;
+            border-radius: var(--radius);
             overflow: hidden;
-            box-shadow: 0 10px 30px var(--shadow-lg);
-            border: 4px solid var(--white);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+            border: 4px solid rgba(255,255,255,0.1);
+            aspect-ratio: 4/3;
             background: var(--white);
-        }
-
-        .carousel {
-            position: relative;
-            width: 100%;
-            height: 100%;
         }
 
         .carousel-slide {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            inset: 0;
             opacity: 0;
-            transition: opacity 0.8s ease-in-out;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--white);
+            transition: opacity 0.8s ease;
         }
 
         .carousel-slide.active {
@@ -194,1030 +244,638 @@
         .carousel-slide img {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* Keeps whole image visible */
-            background-color: #fbf8f3; 
+            object-fit: contain;
         }
 
-        .hero h2 {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-            color: var(--brown-dark);
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            margin-bottom: 2.5rem;
-            color: var(--brown-medium);
-            animation: fadeInUp 1s ease-out 0.2s both;
-        }
-
-        .hero .join-btn {
-            font-size: 1.2rem;
-            padding: 1rem 3rem;
-            animation: fadeInUp 1s ease-out 0.4s both;
-            display: inline-block;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Section Styles */
+        /* --- Features --- */
         section {
             padding: 4rem 1.5rem;
-            max-width: 1200px;
+        }
+
+        .grid-3 {
+            max-width: var(--container-width);
             margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            color: var(--brown-dark);
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.1rem;
-            color: var(--brown-medium);
-            margin-bottom: 3rem;
-        }
-
-        /* Features Section */
-        .features {
-            background: var(--cream-light);
-        }
-
-        .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
 
         .feature-card {
             background: var(--white);
             padding: 2rem;
-            border-radius: 15px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid #E2E8F0;
+            transition: transform 0.3s;
             text-align: center;
-            box-shadow: 0 5px 20px var(--shadow);
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: 2px solid var(--gold-light);
         }
 
         .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px var(--shadow-lg);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent);
         }
 
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            background: #FFF7ED; /* Light orange bg */
+            color: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin: 0 auto 1.5rem;
         }
 
-        .feature-card h3 {
-            color: var(--brown-dark);
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
-        }
-
-        .feature-card p {
-            color: var(--text-dark);
-            line-height: 1.6;
-        }
-
-        /* Pricing Section */
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
+        /* --- Pricing --- */
         .pricing-card {
             background: var(--white);
             padding: 2.5rem 2rem;
-            border-radius: 20px;
+            border-radius: 16px;
             text-align: center;
-            box-shadow: 0 5px 25px var(--shadow);
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: 3px solid var(--gold-light);
+            box-shadow: var(--shadow-md);
             position: relative;
-            overflow: hidden;
-        }
-
-        .pricing-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 100%);
-        }
-
-        .pricing-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 35px var(--shadow-lg);
+            border: 1px solid #E2E8F0;
+            display: flex;
+            flex-direction: column;
         }
 
         .pricing-card.featured {
-            border-color: var(--gold);
-            box-shadow: 0 8px 30px rgba(201, 168, 105, 0.4);
+            border: 2px solid var(--accent);
+            transform: scale(1.05);
+            box-shadow: var(--shadow-accent);
+            z-index: 2;
         }
 
-        .pricing-badge {
-            background: var(--gold);
-            color: var(--brown-dark);
-            padding: 0.5rem 1.5rem;
+        .badge {
+            background: var(--primary-light);
+            color: var(--white);
+            padding: 5px 15px;
             border-radius: 20px;
+            font-size: 0.8rem;
             font-weight: 700;
             display: inline-block;
             margin-bottom: 1rem;
         }
 
-        .pricing-card h3 {
-            font-size: 1.8rem;
-            color: var(--brown-dark);
-            margin-bottom: 1rem;
+        .featured .badge {
+            background: var(--accent);
+            color: var(--primary-dark);
         }
 
-        .pricing-pages {
+        .price-tag {
             font-size: 2.5rem;
             font-weight: 800;
-            color: var(--gold);
-            margin-bottom: 0.5rem;
-        }
-
-        .pricing-details {
-            margin: 1.5rem 0;
-        }
-
-        .pricing-details p {
+            color: var(--primary-dark);
             margin: 0.5rem 0;
-            font-size: 1.1rem;
         }
 
-        .pricing-amount {
-            color: var(--brown-dark);
+        .price-sub {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .price-features p {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #F1F5F9;
+            font-size: 1rem;
+        }
+
+        .price-features span {
             font-weight: 700;
-            font-size: 1.2rem;
+            color: var(--primary-dark);
         }
 
-        /* How It Works */
-        .steps-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+        .pricing-card .btn {
+            margin-top: 1.5rem;
+            width: 100%;
         }
 
-        .step-card {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 5px 20px var(--shadow);
-            position: relative;
-            transition: transform 0.3s;
-        }
-
-        .step-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .step-number {
-            background: var(--gold);
-            color: var(--brown-dark);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin: 0 auto 1rem;
-        }
-
-        .step-card h3 {
-            color: var(--brown-dark);
-            margin-bottom: 1rem;
-        }
-
-        /* Statistics Section */
-        .stats {
-            background: linear-gradient(135deg, var(--brown-dark) 0%, var(--brown-medium) 100%);
+        /* --- Stats --- */
+        .stats-section {
+            background: var(--primary-dark);
             color: var(--white);
+            text-align: center;
         }
 
-        .stats-grid {
+        .stat-grid {
+            max-width: var(--container-width);
+            margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 2rem;
-            margin-bottom: 3rem;
         }
 
-        .stat-card {
-            text-align: center;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
+        .stat-item {
+            padding: 1rem;
         }
 
         .stat-number {
             font-size: 3rem;
             font-weight: 800;
-            color: var(--gold);
+            color: var(--accent);
+            line-height: 1;
             margin-bottom: 0.5rem;
         }
 
         .stat-label {
-            font-size: 1.1rem;
-            color: var(--gold-light);
+            font-size: 1rem;
+            opacity: 0.8;
         }
 
-        /* FAQ Section */
-        .faq-container {
-            max-width: 800px;
+        /* --- Steps --- */
+        .steps-container {
+            max-width: 900px;
             margin: 0 auto;
         }
 
+        .step-row {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            align-items: flex-start;
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .step-num {
+            background: var(--accent);
+            color: var(--primary-dark);
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+
+        /* --- FAQ --- */
         .faq-item {
             background: var(--white);
             margin-bottom: 1rem;
-            border-radius: 10px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
             overflow: hidden;
-            box-shadow: 0 3px 15px var(--shadow);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .faq-question {
-            background: var(--gold-light);
-            padding: 1.5rem;
+            padding: 1.25rem;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
             font-weight: 600;
-            color: var(--brown-dark);
-            transition: background 0.3s;
+            color: var(--primary-dark);
         }
-
+        
         .faq-question:hover {
-            background: var(--gold);
-        }
-
-        .faq-icon {
-            font-size: 1.5rem;
-            transition: transform 0.3s;
-        }
-
-        .faq-item.active .faq-icon {
-            transform: rotate(180deg);
+            background-color: #F8FAFC;
         }
 
         .faq-answer {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
-            padding: 0 1.5rem;
-            background: var(--white);
+            transition: all 0.3s ease;
+            padding: 0 1.25rem;
+            color: var(--text-light);
         }
 
         .faq-item.active .faq-answer {
-            max-height: 300px;
-            padding: 1.5rem;
+            max-height: 200px;
+            padding-bottom: 1.25rem;
         }
 
-        /* Testimonials */
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
+        .arrow { transition: transform 0.3s; }
+        .faq-item.active .arrow { transform: rotate(180deg); }
 
-        .testimonial-card {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px var(--shadow);
-            border-left: 5px solid var(--gold);
-        }
-
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 1rem;
-            color: var(--text-dark);
-            line-height: 1.8;
-        }
-
-        .testimonial-author {
-            font-weight: 700;
-            color: var(--brown-dark);
-        }
-
-        .testimonial-role {
-            color: var(--brown-medium);
-            font-size: 0.9rem;
-        }
-
-        /* Trust Badges */
-        .trust-section {
-            background: var(--cream-light);
-            text-align: center;
-        }
-
-        .badges-grid {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            margin-top: 2rem;
-        }
-
-        .badge {
-            background: var(--white);
-            padding: 1.5rem 2rem;
-            border-radius: 10px;
-            box-shadow: 0 3px 15px var(--shadow);
-            min-width: 150px;
-        }
-
-        .badge-icon {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .badge-text {
-            font-weight: 600;
-            color: var(--brown-dark);
-            font-size: 0.9rem;
-        }
-
-        /* Footer */
+        /* --- Footer --- */
         footer {
-            background: var(--brown-dark);
-            color: var(--white);
-            padding: 3rem 1.5rem 1rem;
+            background: var(--primary-dark);
+            color: #94A3B8;
+            padding: 4rem 1.5rem 1rem;
         }
 
-        .footer-content {
-            max-width: 1200px;
+        .footer-grid {
+            max-width: var(--container-width);
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
         }
 
-        .footer-section h3 {
-            color: var(--gold);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
         }
 
-        .footer-section p,
-        .footer-section a {
-            color: var(--gold-light);
+        .footer-col a {
+            color: #94A3B8;
             text-decoration: none;
-            line-height: 2;
             display: block;
+            margin-bottom: 0.8rem;
+            transition: color 0.2s;
         }
 
-        .footer-section a:hover {
-            color: var(--gold);
-        }
+        .footer-col a:hover { color: var(--accent); }
 
-        .footer-badges {
+        .trust-badges {
             display: flex;
-            gap: 1rem;
             flex-wrap: wrap;
+            gap: 1rem;
             margin-top: 1rem;
         }
 
-        .footer-badge {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            font-size: 0.85rem;
-            border: 1px solid var(--gold);
+        .t-badge {
+            background: rgba(255,255,255,0.1);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            border: 1px solid rgba(255,255,255,0.2);
         }
 
         .footer-bottom {
-            border-top: 1px solid rgba(201, 168, 105, 0.3);
-            padding-top: 2rem;
             text-align: center;
-            color: var(--gold-light);
-        }
-
-        .footer-certifications {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            margin-bottom: 1.5rem;
-        }
-
-        .certification {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
             font-size: 0.9rem;
         }
 
-        .cert-icon {
-            font-size: 1.5rem;
-        }
-
-        /* Scroll Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Mobile Responsive */
+        /* --- Mobile Responsive --- */
         @media (max-width: 768px) {
+            :root {
+                --container-width: 100%;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+            }
+
+            /* Nav */
+            .mobile-toggle { display: block; }
+            
             nav ul {
                 display: none;
                 position: absolute;
                 top: 100%;
                 left: 0;
                 width: 100%;
-                background: var(--brown-dark);
+                background: var(--white);
                 flex-direction: column;
-                padding: 1rem;
-                gap: 1rem;
-                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+                padding: 1rem 0;
+                box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+                gap: 0;
             }
 
-            nav ul.active {
-                display: flex;
-            }
+            nav ul.active { display: flex; }
 
-            .mobile-menu-toggle {
+            nav li { width: 100%; }
+
+            nav a.nav-link {
                 display: block;
+                padding: 1rem 1.5rem;
+                border-bottom: 1px solid #F1F5F9;
             }
 
-            .hero-container {
-                grid-template-columns: 1fr;
-                gap: 2rem;
+            .nav-btn-container {
+                display: none; /* Hide header button on mobile menu, show inside menu if needed */
             }
+
+            /* Hero */
+            .hero { padding: 3rem 1.5rem; text-align: center; }
             
-            .hero-content {
-                text-align: center;
-                order: 2;
-            }
-
-            .hero-visuals {
-                height: 400px;
-                order: 1;
-            }
-
-            .hero h2 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1.1rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .features-grid,
-            .pricing-grid,
-            .steps-grid {
+            .hero-grid {
                 grid-template-columns: 1fr;
+                gap: 2.5rem;
             }
 
-            .logo {
-                height: 50px;
-            }
-        }
+            .hero-content { order: 1; }
+            .hero-visuals { order: 2; aspect-ratio: 16/9; }
 
-        @media (max-width: 480px) {
-            .hero h2 {
-                font-size: 1.6rem;
-            }
-            .hero-visuals {
-                height: 350px;
-            }
+            .hero-content h2 { font-size: 2.25rem; }
+            .hero-content p { margin: 0 auto 2rem; }
+
+            /* Pricing */
+            .pricing-card.featured { transform: scale(1); margin: 1rem 0; }
+            
+            /* General */
+            .grid-3 { grid-template-columns: 1fr; }
+            
+            .btn { width: 100%; text-align: center; } /* Full width buttons on mobile */
+            
+            .footer-grid { text-align: left; }
         }
     </style>
 </head>
 <body>
+
     <header>
-        <div class="header-container">
-            <div class="logo-section">
-                <img src="images/logo.jpeg" alt="Aliya Publication Logo" class="logo">
-                <div class="brand-text">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="https://via.placeholder.com/40x40/0F172A/ffffff?text=AP" alt="Logo">
+                <div class="logo-text">
                     <h1>Aliya Publication</h1>
-                    <p>Handwriting Projects</p>
+                    <span>Trusted Projects</span>
                 </div>
-            </div>
+            </a>
             <nav>
                 <ul id="navMenu">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#pricing">Pricing</a></li>
-                    <li><a href="#faq">FAQ</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#pricing" class="nav-link">Plans</a></li>
+                    <li><a href="#faq" class="nav-link">FAQ</a></li>
+                    <li style="padding: 1rem 1.5rem;" class="mobile-only-btn">
+                        <a href="https://t.me/+RsuVx2N2HgFiNzll" target="_blank" class="btn">Join Telegram</a>
+                    </li>
                 </ul>
-                <a href="https://t.me/+RsuVx2N2HgFiNzll" target="_blank" class="join-btn">JOIN NOW</a>
-                <button class="mobile-menu-toggle" id="menuToggle">☰</button>
+                <button class="mobile-toggle" id="menuToggle">☰</button>
             </nav>
+            <div class="nav-btn-container" style="display: block;">
+                <a href="https://t.me/+RsuVx2N2HgFiNzll" target="_blank" class="btn" style="display: none;">Join Now</a>
+                <style>
+                    @media(max-width: 768px) { .nav-btn-container { display: none !important; } }
+                    @media(min-width: 769px) { .mobile-only-btn { display: none !important; } .nav-btn-container .btn { display: inline-block !important;} }
+                </style>
+            </div>
         </div>
     </header>
 
     <section class="hero" id="home">
-        <div class="hero-container">
+        <div class="hero-grid">
             <div class="hero-content">
-                <h2>Earn From Home Through Handwriting Work</h2>
-                <p>Transform your beautiful handwriting into a steady income stream. Work for students, housewives, and anyone seeking flexible income.</p>
-                <a href="https://t.me/+RsuVx2N2HgFiNzll" target="_blank" class="join-btn">JOIN TELEGRAM &amp; START</a>
+                <h2>Turn Your Handwriting Into Income</h2>
+                <p>Join India's most trusted work-from-home platform. Earn ₹3,000 - ₹20,000 weekly with simple handwriting tasks. No experience needed.</p>
+                <a href="https://t.me/+RsuVx2N2HgFiNzll" target="_blank" class="btn btn-large">Join Channel & Start</a>
+                <div style="margin-top: 1.5rem; font-size: 0.9rem; opacity: 0.8;">
+                    ✅ 2,500+ Active Members &nbsp;|&nbsp; ✅ Gov. Registered
+                </div>
             </div>
-            
             <div class="hero-visuals">
-                <div class="carousel" id="carousel">
-                    <div class="carousel-slide active">
-                        <img src="images/slide1.jpeg" alt="Handwriting Notebook">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="images/slide2.jpeg" alt="Salary Details">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="images/slide3.jpeg" alt="Statistics">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="images/slide4.jpeg" alt="Pricing Plans">
-                    </div>
+                <div class="carousel-slide active">
+                    <img src="images/slide1.jpeg" alt="Handwriting Sample" onerror="this.src='https://via.placeholder.com/600x400/f1f5f9/0F172A?text=Handwriting+Sample'">
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/slide2.jpeg" alt="Earnings Proof" onerror="this.src='https://via.placeholder.com/600x400/f1f5f9/0F172A?text=Weekly+Payouts'">
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="features" id="about">
-        <h2 class="section-title">Why Choose Aliya Publication?</h2>
-        <p class="section-subtitle">Join thousands of satisfied workers earning from home</p>
-        <div class="features-grid">
-            <div class="feature-card fade-in">
-                <div class="feature-icon">🏠</div>
+    <section id="about">
+        <h2 class="section-title">Why Aliya Publication?</h2>
+        <p class="section-subtitle">We provide a legitimate platform for students, housewives, and freelancers.</p>
+        <div class="grid-3">
+            <div class="feature-card">
+                <div class="icon-box">🏠</div>
                 <h3>Work From Home</h3>
-                <p>Complete handwriting projects from the comfort of your home. No commute, no office politics, just pure flexibility.</p>
+                <p style="color: var(--text-light); margin-top: 0.5rem;">Zero commute. Work from your bed or desk. 100% remote flexibility.</p>
             </div>
-            <div class="feature-card fade-in">
-                <div class="feature-icon">✍️</div>
-                <h3>Simple Handwriting Tasks</h3>
-                <p>Copy and rewrite content by hand. No special skills required - just neat handwriting and dedication.</p>
+            <div class="feature-card">
+                <div class="icon-box">💰</div>
+                <h3>High Payouts</h3>
+                <p style="color: var(--text-light); margin-top: 0.5rem;">Earn up to ₹2,00,000 monthly based on the plan you choose and your speed.</p>
             </div>
-            <div class="feature-card fade-in">
-                <div class="feature-icon">💰</div>
-                <h3>Flexible Earnings</h3>
-                <p>Earn ₹3,000 daily to ₹20,000 weekly based on your output. The more you work, the more you earn.</p>
-            </div>
-            <div class="feature-card fade-in">
-                <div class="feature-icon">⏰</div>
-                <h3>Choose Your Hours</h3>
-                <p>Work at your own pace and schedule. Perfect for students, housewives, and anyone seeking flexible income.</p>
-            </div>
-            <div class="feature-card fade-in">
-                <div class="feature-icon">📊</div>
-                <h3>Transparent System</h3>
-                <p>Clear payment structure based on pages completed. Track your earnings and progress easily.</p>
-            </div>
-            <div class="feature-card fade-in">
-                <div class="feature-icon">🎯</div>
-                <h3>Showcase Your Talent</h3>
-                <p>Turn your beautiful handwriting into a valuable skill that earns you money every single day.</p>
+            <div class="feature-card">
+                <div class="icon-box">⚡</div>
+                <h3>Weekly Payments</h3>
+                <p style="color: var(--text-light); margin-top: 0.5rem;">Transparent payment system. Get paid directly to your bank account every week.</p>
             </div>
         </div>
     </section>
 
-    <section id="pricing">
-        <h2 class="section-title">Earning Plans</h2>
-        <p class="section-subtitle">Choose your target and start earning today</p>
-        <div class="pricing-grid">
-            <div class="pricing-card fade-in">
-                <div class="pricing-badge">BASIC</div>
-                <h3>Starter Plan</h3>
-                <div class="pricing-pages">50 Pages</div>
-                <div class="pricing-details">
-                    <p>Daily Earning: <span class="pricing-amount">₹3,000+</span></p>
-                    <p>Weekly Earning: <span class="pricing-amount">₹18,000+</span></p>
-                    <p>Monthly Potential: <span class="pricing-amount">₹72,000+</span></p>
+    <section id="pricing" style="background-color: #F1F5F9;">
+        <h2 class="section-title">Choose Your Income Goal</h2>
+        <p class="section-subtitle">Select a plan that fits your schedule and earning targets.</p>
+        
+        <div class="grid-3" style="align-items: center;">
+            <div class="pricing-card">
+                <div class="badge">STARTER</div>
+                <h3>Basic Plan</h3>
+                <div class="price-tag">50 <span style="font-size: 1rem; color: var(--text-light); font-weight: 400;">Pages</span></div>
+                <div class="price-sub">Perfect for beginners</div>
+                <div class="price-features">
+                    <p>Daily: <span>₹3,000+</span></p>
+                    <p>Weekly: <span>₹18,000+</span></p>
+                    <p>Monthly: <span>₹72,000+</span></p>
                 </div>
-                <a href="https://t.me/+RsuVx2N2HgFiNzll" target="_blank" class="join-btn">Get Started</a>
+                <a href="https://t.me/+RsuVx2N2HgFiNzll" target="_blank" class="btn">Choose Basic</a>
             </div>
-            <div class="pricing-card featured fade-in">
-                <div class="pricing-badge">STANDARD</div>
-                <h3>Popular Plan</h3>
-                <div class="pricing-pages">90 Pages</div>
-                <div class="pricing-details">
-                    <p>Daily Earning: <span class="pricing-amount">₹5,000+</span></p>
-                    <p>Weekly Earning: <span class="pricing-amount">₹30,000+</span></p>
-                    <p>Monthly Potential: <span class="pricing-amount">₹1,20,000+</span></p>
+
+            <div class="pricing-card featured">
+                <div class="badge">MOST POPULAR</div>
+                <h3>Standard Plan</h3>
+                <div class="price-tag">90 <span style="font-size: 1rem; color: var(--text-light); font-weight: 400;">Pages</span></div>
+                <div class="price-sub">Best value for time</div>
+                <div class="price-features">
+                    <p>Daily: <span>₹5,000+</span></p>
+                    <p>Weekly: <span>₹30,000+</span></p>
+                    <p>Monthly: <span>₹1,20,000+</span></p>
                 </div>
-                <a href="https://t.me/+RsuVx2N2HgFiNzll" target="_blank" class="join-btn">Get Started</a>
+                <a href="https://t.me/+RsuVx2N2HgFiNzll" target="_blank" class="btn">Choose Standard</a>
             </div>
-            <div class="pricing-card fade-in">
-                <div class="pricing-badge">PREMIUM</div>
-                <h3>Elite Plan</h3>
-                <div class="pricing-pages">120 Pages</div>
-                <div class="pricing-details">
-                    <p>Daily Earning: <span class="pricing-amount">₹7,000+</span></p>
-                    <p>Weekly Earning: <span class="pricing-amount">₹50,000+</span></p>
-                    <p>Monthly Potential: <span class="pricing-amount">₹2,00,000+</span></p>
+
+            <div class="pricing-card">
+                <div class="badge">ELITE</div>
+                <h3>Premium Plan</h3>
+                <div class="price-tag">120 <span style="font-size: 1rem; color: var(--text-light); font-weight: 400;">Pages</span></div>
+                <div class="price-sub">For serious earners</div>
+                <div class="price-features">
+                    <p>Daily: <span>₹7,000+</span></p>
+                    <p>Weekly: <span>₹50,000+</span></p>
+                    <p>Monthly: <span>₹2,00,000+</span></p>
                 </div>
-                <a href="https://t.me/+RsuVx2N2HgFiNzll" target="_blank" class="join-btn">Get Started</a>
+                <a href="https://t.me/+RsuVx2N2HgFiNzll" target="_blank" class="btn">Choose Premium</a>
             </div>
         </div>
     </section>
 
-    <section style="background: var(--cream-light);">
-        <h2 class="section-title">How It Works</h2>
-        <p class="section-subtitle">Simple 5-step process to start earning</p>
-        <div class="steps-grid">
-            <div class="step-card fade-in">
-                <div class="step-number">1</div>
-                <h3>Register</h3>
-                <p>Join our Telegram channel and complete the simple registration process.</p>
-            </div>
-            <div class="step-card fade-in">
-                <div class="step-number">2</div>
-                <h3>Receive Assignments</h3>
-                <p>Get handwriting project assignments based on your chosen plan.</p>
-            </div>
-            <div class="step-card fade-in">
-                <div class="step-number">3</div>
-                <h3>Complete Work</h3>
-                <p>Write neatly and carefully following the provided guidelines and templates.</p>
-            </div>
-            <div class="step-card fade-in">
-                <div class="step-number">4</div>
-                <h3>Submit for Review</h3>
-                <p>Upload your completed work for quality verification (24-48 hours).</p>
-            </div>
-            <div class="step-card fade-in">
-                <div class="step-number">5</div>
-                <h3>Get Paid</h3>
-                <p>Receive your weekly payment directly to your bank account.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="stats">
-        <h2 class="section-title" style="color: var(--white);">Our Success in Numbers</h2>
-        <p class="section-subtitle" style="color: var(--gold-light);">Real results from real people</p>
-        <div class="stats-grid">
-            <div class="stat-card fade-in">
+    <section class="stats-section">
+        <div class="stat-grid">
+            <div class="stat-item">
                 <div class="stat-number" data-target="2500">0</div>
-                <div class="stat-label">Active Workers</div>
+                <div class="stat-label">Happy Workers</div>
             </div>
-            <div class="stat-card fade-in">
+            <div class="stat-item">
                 <div class="stat-number" data-target="18000">0</div>
-                <div class="stat-label">Projects Completed</div>
+                <div class="stat-label">Projects Done</div>
             </div>
-            <div class="stat-card fade-in">
-                <div class="stat-number">₹<span data-target="75000">0</span></div>
-                <div class="stat-label">Avg Monthly Earnings</div>
+            <div class="stat-item">
+                <div class="stat-number">₹<span data-target="75">0</span>k</div>
+                <div class="stat-label">Avg. Monthly Pay</div>
             </div>
-            <div class="stat-card fade-in">
-                <div class="stat-number" data-target="98">0</div>
-                <div class="stat-label">Satisfaction Rate %</div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="100">0%</div>
+                <div class="stat-label">Payment Success</div>
             </div>
         </div>
     </section>
 
     <section>
-        <h2 class="section-title">What Our Workers Say</h2>
-        <p class="section-subtitle">Success stories from our community</p>
-        <div class="testimonials-grid">
-            <div class="testimonial-card fade-in">
-                <p class="testimonial-text">"I never thought my handwriting could earn me money! I'm now making ₹40,000 per month while taking care of my family. Thank you Aliya Publication!"</p>
-                <div class="testimonial-author">Priya Sharma</div>
-                <div class="testimonial-role">Housewife, Mumbai</div>
-            </div>
-            <div class="testimonial-card fade-in">
-                <p class="testimonial-text">"As a student, this is perfect for me. I work 2-3 hours daily and earn enough for my expenses. The payment is always on time!"</p>
-                <div class="testimonial-author">Rahul Kumar</div>
-                <div class="testimonial-role">Student, Delhi</div>
-            </div>
-            <div class="testimonial-card fade-in">
-                <p class="testimonial-text">"Been working for 6 months now. The process is simple, transparent, and the support team is very helpful. Highly recommended!"</p>
-                <div class="testimonial-author">Anjali Patel</div>
-                <div class="testimonial-role">Freelancer, Gujarat</div>
-            </div>
-        </div>
-    </section>
-
-    <section class="trust-section">
-        <h2 class="section-title">Trusted &amp; Verified</h2>
-        <p class="section-subtitle">Government approved and certified publication company</p>
-        <div class="badges-grid">
-            <div class="badge fade-in">
-                <div class="badge-icon">🏛️</div>
-                <div class="badge-text">Government Registered</div>
-            </div>
-            <div class="badge fade-in">
-                <div class="badge-icon">✅</div>
-                <div class="badge-text">ISO Certified</div>
-            </div>
-            <div class="badge fade-in">
-                <div class="badge-icon">🔒</div>
-                <div class="badge-text">Secure Payments</div>
-            </div>
-            <div class="badge fade-in">
-                <div class="badge-icon">⭐</div>
-                <div class="badge-text">5 Star Rated</div>
-            </div>
-            <div class="badge fade-in">
-                <div class="badge-icon">📜</div>
-                <div class="badge-text">MSME Registered</div>
-            </div>
-        </div>
-    </section>
-
-    <section id="faq">
-        <h2 class="section-title">Frequently Asked Questions</h2>
-        <p class="section-subtitle">Everything you need to know</p>
-        <div class="faq-container">
-            <div class="faq-item fade-in">
-                <div class="faq-question">
-                    <span>Who can apply for this work?</span>
-                    <span class="faq-icon">▼</span>
-                </div>
-                <div class="faq-answer">
-                    <p>Students, housewives, and anyone seeking flexible work from home opportunities can apply. No experience needed - just neat handwriting and dedication.</p>
+        <h2 class="section-title">How It Works</h2>
+        <div class="steps-container">
+            <div class="step-row">
+                <div class="step-num">1</div>
+                <div>
+                    <h3>Join Telegram</h3>
+                    <p style="color: var(--text-light);">Click the join button to enter our official channel.</p>
                 </div>
             </div>
-            <div class="faq-item fade-in">
-                <div class="faq-question">
-                    <span>What is the minimum earning?</span>
-                    <span class="faq-icon">▼</span>
-                </div>
-                <div class="faq-answer">
-                    <p>Minimum earning starts at ₹3,000 per day based on the number of pages you complete. You can earn up to ₹20,000 per week depending on your output.</p>
+            <div class="step-row">
+                <div class="step-num">2</div>
+                <div>
+                    <h3>Select Project</h3>
+                    <p style="color: var(--text-light);">Choose a handwriting plan that suits your availability.</p>
                 </div>
             </div>
-            <div class="faq-item fade-in">
-                <div class="faq-question">
-                    <span>How are payments made?</span>
-                    <span class="faq-icon">▼</span>
-                </div>
-                <div class="faq-answer">
-                    <p>Payments are made weekly based on completed and verified projects directly to your bank account. We ensure timely and secure payments.</p>
-                </div>
-            </div>
-            <div class="faq-item fade-in">
-                <div class="faq-question">
-                    <span>Do I need any special equipment?</span>
-                    <span class="faq-icon">▼</span>
-                </div>
-                <div class="faq-answer">
-                    <p>You just need pen, paper, and a smartphone to submit your work. No expensive equipment or software required.</p>
-                </div>
-            </div>
-            <div class="faq-item fade-in">
-                <div class="faq-question">
-                    <span>Is this legitimate?</span>
-                    <span class="faq-icon">▼</span>
-                </div>
-                <div class="faq-answer">
-                    <p>Yes, we are a registered publication company operating since 2018 with thousands of satisfied workers. We are government approved and MSME registered.</p>
-                </div>
-            </div>
-            <div class="faq-item fade-in">
-                <div class="faq-question">
-                    <span>How long does verification take?</span>
-                    <span class="faq-icon">▼</span>
-                </div>
-                <div class="faq-answer">
-                    <p>Project verification typically takes 24-48 hours after submission. Our quality team ensures every project meets our standards.</p>
+            <div class="step-row">
+                <div class="step-num">3</div>
+                <div>
+                    <h3>Submit & Earn</h3>
+                    <p style="color: var(--text-light);">Upload photos of your work and receive payment directly to your bank.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section style="background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%); text-align: center; padding: 4rem 1.5rem;">
-        <h2 class="section-title" style="color: var(--brown-dark);">Ready to Start Earning?</h2>
-        <p class="section-subtitle" style="color: var(--brown-dark); font-size: 1.2rem;">Join thousands of workers already earning from home</p>
-        <a href="https://t.me/+RsuVx2N2HgFiNzll" target="_blank" class="join-btn" style="font-size: 1.3rem; padding: 1rem 3rem; margin-top: 1rem;">JOIN NOW - IT'S FREE</a>
+    <section id="faq" style="background-color: #F1F5F9;">
+        <h2 class="section-title">FAQ</h2>
+        
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>Is there an age limit?</span>
+                <span class="arrow">▼</span>
+            </div>
+            <div class="faq-answer"><p>No strict age limit, but you must have a valid bank account to receive payments. Perfect for students 16+.</p></div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>When do I get paid?</span>
+                <span class="arrow">▼</span>
+            </div>
+            <div class="faq-answer"><p>We process payments weekly. Once your assignment is submitted and verified (24-48 hrs), payment is released.</p></div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>Is this genuine?</span>
+                <span class="arrow">▼</span>
+            </div>
+            <div class="faq-answer"><p>Yes. Aliya Publication is government registered (MSME) and ISO certified. We have been operating since 2018.</p></div>
+        </div>
+    </section>
+
+    <section style="background: linear-gradient(90deg, var(--accent) 0%, var(--accent-hover) 100%); text-align: center; color: var(--primary-dark);">
+        <h2 style="font-size: 2rem; margin-bottom: 1rem; color: var(--primary-dark);">Ready to Start Earning?</h2>
+        <p style="margin-bottom: 2rem; font-weight: 500;">Spots are filling up fast for this week's batch.</p>
+        <a href="https://t.me/+RsuVx2N2HgFiNzll" target="_blank" class="btn" style="background: var(--white); color: var(--accent-hover);">Join Now for Free</a>
     </section>
 
     <footer id="contact">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Aliya Publication</h3>
-                <p>Empowering people to earn from home through handwriting projects since 2018.</p>
-                <p><strong>Support:</strong> @AliyaHandwritingProjects (Telegram)</p>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4 style="color: var(--accent);">Aliya Publication</h4>
+                <p style="line-height: 1.8; font-size: 0.9rem;">Empowering individuals with flexible work-from-home opportunities since 2018.</p>
+                <div class="trust-badges">
+                    <span class="t-badge">ISO 9001:2015</span>
+                    <span class="t-badge">MSME Reg.</span>
+                    <span class="t-badge">SSL Secure</span>
+                </div>
             </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
                 <a href="#home">Home</a>
-                <a href="#about">About Us</a>
-                <a href="#pricing">Pricing Plans</a>
+                <a href="#about">About</a>
+                <a href="#pricing">Pricing</a>
                 <a href="#faq">FAQ</a>
-                <a href="https://t.me/+RsuVx2N2HgFiNzll" target="_blank">Join Now</a>
             </div>
-            <div class="footer-section">
-                <h3>Legal</h3>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <a href="https://t.me/+RsuVx2N2HgFiNzll" target="_blank">Telegram Channel</a>
+                <a href="#">Terms of Service</a>
                 <a href="#">Privacy Policy</a>
-                <a href="#">Terms &amp; Conditions</a>
-                <a href="#">Refund Policy</a>
-                <a href="#">Worker Agreement</a>
-            </div>
-            <div class="footer-section">
-                <h3>Contact Info</h3>
-                <p>📧 contact@aliyapublication.com</p>
-                <p>📱 Support: Telegram Only</p>
-                <p>🕐 24/7 Support Available</p>
             </div>
         </div>
-        
         <div class="footer-bottom">
-            <div class="footer-certifications">
-                <div class="certification">
-                    <span class="cert-icon">🏛️</span>
-                    <span>Government Approved</span>
-                </div>
-                <div class="certification">
-                    <span class="cert-icon">✅</span>
-                    <span>ISO 9001:2015 Certified</span>
-                </div>
-                <div class="certification">
-                    <span class="cert-icon">📜</span>
-                    <span>MSME Registered</span>
-                </div>
-                <div class="certification">
-                    <span class="cert-icon">🔒</span>
-                    <span>SSL Secured</span>
-                </div>
-            </div>
-            <div class="footer-badges">
-                <span class="footer-badge">🛡️ Verified Company</span>
-                <span class="footer-badge">⭐ 5 Star Rating</span>
-                <span class="footer-badge">✓ Trusted by 2500+ Workers</span>
-                <span class="footer-badge">💯 100% Genuine</span>
-            </div>
-            <p style="margin-top: 1.5rem; font-size: 0.95rem;">
-                © 2018 - 2025 Aliya Publication. All Rights Reserved.
-            </p>
-            <p style="font-size: 0.85rem; margin-top: 0.5rem; color: rgba(229, 212, 166, 0.7);">
-                Registered under Companies Act | GST Registered | PAN Verified
-            </p>
+            <p>&copy; 2025 Aliya Publication. All Rights Reserved.</p>
         </div>
     </footer>
 
     <script>
-        // Mobile Menu Toggle
+        // Mobile Menu
         const menuToggle = document.getElementById('menuToggle');
         const navMenu = document.getElementById('navMenu');
         
         menuToggle.addEventListener('click', () => {
             navMenu.classList.toggle('active');
+            menuToggle.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
         });
 
-        // Close menu when clicking a link (Mobile)
-        document.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
+        document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            menuToggle.textContent = '☰';
+        }));
+
+        // FAQ
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', () => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
             });
         });
 
-        // Carousel Auto-Slide
-        let currentSlide = 0;
+        // Simple Carousel
+        let slideIndex = 0;
         const slides = document.querySelectorAll('.carousel-slide');
-        const totalSlides = slides.length;
-
-        function showSlide(index) {
-            slides.forEach(slide => slide.classList.remove('active'));
-            slides[index].classList.add('active');
-        }
-
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % totalSlides;
-            showSlide(currentSlide);
-        }
-
-        // Auto-slide every 3 seconds
-        setInterval(nextSlide, 3000);
-
-        // FAQ Toggle
-        const faqItems = document.querySelectorAll('.faq-item');
         
-        faqItems.forEach(item => {
-            const question = item.querySelector('.faq-question');
-            question.addEventListener('click', () => {
-                // Close other items
-                faqItems.forEach(otherItem => {
-                    if (otherItem !== item) {
-                        otherItem.classList.remove('active');
-                    }
-                });
-                // Toggle current item
-                item.classList.toggle('active');
-            });
-        });
-
-        // Scroll Animation Observer
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        // Observe all fade-in elements
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Animated Counter for Statistics
-        const counters = document.querySelectorAll('.stat-number [data-target], .stat-number[data-target]');
-        let counterAnimated = false;
-
-        const animateCounters = () => {
-            if (counterAnimated) return;
-            
-            counters.forEach(counter => {
-                const target = parseInt(counter.getAttribute('data-target'));
-                const duration = 2000;
-                const increment = target / (duration / 16);
-                let current = 0;
-
-                const updateCounter = () => {
-                    current += increment;
-                    if (current < target) {
-                        counter.textContent = Math.floor(current).toLocaleString('en-IN');
-                        requestAnimationFrame(updateCounter);
-                    } else {
-                        counter.textContent = target.toLocaleString('en-IN');
-                    }
-                };
-
-                updateCounter();
-            });
-            
-            counterAnimated = true;
-        };
-
-        // Observe stats section for counter animation
-        const statsSection = document.querySelector('.stats');
-        if (statsSection) {
-            const statsObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        animateCounters();
-                    }
-                });
-            }, { threshold: 0.3 });
-            
-            statsObserver.observe(statsSection);
+        function showSlides() {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}
+            slides[slideIndex-1].classList.add('active');
+            setTimeout(showSlides, 3000);
         }
+        if(slides.length > 0) showSlides();
 
-        // Smooth Scroll for Navigation Links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (href !== '#' && document.querySelector(href)) {
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    const headerOffset = 80;
-                    const elementPosition = target.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
+        // Counter Animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const counters = entry.target.querySelectorAll('.stat-number');
+                    counters.forEach(counter => {
+                        const updateCount = () => {
+                            const target = +counter.getAttribute('data-target');
+                            const count = +counter.innerText.replace(/,/g, '').replace(/%/g, ''); 
+                            const inc = target / 50;
+                            
+                            if (count < target) {
+                                counter.innerText = Math.ceil(count + inc);
+                                setTimeout(updateCount, 40);
+                            } else {
+                                counter.innerText = target.toLocaleString() + (counter.innerText.includes('%') ? '%' : '');
+                            }
+                        };
+                        updateCount();
                     });
+                    observer.unobserve(entry.target);
                 }
             });
         });
+
+        const statsSection = document.querySelector('.stats-section');
+        if(statsSection) observer.observe(statsSection);
     </script>
 </body>
 </html>
