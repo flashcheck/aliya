@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aliya Publication - Earn from home through handwriting projects. Flexible income from ₹3000/day to ₹20000/week.">
+    <title>Aliya Publication - Handwriting Work From Home</title>
+    <style>
+        :root {
+            --cream-bg: #FBF8F3;
+            --cream-light: #FFFCF7;
+            --brown-dark: #5E5240;
+            --brown-medium: #8B7355;
+            --gold: #C9A869;
+            --gold-light: #E5D4A6;
+            --text-dark: #3A3128;
+            --white: #FFFFFF;
+            --shadow: rgba(94, 82, 64, 0.15);
+            --shadow-lg: rgba(94, 82, 64, 0.25);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--cream-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--brown-dark) 0%, var(--brown-medium) 100%);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px var(--shadow);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo {
+            height: 60px; /* Increased slightly for better visibility */
+            width: auto;
+            border-radius: 8px; /* Soft edges for the logo */
+            background: var(--white);
+            padding: 2px;
+        }
+
+        .brand-text h1 {
+            color: var(--white);
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .brand-text p {
+            color: var(--gold-light);
+            font-size: 0.75rem;
+            margin: 0;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--gold);
+        }
+
+        .join-btn {
+            background: var(--gold);
+            color: var(--brown-dark);
+            padding: 0.6rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(201, 168, 105, 0.3);
+        }
+
+        .join-btn:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(201, 168, 105, 0.4);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* --- UPDATED HERO SECTION --- */
+        .hero {
+            position: relative;
+            min-height: auto; /* Changed from fixed height */
+            padding: 4rem 1.5rem;
+            background: linear-gradient(135deg, rgba(94, 82, 64, 0.05) 0%, rgba(139, 115, 85, 0.1) 100%);
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Split layout */
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-content {
+            z-index: 10;
+            text-align: left;
+            color: var(--brown-dark);
+        }
+
+        .hero-visuals {
+            position: relative;
+            width: 100%;
+            height: 500px; /* Fixed height for the slider container */
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px var(--shadow-lg);
+            border: 4px solid var(--white);
+        }
+
+        .carousel {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--white);
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Ensures the whole flyer is visible */
+            background-color: #fbf8f3; /* Fills empty space if aspect ratio differs */
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            color: var(--brown-dark);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            color: var(--brown-medium);
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero .join-btn {
+            font-size: 1.2rem;
+            padding: 1rem 3rem;
+            animation: fadeInUp 1s ease-out 0.4s both;
+            display: inline-block;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 4rem 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--brown-dark);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--brown-medium);
+            margin-bottom: 3rem;
+        }
+
+        /* Features Section */
+        .features {
+            background: var(--cream-light);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid var(--gold-light);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px var(--shadow-lg);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            color: var(--brown-dark);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .feature-card p {
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Pricing Section */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .pricing-card {
+            background: var(--white);
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 5px 25px var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 3px solid var(--gold-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 100%);
+        }
+
+        .pricing-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 35px var(--shadow-lg);
+        }
+
+        .pricing-card.featured {
+            border-color: var(--gold);
+            box-shadow: 0 8px 30px rgba(201, 168, 105, 0.4);
+        }
+
+        .pricing-badge {
+            background: var(--gold);
+            color: var(--brown-dark);
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-card h3 {
+            font-size: 1.8rem;
+            color: var(--brown-dark);
+            margin-bottom: 1rem;
+        }
+
+        .pricing-pages {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-details {
+            margin: 1.5rem 0;
+        }
+
+        .pricing-details p {
+            margin: 0.5rem 0;
+            font-size: 1.1rem;
+        }
+
+        .pricing-amount {
+            color: var(--brown-dark);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        /* How It Works */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .step-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px var(--shadow);
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .step-number {
+            background: var(--gold);
+            color: var(--brown-dark);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1rem;
+        }
+
+        .step-card h3 {
+            color: var(--brown-dark);
+            margin-bottom: 1rem;
+        }
+
+        /* Statistics Section */
+        .stats {
+            background: linear-gradient(135deg, var(--brown-dark) 0%, var(--brown-medium) 100%);
+            color: var(--white);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--gold-light);
+        }
+
+        .chart-container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+        }
+
+        /* FAQ Section */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--white);
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 15px var(--shadow);
+        }
+
+        .faq-question {
+            background: var(--gold-light);
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--brown-dark);
+            transition: background 0.3s;
+        }
+
+        .faq-question:hover {
+            background: var(--gold);
+        }
+
+        .faq-icon {
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+            padding: 0 1.5rem;
+            background: var(--white);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            padding: 1.5rem;
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px var(--shadow);
+            border-left: 5px solid var(--gold);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--brown-dark);
+        }
+
+        .testimonial-role {
+            color: var(--brown-medium);
+            font-size: 0.9rem;
+        }
+
+        /* Trust Badges */
+        .trust-section {
+            background: var(--cream-light);
+            text-align: center;
+        }
+
+        .badges-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .badge {
+            background: var(--white);
+            padding: 1.5rem 2rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px var(--shadow);
+            min-width: 150px;
+        }
+
+        .badge-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .badge-text {
+            font-weight: 600;
+            color: var(--brown-dark);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--brown-dark);
+            color: var(--white);
+            padding: 3rem 1.5rem 1rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--gold);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: var(--gold-light);
+            text-decoration: none;
+            line-height: 2;
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: var(--gold);
+        }
+
+        .footer-badges {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .footer-badge {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-size: 0.85rem;
+            border: 1px solid var(--gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(201, 168, 105, 0.3);
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--gold-light);
+        }
+
+        .footer-certifications {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .certification {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .cert-icon {
+            font-size: 1.5rem;
+        }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--brown-dark);
+                flex-direction: column;
+                padding: 1rem;
+                gap: 1rem;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr; /* Stack vertically on mobile */
+                gap: 2rem;
+            }
+            
+            .hero-content {
+                text-align: center;
+                order: 2; /* Put text below image on mobile, or 1 to put above */
+            }
+
+            .hero-visuals {
+                height: 350px; /* Smaller height for mobile */
+                order: 1;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .features-grid,
+            .pricing-grid,
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .logo {
+                height: 50px;
+            }
+
+            .brand-text h1 {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h2 {
+                font-size: 1.6rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            section {
+                padding: 2rem 1rem;
+            }
+
+            .join-btn {
+                padding: 0.5rem 1.2rem;
+                font-size: 0.9rem;
+            }
+
+            .hero .join-btn {
+                padding: 0.8rem 2rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+                <img src="logo.jpeg" alt="Aliya Publication Logo" class="logo">
+                <div class="brand-text">
+                    <h1>Aliya Publication</h1>
+                    <p>Handwriting Projects</p>
+                </div>
+            </div>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <a href="https://t.me/+RsuVx2N2HgFiNzll" target="_blank" class="join-btn">JOIN NOW</a>
+                <button class="mobile-menu-toggle" id="menuToggle">☰</button>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h2>Earn From Home Through Handwriting Work</h2>
+                <p>Transform your beautiful handwriting into a steady income stream. Work for students, housewives, and anyone seeking flexible income.</p>
+                <a href="https://t.me/+RsuVx2N2HgFiNzll" target="_blank" class="join-btn">JOIN TELEGRAM &amp; START</a>
+            </div>
+            
+            <div class="hero-visuals">
+                <div class="carousel" id="carousel">
+                    <div class="carousel-slide active">
+                        <img src="WhatsApp Image 2025-11-28 at 7.04.30 PM.jpeg" alt="Work From Home Handwriting Job">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="WhatsApp Image 2025-11-28 at 7.04.30 PM (1).jpeg" alt="Monthly Salary Details">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="WhatsApp Image 2025-11-28 at 7.04.29 PM (1).jpeg" alt="Project Completion Stats">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="WhatsApp Image 2025-11-28 at 7.04.29 PM (2).jpeg" alt="Pricing Plans">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="about">
+        <h2 class="section-title">Why Choose Aliya Publication?</h2>
+        <p class="section-subtitle">Join thousands of satisfied workers earning from home</p>
+        <div class="features-grid">
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🏠</div>
+                <h3>Work From Home</h3>
+                <p>Complete handwriting projects from the comfort of your home. No commute, no office politics, just pure flexibility.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">✍️</div>
+                <h3>Simple Handwriting Tasks</h3>
+                <p>Copy and rewrite content by hand. No special skills required - just neat handwriting and dedication.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">💰</div>
+                <h3>Flexible Earnings</h3>
+                <p>Earn ₹3,000 daily to ₹20,000 weekly based on your output. The more you work, the more you earn.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">⏰</div>
+                <h3>Choose Your Hours</h3>
+                <p>Work at your own pace and schedule. Perfect for students, housewives, and anyone seeking flexible income.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">📊</div>
+                <h3>Transparent System</h3>
+                <p>Clear payment structure based on pages completed. Track your earnings and progress easily.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🎯</div>
+                <h3>Showcase Your Talent</h3>
+                <p>Turn your beautiful handwriting into a valuable skill that earns you money every single day.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing">
+        <h2 class="section-title">Earning Plans</h2>
+        <p class="section-subtitle">Choose your target and start earning today</p>
+        <div class="pricing-grid">
+            <div class="pricing-card fade-in">
+                <div class="pricing-badge">BASIC</div>
+                <h3>Starter Plan</h3>
+                <div class="pricing-pages">50 Pages</div>
+                <div class="pricing-details">
+                    <p>Daily Earning: <span class="pricing-amount">₹3,000+</span></p>
+                    <p>Weekly Earning: <span class="pricing-amount">₹18,000+</span></p>
+                    <p>Monthly Potential: <span class="pricing-amount">₹72,000+</span></p>
+                </div>
+                <a href="https://t.me/+RsuVx2N2HgFiNzll" target="_blank" class="join-btn">Get Started</a>
+            </div>
+            <div class="pricing-card featured fade-in">
+                <div class="pricing-badge">STANDARD</div>
+                <h3>Popular Plan</h3>
+                <div class="pricing-pages">90 Pages</div>
+                <div class="pricing-details">
+                    <p>Daily Earning: <span class="pricing-amount">₹5,000+</span></p>
+                    <p>Weekly Earning: <span class="pricing-amount">₹30,000+</span></p>
+                    <p>Monthly Potential: <span class="pricing-amount">₹1,20,000+</span></p>
+                </div>
+                <a href="https://t.me/+RsuVx2N2HgFiNzll" target="_blank" class="join-btn">Get Started</a>
+            </div>
+            <div class="pricing-card fade-in">
+                <div class="pricing-badge">PREMIUM</div>
+                <h3>Elite Plan</h3>
+                <div class="pricing-pages">120 Pages</div>
+                <div class="pricing-details">
+                    <p>Daily Earning: <span class="pricing-amount">₹7,000+</span></p>
+                    <p>Weekly Earning: <span class="pricing-amount">₹50,000+</span></p>
+                    <p>Monthly Potential: <span class="pricing-amount">₹2,00,000+</span></p>
+                </div>
+                <a href="https://t.me/+RsuVx2N2HgFiNzll" target="_blank" class="join-btn">Get Started</a>
+            </div>
+        </div>
+    </section>
+
+    <section style="background: var(--cream-light);">
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-subtitle">Simple 5-step process to start earning</p>
+        <div class="steps-grid">
+            <div class="step-card fade-in">
+                <div class="step-number">1</div>
+                <h3>Register</h3>
+                <p>Join our Telegram channel and complete the simple registration process.</p>
+            </div>
+            <div class="step-card fade-in">
+                <div class="step-number">2</div>
+                <h3>Receive Assignments</h3>
+                <p>Get handwriting project assignments based on your chosen plan.</p>
+            </div>
+            <div class="step-card fade-in">
+                <div class="step-number">3</div>
+                <h3>Complete Work</h3>
+                <p>Write neatly and carefully following the provided guidelines and templates.</p>
+            </div>
+            <div class="step-card fade-in">
+                <div class="step-number">4</div>
+                <h3>Submit for Review</h3>
+                <p>Upload your completed work for quality verification (24-48 hours).</p>
+            </div>
+            <div class="step-card fade-in">
+                <div class="step-number">5</div>
+                <h3>Get Paid</h3>
+                <p>Receive your weekly payment directly to your bank account.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <h2 class="section-title" style="color: var(--white);">Our Success in Numbers</h2>
+        <p class="section-subtitle" style="color: var(--gold-light);">Real results from real people</p>
+        <div class="stats-grid">
+            <div class="stat-card fade-in">
+                <div class="stat-number" data-target="2500">0</div>
+                <div class="stat-label">Active Workers</div>
+            </div>
+            <div class="stat-card fade-in">
+                <div class="stat-number" data-target="18000">0</div>
+                <div class="stat-label">Projects Completed</div>
+            </div>
+            <div class="stat-card fade-in">
+                <div class="stat-number">₹<span data-target="75000">0</span></div>
+                <div class="stat-label">Avg Monthly Earnings</div>
+            </div>
+            <div class="stat-card fade-in">
+                <div class="stat-number" data-target="98">0</div>
+                <div class="stat-label">Satisfaction Rate %</div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-title">What Our Workers Say</h2>
+        <p class="section-subtitle">Success stories from our community</p>
+        <div class="testimonials-grid">
+            <div class="testimonial-card fade-in">
+                <p class="testimonial-text">"I never thought my handwriting could earn me money! I'm now making ₹40,000 per month while taking care of my family. Thank you Aliya Publication!"</p>
+                <div class="testimonial-author">Priya Sharma</div>
+                <div class="testimonial-role">Housewife, Mumbai</div>
+            </div>
+            <div class="testimonial-card fade-in">
+                <p class="testimonial-text">"As a student, this is perfect for me. I work 2-3 hours daily and earn enough for my expenses. The payment is always on time!"</p>
+                <div class="testimonial-author">Rahul Kumar</div>
+                <div class="testimonial-role">Student, Delhi</div>
+            </div>
+            <div class="testimonial-card fade-in">
+                <p class="testimonial-text">"Been working for 6 months now. The process is simple, transparent, and the support team is very helpful. Highly recommended!"</p>
+                <div class="testimonial-author">Anjali Patel</div>
+                <div class="testimonial-role">Freelancer, Gujarat</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="trust-section">
+        <h2 class="section-title">Trusted &amp; Verified</h2>
+        <p class="section-subtitle">Government approved and certified publication company</p>
+        <div class="badges-grid">
+            <div class="badge fade-in">
+                <div class="badge-icon">🏛️</div>
+                <div class="badge-text">Government Registered</div>
+            </div>
+            <div class="badge fade-in">
+                <div class="badge-icon">✅</div>
+                <div class="badge-text">ISO Certified</div>
+            </div>
+            <div class="badge fade-in">
+                <div class="badge-icon">🔒</div>
+                <div class="badge-text">Secure Payments</div>
+            </div>
+            <div class="badge fade-in">
+                <div class="badge-icon">⭐</div>
+                <div class="badge-text">5 Star Rated</div>
+            </div>
+            <div class="badge fade-in">
+                <div class="badge-icon">📜</div>
+                <div class="badge-text">MSME Registered</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-subtitle">Everything you need to know</p>
+        <div class="faq-container">
+            <div class="faq-item fade-in">
+                <div class="faq-question">
+                    <span>Who can apply for this work?</span>
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Students, housewives, and anyone seeking flexible work from home opportunities can apply. No experience needed - just neat handwriting and dedication.</p>
+                </div>
+            </div>
+            <div class="faq-item fade-in">
+                <div class="faq-question">
+                    <span>What is the minimum earning?</span>
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Minimum earning starts at ₹3,000 per day based on the number of pages you complete. You can earn up to ₹20,000 per week depending on your output.</p>
+                </div>
+            </div>
+            <div class="faq-item fade-in">
+                <div class="faq-question">
+                    <span>How are payments made?</span>
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Payments are made weekly based on completed and verified projects directly to your bank account. We ensure timely and secure payments.</p>
+                </div>
+            </div>
+            <div class="faq-item fade-in">
+                <div class="faq-question">
+                    <span>Do I need any special equipment?</span>
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>You just need pen, paper, and a smartphone to submit your work. No expensive equipment or software required.</p>
+                </div>
+            </div>
+            <div class="faq-item fade-in">
+                <div class="faq-question">
+                    <span>Is this legitimate?</span>
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, we are a registered publication company operating since 2018 with thousands of satisfied workers. We are government approved and MSME registered.</p>
+                </div>
+            </div>
+            <div class="faq-item fade-in">
+                <div class="faq-question">
+                    <span>How long does verification take?</span>
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Project verification typically takes 24-48 hours after submission. Our quality team ensures every project meets our standards.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%); text-align: center; padding: 4rem 1.5rem;">
+        <h2 class="section-title" style="color: var(--brown-dark);">Ready to Start Earning?</h2>
+        <p class="section-subtitle" style="color: var(--brown-dark); font-size: 1.2rem;">Join thousands of workers already earning from home</p>
+        <a href="https://t.me/+RsuVx2N2HgFiNzll" target="_blank" class="join-btn" style="font-size: 1.3rem; padding: 1rem 3rem; margin-top: 1rem;">JOIN NOW - IT'S FREE</a>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Aliya Publication</h3>
+                <p>Empowering people to earn from home through handwriting projects since 2018.</p>
+                <p><strong>Support:</strong> @AliyaHandwritingProjects (Telegram)</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="#home">Home</a>
+                <a href="#about">About Us</a>
+                <a href="#pricing">Pricing Plans</a>
+                <a href="#faq">FAQ</a>
+                <a href="https://t.me/+RsuVx2N2HgFiNzll" target="_blank">Join Now</a>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms &amp; Conditions</a>
+                <a href="#">Refund Policy</a>
+                <a href="#">Worker Agreement</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p>📧 contact@aliyapublication.com</p>
+                <p>📱 Support: Telegram Only</p>
+                <p>🕐 24/7 Support Available</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-certifications">
+                <div class="certification">
+                    <span class="cert-icon">🏛️</span>
+                    <span>Government Approved</span>
+                </div>
+                <div class="certification">
+                    <span class="cert-icon">✅</span>
+                    <span>ISO 9001:2015 Certified</span>
+                </div>
+                <div class="certification">
+                    <span class="cert-icon">📜</span>
+                    <span>MSME Registered</span>
+                </div>
+                <div class="certification">
+                    <span class="cert-icon">🔒</span>
+                    <span>SSL Secured</span>
+                </div>
+            </div>
+            <div class="footer-badges">
+                <span class="footer-badge">🛡️ Verified Company</span>
+                <span class="footer-badge">⭐ 5 Star Rating</span>
+                <span class="footer-badge">✓ Trusted by 2500+ Workers</span>
+                <span class="footer-badge">💯 100% Genuine</span>
+            </div>
+            <p style="margin-top: 1.5rem; font-size: 0.95rem;">
+                © 2018 - 2025 Aliya Publication. All Rights Reserved.
+            </p>
+            <p style="font-size: 0.85rem; margin-top: 0.5rem; color: rgba(229, 212, 166, 0.7);">
+                Registered under Companies Act | GST Registered | PAN Verified
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Carousel Auto-Slide
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[index].classList.add('active');
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        // Auto-slide every 3 seconds
+        setInterval(nextSlide, 3000);
+
+        // FAQ Toggle
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                // Close other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        });
+
+        // Scroll Animation Observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Animated Counter for Statistics
+        const counters = document.querySelectorAll('.stat-number [data-target], .stat-number[data-target]');
+        let counterAnimated = false;
+
+        const animateCounters = () => {
+            if (counterAnimated) return;
+            
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const duration = 2000;
+                const increment = target / (duration / 16);
+                let current = 0;
+
+                const updateCounter = () => {
+                    current += increment;
+                    if (current < target) {
+                        counter.textContent = Math.floor(current).toLocaleString('en-IN');
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = target.toLocaleString('en-IN');
+                    }
+                };
+
+                updateCounter();
+            });
+            
+            counterAnimated = true;
+        };
+
+        // Observe stats section for counter animation
+        const statsSection = document.querySelector('.stats');
+        if (statsSection) {
+            const statsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounters();
+                    }
+                });
+            }, { threshold: 0.3 });
+            
+            statsObserver.observe(statsSection);
+        }
+
+        // Smooth Scroll for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && document.querySelector(href)) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+
+                    // Close mobile menu if open
+                    navMenu.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
