@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="description" content="Aliya Publication - Earn money from home through simple handwriting work. Flexible income from ₹3000/day to ₹20000/week.">
+    <meta name="description" content="Aliya Publication - Genuine handwriting projects from home.">
     <title>Aliya Publication - Handwriting Work From Home</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,26 +12,22 @@
 
     <style>
         :root {
-            /* YOUR ORIGINAL COLOR THEME */
-            --primary-dark: #0B1120;   /* Very Dark Navy */
-            --primary: #1E293B;        /* Slate Blue */
-            --gold: #D97706;           /* Professional Gold */
-            --gold-hover: #B45309;     /* Darker Gold for hover */
-            --bg-body: #F8FAFC;        /* Light grey background */
+            --primary-dark: #0B1120;
+            --primary: #1E293B;
+            --gold: #D97706;
+            --gold-hover: #B45309;
+            --bg-body: #F8FAFC;
             --white: #FFFFFF;
-            --text-dark: #334155;      /* Dark Grey for text */
-            --text-light: #64748B;     /* Light Grey for subtitles */
+            --text-dark: #334155;
+            --text-light: #64748B;
             
-            /* Shadows for clean cards */
             --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
             --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
-            --shadow-lg: 0 15px 30px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
         }
 
         * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+            margin: 0; padding: 0; box-sizing: border-box;
             font-family: 'Inter', sans-serif;
             -webkit-tap-highlight-color: transparent;
         }
@@ -39,382 +35,211 @@
         body {
             background-color: var(--bg-body);
             color: var(--text-dark);
-            line-height: 1.6;
-            font-size: 15px; /* Perfect size for mobile readability */
+            line-height: 1.5;
+            font-size: 14px; /* Small, compact base font for mobile */
             overflow-x: hidden;
         }
+
+        @media (min-width: 992px) { body { font-size: 15px; } }
 
         a { text-decoration: none; transition: 0.3s; }
         ul { list-style: none; }
         img { max-width: 100%; height: auto; }
 
-        /* --- LAYOUT CONTAINERS --- */
         .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px; /* Safe padding for mobile */
+            width: 100%; max-width: 1100px;
+            margin: 0 auto; padding: 0 20px;
         }
 
-        section {
-            padding: 60px 0;
-        }
-
-        @media (min-width: 768px) {
-            section { padding: 80px 0; }
-        }
+        section { padding: 50px 0; }
+        @media (min-width: 992px) { section { padding: 80px 0; } }
 
         /* --- BUTTONS --- */
         .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--gold);
-            color: var(--white);
-            padding: 14px 28px;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 1rem;
-            text-align: center;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(217, 119, 6, 0.3);
-            transition: all 0.3s ease;
+            display: inline-flex; align-items: center; justify-content: center;
+            background: var(--gold); color: var(--white);
+            padding: 10px 20px; border-radius: 6px;
+            font-weight: 600; font-size: 0.9rem; border: none; cursor: pointer;
+            box-shadow: 0 4px 10px rgba(217, 119, 6, 0.2); transition: 0.3s;
         }
+        .btn:hover { background: var(--gold-hover); transform: translateY(-2px); }
 
-        .btn:hover {
-            background: var(--gold-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(217, 119, 6, 0.4);
-        }
-
-        /* --- HEADER --- */
+        /* --- HEADER & MOBILE MENU --- */
         header {
-            background: var(--white);
-            height: 70px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: var(--shadow-sm);
-            display: flex;
-            align-items: center;
+            background: var(--white); height: 65px;
+            position: sticky; top: 0; z-index: 1000;
+            box-shadow: var(--shadow-sm); display: flex; align-items: center;
         }
 
         .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
+            display: flex; justify-content: space-between; align-items: center; width: 100%;
         }
 
-        .logo-box {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
+        .logo-box { display: flex; align-items: center; gap: 10px; }
+        .logo-box img { height: 35px; border-radius: 6px; }
+        .brand-name { color: var(--primary-dark); font-size: 1.1rem; font-weight: 800; line-height: 1.1; }
+        .brand-sub { color: var(--gold); font-size: 0.65rem; font-weight: 700; text-transform: uppercase; }
 
-        .logo-box img {
-            height: 40px;
-            border-radius: 6px;
-        }
-
-        .brand-name {
-            color: var(--primary-dark);
-            font-size: 1.2rem;
-            font-weight: 800;
-            line-height: 1.2;
-        }
-
-        .brand-sub {
-            color: var(--gold);
-            font-size: 0.7rem;
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-
-        .nav-links { display: none; }
+        .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+        .nav-links a { color: var(--text-dark); font-weight: 600; font-size: 0.85rem; }
+        .nav-links a:hover { color: var(--gold); }
         
-        @media (min-width: 992px) {
-            .nav-links { display: flex; gap: 2rem; align-items: center; }
-            .nav-links a { color: var(--text-dark); font-weight: 600; font-size: 0.95rem; }
-            .nav-links a:hover { color: var(--gold); }
+        .mobile-menu-btn {
+            display: none; font-size: 1.5rem; color: var(--primary-dark);
+            background: none; border: none; cursor: pointer;
+        }
+
+        @media (max-width: 991px) {
+            .mobile-menu-btn { display: block; }
+            .nav-links {
+                display: none; position: absolute; top: 65px; left: 0; right: 0;
+                background: var(--white); flex-direction: column; padding: 20px;
+                box-shadow: 0 10px 15px rgba(0,0,0,0.1); border-top: 1px solid #eee;
+            }
+            .nav-links.active { display: flex; }
+            .desktop-btn { display: none; } /* Hide the button inside menu on mobile to avoid duplicates */
         }
 
         /* --- HERO SECTION --- */
-        .hero {
-            background: var(--primary-dark);
-            color: var(--white);
-            padding: 40px 0;
-        }
-
+        .hero { background: var(--primary-dark); color: var(--white); padding: 40px 0; }
         .hero-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 40px;
-            align-items: center;
+            display: grid; grid-template-columns: 1fr; gap: 30px; align-items: center;
         }
-
-        @media (min-width: 992px) {
-            .hero { padding: 80px 0; }
-            .hero-grid { grid-template-columns: 1fr 1fr; }
-        }
+        @media (min-width: 992px) { .hero-grid { grid-template-columns: 1.2fr 0.8fr; } }
 
         .hero h1 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 20px;
-            color: var(--white);
+            font-size: clamp(1.6rem, 5vw, 2.8rem); font-weight: 800;
+            line-height: 1.2; margin-bottom: 15px;
         }
-
-        .hero p {
-            font-size: 1.1rem;
-            color: #CBD5E1;
-            margin-bottom: 20px;
-        }
+        .hero p { font-size: 0.95rem; color: #CBD5E1; margin-bottom: 20px; max-width: 500px; }
 
         .notice-box {
-            background: rgba(255, 255, 255, 0.1);
-            border-left: 4px solid var(--gold);
-            padding: 12px 16px;
-            margin-bottom: 24px;
-            border-radius: 4px;
-            font-size: 0.95rem;
+            background: rgba(255, 255, 255, 0.1); border-left: 3px solid var(--gold);
+            padding: 10px 15px; margin-bottom: 20px; border-radius: 4px; font-size: 0.85rem;
+            max-width: 500px;
         }
-
         .notice-box strong { color: var(--gold); }
 
+        /* Reduced Image Size for Mobile */
         .hero-image-box {
-            background: var(--white);
-            padding: 10px;
-            border-radius: 16px;
-            box-shadow: var(--shadow-lg);
-            width: 100%;
+            background: var(--white); padding: 8px; border-radius: 12px;
+            box-shadow: var(--shadow-lg); margin: 0 auto;
+            max-width: 260px; /* Small and compact on mobile */
         }
-
-        .hero-image-box img {
-            width: 100%;
-            height: auto;
-            border-radius: 12px;
-            display: block;
-        }
+        @media (min-width: 992px) { .hero-image-box { max-width: 100%; } }
+        .hero-image-box img { width: 100%; height: auto; border-radius: 8px; display: block; object-fit: contain; }
 
         /* --- SECTION HEADERS --- */
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            color: var(--primary-dark);
-            font-weight: 800;
-            margin-bottom: 10px;
-        }
+        .section-title { text-align: center; font-size: 1.6rem; color: var(--primary-dark); font-weight: 800; margin-bottom: 5px; }
+        .section-subtitle { text-align: center; font-size: 0.9rem; color: var(--text-light); margin-bottom: 30px; }
 
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.05rem;
-            color: var(--text-light);
-            margin-bottom: 40px;
-        }
-
-        /* --- CARDS GRID (FEATURES) --- */
-        .grid-3 {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-        }
-
-        @media (min-width: 768px) {
-            .grid-3 { grid-template-columns: repeat(3, 1fr); gap: 30px; }
-        }
+        /* --- TRUST CARDS --- */
+        .grid-3 { display: grid; grid-template-columns: 1fr; gap: 15px; }
+        @media (min-width: 768px) { .grid-3 { grid-template-columns: repeat(3, 1fr); gap: 20px; } }
 
         .card {
-            background: var(--white);
-            padding: 30px;
-            border-radius: 16px;
-            text-align: center;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid #E2E8F0;
-            transition: transform 0.3s ease;
+            background: var(--white); padding: 20px; border-radius: 12px; text-align: center;
+            border: 1px solid #E2E8F0; box-shadow: var(--shadow-sm);
         }
+        .card-icon { font-size: 2rem; margin-bottom: 10px; }
+        .card h3 { color: var(--primary-dark); font-size: 1.1rem; margin-bottom: 8px; }
+        .card p { color: var(--text-light); font-size: 0.85rem; }
 
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
-            border-color: var(--gold);
+        /* --- NEW USER GUIDE (CHART) --- */
+        .flow-chart {
+            display: flex; flex-direction: column; gap: 15px; max-width: 600px; margin: 0 auto;
         }
-
-        .card-icon {
-            font-size: 3rem;
-            margin-bottom: 15px;
+        .flow-step {
+            background: var(--white); border: 1px solid #E2E8F0; padding: 15px;
+            border-radius: 8px; display: flex; align-items: center; gap: 15px;
+            box-shadow: var(--shadow-sm); position: relative;
         }
-
-        .card h3 {
-            color: var(--primary-dark);
-            font-size: 1.25rem;
-            margin-bottom: 10px;
+        .flow-step::after {
+            content: '↓'; position: absolute; bottom: -18px; left: 50%;
+            transform: translateX(-50%); color: var(--gold); font-weight: bold; font-size: 1.2rem;
         }
+        .flow-step:last-child::after { display: none; }
+        
+        .step-num {
+            background: var(--gold); color: var(--white); width: 35px; height: 35px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-weight: 700; font-size: 1rem; flex-shrink: 0;
+        }
+        .step-text h4 { font-size: 1rem; color: var(--primary-dark); margin-bottom: 2px; }
+        .step-text p { font-size: 0.8rem; color: var(--text-light); }
 
-        .card p {
-            color: var(--text-light);
-            font-size: 0.95rem;
+        @media (min-width: 768px) {
+            .flow-chart { flex-direction: row; max-width: 100%; justify-content: space-between; }
+            .flow-step { flex-direction: column; text-align: center; flex: 1; padding: 20px 10px; }
+            .flow-step::after {
+                content: '→'; bottom: auto; right: -18px; top: 50%;
+                left: auto; transform: translateY(-50%);
+            }
         }
 
         /* --- PRICING PLANS --- */
         .plan-card {
-            background: var(--white);
-            padding: 40px 20px;
-            border-radius: 16px;
-            text-align: center;
-            border: 1px solid #E2E8F0;
-            box-shadow: var(--shadow-sm);
+            background: var(--white); padding: 30px 20px; border-radius: 12px;
+            text-align: center; border: 1px solid #E2E8F0;
         }
-
-        .plan-card.popular {
-            border: 2px solid var(--gold);
-            box-shadow: var(--shadow-md);
-            position: relative;
-        }
-
-        @media (min-width: 992px) {
-            .plan-card.popular { transform: scale(1.05); }
-        }
-
+        .plan-card.popular { border: 2px solid var(--gold); position: relative; }
         .badge {
-            background: var(--primary-dark);
-            color: var(--white);
-            padding: 6px 16px;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            display: inline-block;
-            margin-bottom: 15px;
+            background: var(--primary-dark); color: var(--white); padding: 4px 12px;
+            border-radius: 50px; font-size: 0.7rem; font-weight: 700; display: inline-block; margin-bottom: 10px;
         }
-
         .plan-card.popular .badge { background: var(--gold); }
-
-        .plan-title { font-size: 1.2rem; color: var(--text-dark); font-weight: 600; margin-bottom: 10px; }
-        .plan-pages { font-size: 2.5rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 20px; }
-
-        .plan-list { margin-bottom: 30px; text-align: left; }
+        .plan-title { font-size: 1rem; color: var(--text-dark); font-weight: 600; margin-bottom: 5px; }
+        .plan-pages { font-size: 2rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 15px; }
+        
+        .plan-list { margin-bottom: 20px; text-align: left; }
         .plan-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 12px 0;
-            border-bottom: 1px solid #F1F5F9;
-            font-size: 0.95rem;
+            display: flex; justify-content: space-between; padding: 8px 0;
+            border-bottom: 1px solid #F1F5F9; font-size: 0.85rem;
         }
         .plan-item span:last-child { font-weight: 700; color: var(--gold); }
 
-        /* --- HOW IT WORKS (STEPS) --- */
-        .step-card {
-            background: var(--white);
-            padding: 30px 20px;
-            border-radius: 16px;
-            text-align: center;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid #E2E8F0;
-        }
-
-        .step-number {
-            background: var(--gold);
-            color: var(--white);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin: 0 auto 15px;
-        }
-
-        /* --- FAQ SECTION --- */
-        .faq-box { max-width: 800px; margin: 0 auto; }
-        .faq-item {
-            background: var(--white);
-            border: 1px solid #E2E8F0;
-            border-radius: 12px;
-            margin-bottom: 15px;
-            overflow: hidden;
-        }
+        /* --- FAQ --- */
+        .faq-box { max-width: 700px; margin: 0 auto; }
+        .faq-item { background: var(--white); border: 1px solid #E2E8F0; border-radius: 8px; margin-bottom: 10px; }
         .faq-q {
-            padding: 20px;
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--primary-dark);
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            padding: 15px; font-size: 0.9rem; font-weight: 600; color: var(--primary-dark);
+            cursor: pointer; display: flex; justify-content: space-between; align-items: center;
         }
-        .faq-icon { color: var(--gold); font-size: 1.2rem; transition: 0.3s; }
-        .faq-item.active .faq-icon { transform: rotate(45deg); }
+        .faq-icon { color: var(--gold); font-size: 1.2rem; }
         .faq-a {
-            padding: 0 20px;
-            max-height: 0;
-            overflow: hidden;
-            transition: 0.3s ease;
-            color: var(--text-light);
-            font-size: 0.95rem;
+            padding: 0 15px; max-height: 0; overflow: hidden; transition: 0.3s;
+            color: var(--text-light); font-size: 0.85rem;
         }
-        .faq-item.active .faq-a { max-height: 300px; padding-bottom: 20px; }
+        .faq-item.active .faq-a { max-height: 200px; padding-bottom: 15px; }
 
         /* --- ORIGINAL FOOTER --- */
-        footer {
-            background: var(--primary-dark);
-            color: #94A3B8;
-            padding: 60px 0 20px;
-        }
-
+        footer { background: var(--primary-dark); color: #94A3B8; padding: 50px 0 20px; }
         .footer-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 40px;
-            margin-bottom: 40px;
+            display: grid; grid-template-columns: 1fr; gap: 30px; margin-bottom: 30px;
         }
-
-        @media (min-width: 768px) {
-            .footer-grid { grid-template-columns: repeat(4, 1fr); }
-        }
-
-        .footer-col h3 {
-            color: var(--white);
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-
-        .footer-col p, .footer-col a {
-            color: #94A3B8;
-            font-size: 0.95rem;
-            margin-bottom: 12px;
-            display: block;
-        }
-
+        @media (min-width: 768px) { .footer-grid { grid-template-columns: repeat(4, 1fr); } }
+        .footer-col h3 { color: var(--white); font-size: 1.1rem; margin-bottom: 15px; font-weight: 700; }
+        .footer-col p, .footer-col a { color: #94A3B8; font-size: 0.85rem; margin-bottom: 10px; display: block; }
         .footer-col a:hover { color: var(--gold); }
-
-        .footer-badges {
-            display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px;
-        }
+        .footer-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
         .f-badge {
-            background: rgba(255,255,255,0.05); padding: 5px 10px;
-            border-radius: 4px; font-size: 0.8rem; border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.05); padding: 4px 8px;
+            border-radius: 4px; font-size: 0.75rem; border: 1px solid rgba(255,255,255,0.1);
         }
-
         .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 20px; text-align: center; font-size: 0.85rem;
+            border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;
+            text-align: center; font-size: 0.8rem;
         }
 
         /* --- MOBILE CTA BAR --- */
         .mobile-cta {
             position: fixed; bottom: 0; left: 0; width: 100%;
-            background: var(--white); padding: 15px 20px;
+            background: var(--white); padding: 12px 20px;
             box-shadow: 0 -4px 10px rgba(0,0,0,0.05); z-index: 1000;
         }
         .mobile-cta .btn { width: 100%; }
         @media (min-width: 992px) { .mobile-cta { display: none; } body { padding-bottom: 0; } }
-        body { padding-bottom: 80px; } /* Space for mobile CTA */
+        body { padding-bottom: 70px; }
 
     </style>
 </head>
@@ -426,71 +251,115 @@
                 <img src="images/logo.jpeg" alt="Logo" onerror="this.src='https://placehold.co/100x100/1E293B/D97706?text=AP'">
                 <div>
                     <div class="brand-name">Aliya Publication</div>
-                    <div class="brand-sub">Trusted Handwriting Work</div>
+                    <div class="brand-sub">Trusted Handwriting</div>
                 </div>
             </div>
-            <nav class="nav-links">
-                <a href="#about">About Work</a>
-                <a href="#pricing">Earning Plans</a>
-                <a href="#faq">Questions</a>
-                <a href="https://t.me/YOUR_TELEGRAM_USERNAME?text=Hello%20sir%2C%20I%20am%20interested%20in%20the%20handwriting%20project.%20Please%20tell%20me%20the%20details%20and%20registration%20fee." target="_blank" class="btn" style="padding: 10px 20px;">Message Us</a>
+            
+            <button class="mobile-menu-btn" id="menuBtn">☰</button>
+
+            <nav class="nav-links" id="navLinks">
+                <a href="#guide">How it Works</a>
+                <a href="#pricing">Salary Plans</a>
+                <a href="#faq">FAQ</a>
+                <a href="https://t.me/YOUR_TELEGRAM_USERNAME?text=Hello%20sir%2C%20I%20am%20interested%20in%20the%20handwriting%20project." target="_blank" class="btn desktop-btn">Message Us</a>
             </nav>
         </div>
     </header>
 
     <section class="hero">
         <div class="container hero-grid">
-            <div>
-                <h1>Make Money From Home by Handwriting</h1>
-                <p>Use your good handwriting to earn a steady income. This is a simple, genuine work-from-home job perfect for students, housewives, and anyone looking to earn extra money.</p>
+            <div class="hero-text">
+                <h1>Earn Money From Home by Handwriting</h1>
+                <p>Use your good handwriting to earn a steady income. Perfect for students, housewives, and anyone looking for part-time work.</p>
                 
                 <div class="notice-box">
-                    <strong>Important Note:</strong> To start receiving work, a small <strong>Registration Fee</strong> is required. Please message us on Telegram to learn the fee amount and how to begin.
+                    <strong>New User Notice:</strong> A small <strong>Registration Fee</strong> is required before starting. Contact us to learn the fee and get your first project.
                 </div>
 
-                <a href="https://t.me/YOUR_TELEGRAM_USERNAME?text=Hello%20sir%2C%20I%20am%20interested%20in%20the%20handwriting%20project.%20Please%20tell%20me%20the%20details%20and%20registration%20fee." target="_blank" class="btn">
+                <a href="https://t.me/YOUR_TELEGRAM_USERNAME?text=Hello%20sir%2C%20I%20am%20interested.%20What%20is%20the%20registration%20fee%3F" target="_blank" class="btn" style="padding: 12px 24px;">
                     Contact on Telegram to Start
                 </a>
             </div>
 
             <div class="hero-image-box">
-                <img src="images/slide1.jpeg" alt="Handwriting Sample" onerror="this.src='https://placehold.co/800x600/F8FAFC/1E293B?text=Handwriting+Sample'">
+                <img src="images/slide1.jpeg" alt="Handwriting Example" onerror="this.src='https://placehold.co/600x400/F8FAFC/1E293B?text=Handwriting+Sample'">
             </div>
         </div>
     </section>
 
-    <section id="about" class="container">
-        <div class="section-title">Why Work With Us?</div>
-        <div class="section-subtitle">We provide safe, reliable, and easy work for everyone.</div>
+    <section class="container">
+        <div class="section-title">Is This Genuine?</div>
+        <div class="section-subtitle">Yes. We provide safe and reliable work for everyone.</div>
         
         <div class="grid-3">
             <div class="card">
                 <div class="card-icon">🏛️</div>
-                <h3>Government Approved</h3>
-                <p>We are a fully registered MSME company working safely since 2018.</p>
+                <h3>Govt. Approved</h3>
+                <p>We are a registered MSME company working safely since 2018.</p>
             </div>
             <div class="card">
                 <div class="card-icon">✍️</div>
-                <h3>Very Easy Work</h3>
-                <p>Just copy text from your phone to paper. You do not need any special computer skills.</p>
+                <h3>Easy Work</h3>
+                <p>Just copy text to paper. No computer skills needed.</p>
             </div>
             <div class="card">
                 <div class="card-icon">🏦</div>
-                <h3>Direct Bank Payment</h3>
-                <p>Your earned money is sent directly to your bank account every week. Safe and fast.</p>
+                <h3>Bank Payment</h3>
+                <p>Salary is sent directly to your bank account every week.</p>
             </div>
         </div>
     </section>
 
-    <section id="pricing" style="background: #F8FAFC;">
+    <section id="guide" style="background: #F8FAFC;">
         <div class="container">
-            <div class="section-title">How Much Can You Earn?</div>
+            <div class="section-title">New User Guide</div>
+            <div class="section-subtitle">Follow this simple chart to get your first payment</div>
+            
+            <div class="flow-chart">
+                <div class="flow-step">
+                    <div class="step-num">1</div>
+                    <div class="step-text">
+                        <h4>Message Us</h4>
+                        <p>Text us on Telegram for details.</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-num">2</div>
+                    <div class="step-text">
+                        <h4>Register</h4>
+                        <p>Pay the fee to get your ID.</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-num">3</div>
+                    <div class="step-text">
+                        <h4>Write Work</h4>
+                        <p>Copy the files onto paper.</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-num">4</div>
+                    <div class="step-text">
+                        <h4>Send Photo</h4>
+                        <p>Send clear photos of the pages.</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-num">5</div>
+                    <div class="step-text">
+                        <h4>Get Paid</h4>
+                        <p>Salary arrives in your bank!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing">
+        <div class="container">
+            <div class="section-title">Salary Plans</div>
             <div class="section-subtitle">Choose a plan based on how many pages you can write.</div>
             
-            <div class="notice-box" style="background: #FFF7ED; border-color: #D97706; color: #334155; max-width: 800px; margin: 0 auto 30px; text-align: center;">
-                <strong>Remember:</strong> A registration fee applies to all plans before you can start working. Ask about the fee on Telegram.
-            </div>
-
             <div class="grid-3">
                 <div class="plan-card">
                     <div class="badge">BASIC</div>
@@ -499,21 +368,19 @@
                     <div class="plan-list">
                         <div class="plan-item"><span>Daily Earning:</span> <span>₹3,000+</span></div>
                         <div class="plan-item"><span>Weekly Earning:</span> <span>₹18,000+</span></div>
-                        <div class="plan-item"><span>Monthly Earning:</span> <span>₹72,000+</span></div>
                     </div>
-                    <a href="https://t.me/YOUR_TELEGRAM_USERNAME?text=I%20want%20to%20know%20the%20registration%20fee%20for%20the%20Starter%20Plan." target="_blank" class="btn" style="width: 100%;">Select Plan</a>
+                    <a href="https://t.me/YOUR_TELEGRAM_USERNAME?text=I%20want%20the%20Starter%20Plan." target="_blank" class="btn" style="width: 100%;">Select Plan</a>
                 </div>
 
                 <div class="plan-card popular">
-                    <div class="badge">MOST POPULAR</div>
+                    <div class="badge">POPULAR</div>
                     <div class="plan-title">Standard Plan</div>
                     <div class="plan-pages">90 Pages</div>
                     <div class="plan-list">
                         <div class="plan-item"><span>Daily Earning:</span> <span>₹5,000+</span></div>
                         <div class="plan-item"><span>Weekly Earning:</span> <span>₹30,000+</span></div>
-                        <div class="plan-item"><span>Monthly Earning:</span> <span>₹1,20,000+</span></div>
                     </div>
-                    <a href="https://t.me/YOUR_TELEGRAM_USERNAME?text=I%20want%20to%20know%20the%20registration%20fee%20for%20the%20Standard%20Plan." target="_blank" class="btn" style="width: 100%;">Select Plan</a>
+                    <a href="https://t.me/YOUR_TELEGRAM_USERNAME?text=I%20want%20the%20Standard%20Plan." target="_blank" class="btn" style="width: 100%;">Select Plan</a>
                 </div>
 
                 <div class="plan-card">
@@ -523,67 +390,29 @@
                     <div class="plan-list">
                         <div class="plan-item"><span>Daily Earning:</span> <span>₹7,000+</span></div>
                         <div class="plan-item"><span>Weekly Earning:</span> <span>₹50,000+</span></div>
-                        <div class="plan-item"><span>Monthly Earning:</span> <span>₹2,00,000+</span></div>
                     </div>
-                    <a href="https://t.me/YOUR_TELEGRAM_USERNAME?text=I%20want%20to%20know%20the%20registration%20fee%20for%20the%20Premium%20Plan." target="_blank" class="btn" style="width: 100%;">Select Plan</a>
+                    <a href="https://t.me/YOUR_TELEGRAM_USERNAME?text=I%20want%20the%20Premium%20Plan." target="_blank" class="btn" style="width: 100%;">Select Plan</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="container">
-        <div class="section-title">How To Start Working</div>
-        <div class="section-subtitle">Follow these easy steps to get your first payment</div>
-        
-        <div class="grid-3" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
-            <div class="step-card">
-                <div class="step-number">1</div>
-                <h3>Message Us</h3>
-                <p>Send a message on Telegram. We will tell you the project details and the registration fee.</p>
-            </div>
-            <div class="step-card">
-                <div class="step-number">2</div>
-                <h3>Pay & Register</h3>
-                <p>Pay the simple registration fee to confirm your ID and receive your first assignment.</p>
-            </div>
-            <div class="step-card">
-                <div class="step-number">3</div>
-                <h3>Write on Paper</h3>
-                <p>Look at the files we send and copy them neatly onto paper in your own time.</p>
-            </div>
-            <div class="step-card">
-                <div class="step-number">4</div>
-                <h3>Send Photos</h3>
-                <p>Take clear photos of your written pages and send them to us for checking.</p>
-            </div>
-            <div class="step-card">
-                <div class="step-number">5</div>
-                <h3>Get Paid</h3>
-                <p>Once checked, your salary is sent directly to your bank account!</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="faq" class="container" style="padding-bottom: 100px;">
-        <div class="section-title">Questions People Ask</div>
-        <div class="section-subtitle">Clear answers to help you start</div>
+    <section id="faq" class="container" style="padding-bottom: 40px;">
+        <div class="section-title">Common Questions</div>
+        <div class="section-subtitle">Quick answers to help you understand</div>
         
         <div class="faq-box">
             <div class="faq-item">
-                <div class="faq-q">Do I have to pay a registration fee? <span class="faq-icon">+</span></div>
-                <div class="faq-a"><p>Yes, there is a registration fee required to join and get your first writing assignment. Please contact us on Telegram to ask about the exact fee amount.</p></div>
+                <div class="faq-q">Is the registration fee compulsory? <span class="faq-icon">+</span></div>
+                <div class="faq-a"><p>Yes, the fee is required to verify your ID and assign you your first project file. Contact us to know the exact amount.</p></div>
             </div>
             <div class="faq-item">
-                <div class="faq-q">Who can do this work? <span class="faq-icon">+</span></div>
-                <div class="faq-a"><p>Anyone! Students, housewives, or retired people. You do not need any past experience. You only need to have neat handwriting that is easy to read.</p></div>
+                <div class="faq-q">Do I need special handwriting? <span class="faq-icon">+</span></div>
+                <div class="faq-a"><p>No, you just need neat, clean, and readable handwriting. You don't need to be an expert calligrapher.</p></div>
             </div>
             <div class="faq-item">
-                <div class="faq-q">When do I get my salary? <span class="faq-icon">+</span></div>
-                <div class="faq-a"><p>We pay salaries every week. After you submit your written pages, we check them within 24 to 48 hours, and then send the money straight to your bank account.</p></div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-q">Is this a real company? <span class="faq-icon">+</span></div>
-                <div class="faq-a"><p>Yes, Aliya Publication is a genuine, government-approved, and MSME-registered company. We have been giving work to thousands of people since 2018.</p></div>
+                <div class="faq-q">When will the salary come? <span class="faq-icon">+</span></div>
+                <div class="faq-a"><p>We check your submitted work within 24 to 48 hours. After checking, the salary is sent directly to your bank account weekly.</p></div>
             </div>
         </div>
     </section>
@@ -615,7 +444,7 @@
                 <h3>Contact Us</h3>
                 <p>📧 contact@aliyapublication.com</p>
                 <p>📱 Support: Telegram Only</p>
-                <a href="https://t.me/YOUR_TELEGRAM_USERNAME?text=Hello%20sir%2C%20I%20am%20interested%20in%20the%20handwriting%20project." target="_blank" class="btn" style="padding: 8px 16px; font-size: 0.85rem; margin-top: 10px;">Message on Telegram</a>
+                <a href="https://t.me/YOUR_TELEGRAM_USERNAME?text=Hello" target="_blank" class="btn" style="padding: 8px 16px; font-size: 0.8rem; margin-top: 10px;">Message on Telegram</a>
             </div>
         </div>
         
@@ -626,12 +455,35 @@
     </footer>
 
     <div class="mobile-cta">
-        <a href="https://t.me/YOUR_TELEGRAM_USERNAME?text=Hello%20sir%2C%20I%20am%20interested%20in%20the%20handwriting%20project.%20Please%20tell%20me%20the%20details%20and%20registration%20fee." target="_blank" class="btn">
+        <a href="https://t.me/YOUR_TELEGRAM_USERNAME?text=Hello%20sir%2C%20what%20is%20the%20registration%20fee%3F" target="_blank" class="btn">
             Ask About Registration Fee
         </a>
     </div>
 
     <script>
+        // Mobile Menu Logic
+        const menuBtn = document.getElementById('menuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            // Change icon from hamburger to X
+            if(navLinks.classList.contains('active')){
+                menuBtn.textContent = '✕';
+            } else {
+                menuBtn.textContent = '☰';
+            }
+        });
+
+        // Close menu when clicking a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuBtn.textContent = '☰';
+            });
+        });
+
+        // FAQ Logic
         const faqItems = document.querySelectorAll('.faq-item');
         faqItems.forEach(item => {
             const btn = item.querySelector('.faq-q');
@@ -641,10 +493,9 @@
                     faq.classList.remove('active');
                     faq.querySelector('.faq-icon').textContent = '+';
                 });
-                
                 if (!isActive) {
                     item.classList.add('active');
-                    item.querySelector('.faq-icon').textContent = '×';
+                    item.querySelector('.faq-icon').textContent = '−';
                 }
             });
         });
