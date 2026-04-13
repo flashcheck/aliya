@@ -1,695 +1,663 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="description" content="Aliya Publication - Earn from home through handwriting projects. Flexible income from ₹3000/day to ₹20000/week.">
-    <title>Aliya Publication - Handwriting Work From Home</title>
+    <meta name="description" content="Aliya Publication - Earn from home through handwriting projects.">
+    <title>Aliya Publication | Genuine Handwriting Projects</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            /* Premium App-like Theme */
-            --bg-body: #F4F5F8;
-            --bg-card: #FFFFFF;
-            --text-main: #1A1D20;
-            --text-muted: #5F6368;
-            --primary: #0A1128;
-            --accent: #D97706;
-            --accent-light: #FFF8F0;
-            --border: #E8EAED;
-            
-            /* Refined Shadows */
-            --shadow-subtle: 0 2px 8px rgba(0, 0, 0, 0.04);
-            --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.08);
+            --bg-base: #030712;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --glass-hover: rgba(255, 255, 255, 0.06);
+            --accent: #F59E0B; /* Premium Gold/Amber */
+            --accent-glow: rgba(245, 158, 11, 0.5);
+            --text-main: #F9FAFB;
+            --text-muted: #9CA3AF;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Outfit', sans-serif;
             -webkit-tap-highlight-color: transparent;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
         body {
-            background-color: var(--bg-body);
+            background-color: var(--bg-base);
             color: var(--text-main);
-            font-size: 14px; /* Smaller, app-like base font */
-            line-height: 1.5;
+            line-height: 1.6;
             overflow-x: hidden;
+            position: relative;
         }
 
-        a { text-decoration: none; }
-        ul { list-style: none; }
+        /* --- Ambient Background Animations --- */
+        .ambient-bg {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: -1;
+            overflow: hidden;
+            background: #030712;
+        }
 
-        /* --- UTILITIES --- */
+        .blob {
+            position: absolute;
+            filter: blur(100px);
+            opacity: 0.4;
+            border-radius: 50%;
+            animation: float 20s infinite alternate ease-in-out;
+        }
+
+        .blob-1 {
+            top: -10%; left: -10%;
+            width: 500px; height: 500px;
+            background: rgba(245, 158, 11, 0.3); /* Gold */
+        }
+
+        .blob-2 {
+            bottom: -20%; right: -10%;
+            width: 600px; height: 600px;
+            background: rgba(59, 130, 246, 0.2); /* Soft Blue */
+            animation-delay: -5s;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(5%, 5%) scale(1.1); }
+            100% { transform: translate(-5%, 10%) scale(0.9); }
+        }
+
+        /* --- Global Utilities --- */
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 1.25rem;
+            padding: 0 1.5rem;
         }
 
-        .section-header {
-            margin-bottom: 1.5rem;
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 2rem;
+            transition: all 0.3s ease;
         }
 
-        .section-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--primary);
-            letter-spacing: -0.3px;
+        .glass-card:hover {
+            background: var(--glass-hover);
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-4px);
         }
 
-        .section-subtitle {
+        .section-padding { padding: 5rem 0; }
+        
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            color: var(--accent);
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
             font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-top: 4px;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.5px;
         }
 
-        /* --- BUTTONS --- */
-        .btn {
+        .heading-lg {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #fff, #a1a1aa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .heading-md {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .text-muted { color: var(--text-muted); font-size: 1.1rem; }
+        
+        .text-center { text-align: center; }
+
+        /* --- Buttons --- */
+        .btn-primary {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background: var(--primary);
-            color: #fff;
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            font-weight: 600;
+            background: var(--accent);
+            color: #000;
+            font-weight: 700;
+            padding: 1rem 2rem;
+            border-radius: 100px;
+            text-decoration: none;
+            transition: all 0.3s ease;
             border: none;
             cursor: pointer;
-            transition: all 0.2s ease;
-            width: 100%;
+            font-size: 1.05rem;
+            box-shadow: 0 0 20px var(--accent-glow);
         }
 
-        .btn-accent { background: var(--accent); }
-        .btn:active { transform: scale(0.98); }
-        @media (min-width: 768px) { .btn { width: auto; padding: 12px 28px; font-size: 0.9rem; } }
-
-        /* --- TICKER --- */
-        .ticker-wrap {
-            background: var(--accent);
-            color: #fff;
-            padding: 6px 0;
-            font-size: 0.75rem;
-            font-weight: 600;
-            overflow: hidden;
-            white-space: nowrap;
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px var(--accent-glow);
+            background: #fbbf24;
         }
-        .ticker {
-            display: inline-block;
-            animation: ticker 30s linear infinite;
-        }
-        .ticker-item { margin-right: 2rem; display: inline-block; }
-        @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        /* --- HEADER --- */
+        /* --- Header --- */
         header {
-            background: var(--bg-card);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid var(--border);
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 50;
+            background: rgba(3, 7, 18, 0.5);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
         }
-        .header-inner {
-            height: 60px;
+
+        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            height: 70px;
         }
-        .logo-box {
+
+        .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            text-decoration: none;
         }
-        .logo-box img {
-            height: 32px;
-            width: 32px;
-            border-radius: 6px;
-            object-fit: cover;
+
+        .logo img {
+            height: 36px;
+            width: 36px;
+            border-radius: 8px;
         }
-        .logo-text h1 { font-size: 1rem; color: var(--primary); font-weight: 700; line-height: 1.1;}
-        .logo-text p { font-size: 0.65rem; color: var(--accent); font-weight: 600; text-transform: uppercase;}
-        
-        .desktop-nav { display: none; }
-        .desktop-btn { display: none; }
+
+        .logo div h1 { font-size: 1.2rem; color: #fff; font-weight: 700; line-height: 1.2;}
+        .logo div p { font-size: 0.7rem; color: var(--accent); font-weight: 600; text-transform: uppercase;}
+
+        .nav-links { display: none; }
+        .nav-btn { display: none; }
 
         @media (min-width: 768px) {
-            .desktop-nav { display: flex; gap: 2rem; }
-            .desktop-nav a { color: var(--text-main); font-size: 0.85rem; font-weight: 500; }
-            .desktop-nav a:hover { color: var(--accent); }
-            .desktop-btn { display: inline-flex; }
+            .nav-links { display: flex; gap: 2rem; }
+            .nav-links a { color: var(--text-muted); text-decoration: none; font-weight: 500; transition: 0.3s; }
+            .nav-links a:hover { color: #fff; }
+            .nav-btn { display: block; padding: 0.6rem 1.5rem; font-size: 0.9rem; }
         }
 
-        /* --- HERO --- */
+        /* --- Hero Section --- */
         .hero {
-            padding: 2rem 0;
-            background: var(--bg-card);
-            border-bottom: 1px solid var(--border);
+            padding-top: 150px;
+            padding-bottom: 5rem;
         }
+
         .hero-grid {
             display: grid;
-            gap: 1.5rem;
+            gap: 3rem;
             align-items: center;
         }
-        .hero-badge {
-            display: inline-block;
-            background: var(--accent-light);
-            color: var(--accent);
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 0.7rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-            border: 1px solid rgba(217, 119, 6, 0.2);
+
+        @media (min-width: 992px) {
+            .hero-grid { grid-template-columns: 1fr 1fr; }
         }
-        .hero h2 {
-            font-size: 1.75rem;
-            line-height: 1.2;
-            color: var(--primary);
-            font-weight: 800;
-            margin-bottom: 12px;
-            letter-spacing: -0.5px;
-        }
-        .hero p {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            margin-bottom: 20px;
-        }
-        .hero-visual {
-            width: 100%;
-            aspect-ratio: 16 / 9; /* Prevents layout shift and cropping */
-            background: var(--bg-body);
-            border-radius: 12px;
-            border: 1px solid var(--border);
-            overflow: hidden;
+
+        .hero-image-wrapper {
             position: relative;
+            border-radius: 24px;
+            padding: 1rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
         }
-        .carousel-slide {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-        .carousel-slide.active { opacity: 1; }
-        .carousel-slide img {
+
+        .hero-image {
             width: 100%;
-            height: 100%;
-            object-fit: contain; /* CRITICAL FIX: Stops cropping */
-            padding: 8px; /* Safe area for logos/text in images */
+            height: auto;
+            border-radius: 16px;
+            display: block;
         }
 
-        @media (min-width: 768px) {
-            .hero { padding: 4rem 0; }
-            .hero-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
-            .hero h2 { font-size: 2.5rem; }
-            .hero p { font-size: 1.05rem; }
-        }
-
-        /* --- MOBILE SWIPE CONTAINERS (THE SECRET TO COMPACT LAYOUTS) --- */
-        .swipe-grid {
+        /* --- Stats Grid --- */
+        .stats-grid {
             display: grid;
-            grid-auto-flow: column;
-            grid-auto-columns: 85%; /* Shows part of the next card to hint at scrolling */
-            gap: 12px;
-            overflow-x: auto;
-            overscroll-behavior-inline: contain;
-            scroll-snap-type: inline mandatory;
-            scroll-padding-inline: 1.25rem;
-            padding: 0 1.25rem 1.5rem 1.25rem; /* Padding allows shadows to show */
-            margin: 0 -1.25rem; /* Breaks out of container to screen edge */
-            -ms-overflow-style: none; 
-            scrollbar-width: none;
-        }
-        .swipe-grid::-webkit-scrollbar { display: none; }
-        .swipe-grid > * { scroll-snap-align: start; }
-
-        @media (min-width: 768px) {
-            .swipe-grid {
-                grid-auto-flow: row;
-                grid-template-columns: repeat(3, 1fr);
-                overflow-x: visible;
-                padding: 0; margin: 0; gap: 24px;
-            }
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 3rem;
         }
 
-        /* --- CARDS --- */
-        .card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 20px;
-            box-shadow: var(--shadow-subtle);
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
+        @media (min-width: 768px) { .stats-grid { grid-template-columns: repeat(4, 1fr); gap: 1.5rem; } }
 
-        /* Features */
-        .section-pad { padding: 3rem 0; }
+        .stat-card { text-align: center; padding: 1.5rem; }
+        .stat-num { font-size: 2.5rem; font-weight: 800; color: #fff; line-height: 1; margin-bottom: 0.5rem; }
+        .stat-label { font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; font-weight: 600;}
+
+        /* --- Features Grid --- */
+        .grid-3 {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        @media (min-width: 768px) { .grid-3 { grid-template-columns: repeat(3, 1fr); } }
+
         .feature-icon {
-            width: 40px; height: 40px;
-            background: var(--bg-body);
-            border-radius: 8px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.25rem;
-            margin-bottom: 12px;
-        }
-        .feature-title { font-size: 1rem; font-weight: 700; margin-bottom: 6px; color: var(--primary);}
-        .feature-desc { font-size: 0.85rem; color: var(--text-muted); }
-
-        /* Chart-Type Pricing */
-        .pricing-card {
-            border-top: 4px solid var(--primary);
-        }
-        .pricing-card.featured {
-            border-top-color: var(--accent);
-            background: #FAFBFC;
-        }
-        .pricing-badge {
-            font-size: 0.65rem; font-weight: 700; color: var(--text-muted);
-            text-transform: uppercase; letter-spacing: 0.5px;
-        }
-        .pricing-pages { font-size: 1.75rem; font-weight: 800; color: var(--primary); margin: 4px 0 16px; line-height: 1;}
-        .pricing-row {
-            display: flex; justify-content: space-between;
-            padding: 8px 0; border-bottom: 1px solid var(--border);
-            font-size: 0.85rem;
-        }
-        .pricing-row:last-of-type { border: none; margin-bottom: 20px; }
-        .pricing-val { font-weight: 700; color: var(--primary); }
-        .pricing-card.featured .pricing-val { color: var(--accent); }
-
-        /* Steps Timeline */
-        .step-num {
-            font-size: 0.75rem; font-weight: 700; color: var(--accent);
-            text-transform: uppercase; margin-bottom: 4px;
-        }
-        .step-title { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
-
-        /* Compact Stats Grid */
-        .stats-wrapper {
-            background: var(--primary);
+            width: 50px; height: 50px;
             border-radius: 12px;
-            padding: 24px;
-            color: #fff;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--glass-border);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
         }
-        .stats-grid-inner {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
+
+        .feature-title { font-size: 1.25rem; color: #fff; font-weight: 600; margin-bottom: 0.75rem; }
+        .feature-desc { color: var(--text-muted); font-size: 0.95rem; }
+
+        /* --- Pricing Grid --- */
+        .pricing-card { position: relative; overflow: hidden; display: flex; flex-direction: column; }
+        .pricing-card.featured {
+            border-color: rgba(245, 158, 11, 0.3);
+            background: rgba(245, 158, 11, 0.05);
         }
-        .stat-item h4 { font-size: 1.75rem; font-weight: 800; color: var(--accent); line-height: 1.1; margin-bottom: 4px;}
-        .stat-item p { font-size: 0.75rem; font-weight: 500; opacity: 0.8; text-transform: uppercase;}
-        @media (min-width: 768px) { .stats-grid-inner { grid-template-columns: repeat(4, 1fr); padding: 20px; } }
+        .pricing-card.featured::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--accent);
+        }
+        .plan-name { font-size: 1.1rem; color: var(--text-muted); font-weight: 600; margin-bottom: 0.5rem; }
+        .plan-price { font-size: 3rem; font-weight: 800; color: #fff; line-height: 1; margin-bottom: 2rem; }
+        .plan-price span { font-size: 1rem; color: var(--text-muted); font-weight: 500; }
+        
+        .plan-list { list-style: none; margin-bottom: 2rem; flex-grow: 1; }
+        .plan-list li {
+            display: flex; align-items: center; gap: 10px;
+            color: var(--text-muted); margin-bottom: 1rem; font-size: 0.95rem;
+        }
+        .plan-list li::before { content: '✓'; color: var(--accent); font-weight: bold; }
 
-        /* Testimonials */
-        .testimo-card { position: relative; border-left: 3px solid var(--accent); border-radius: 0 12px 12px 0;}
-        .testimo-text { font-size: 0.9rem; font-style: italic; color: var(--text-muted); margin-bottom: 16px; }
-        .testimo-author { font-size: 0.85rem; font-weight: 700; color: var(--primary); }
-        .testimo-role { font-size: 0.75rem; color: var(--text-muted); }
+        /* --- Steps --- */
+        .step-card { display: flex; flex-direction: column; align-items: flex-start; }
+        .step-num {
+            font-size: 3rem; font-weight: 800; color: rgba(255,255,255,0.1);
+            line-height: 1; margin-bottom: 1rem;
+        }
 
-        /* FAQ Accordion */
-        .faq-box { max-width: 800px; margin: 0 auto; }
+        /* --- FAQ Accordion --- */
+        .faq-wrapper { max-width: 800px; margin: 3rem auto 0; }
         .faq-item {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            margin-bottom: 8px;
-            overflow: hidden;
+            border-bottom: 1px solid var(--glass-border);
         }
-        .faq-q {
-            padding: 14px 16px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--primary);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .faq-btn {
+            width: 100%; text-align: left; background: none; border: none;
+            padding: 1.5rem 0; font-size: 1.1rem; font-weight: 600; color: #fff;
+            display: flex; justify-content: space-between; align-items: center;
             cursor: pointer;
         }
-        .faq-icon { font-size: 0.8rem; color: var(--accent); transition: 0.3s; }
-        .faq-item.active .faq-icon { transform: rotate(180deg); }
-        .faq-a {
-            padding: 0 16px;
-            max-height: 0;
-            overflow: hidden;
-            transition: 0.3s ease;
-            font-size: 0.85rem;
-            color: var(--text-muted);
+        .faq-content {
+            max-height: 0; overflow: hidden; transition: all 0.3s ease;
+            color: var(--text-muted); font-size: 0.95rem;
         }
-        .faq-item.active .faq-a { padding-bottom: 14px; max-height: 200px; }
+        .faq-item.active .faq-content { padding-bottom: 1.5rem; max-height: 200px; }
+        .faq-item.active .faq-btn span { transform: rotate(45deg); color: var(--accent); }
+        .faq-btn span { transition: 0.3s; font-size: 1.5rem; font-weight: 300; }
 
-        /* Footer */
-        footer { background: var(--bg-card); padding: 3rem 0 1.5rem; border-top: 1px solid var(--border); }
-        .footer-grid { display: grid; gap: 2rem; margin-bottom: 2rem; }
-        .foot-col h5 { font-size: 0.9rem; font-weight: 700; color: var(--primary); margin-bottom: 12px; }
-        .foot-col p, .foot-col a { font-size: 0.85rem; color: var(--text-muted); line-height: 1.8; display: block; }
-        .foot-col a:hover { color: var(--accent); }
-        
-        .trust-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
-        .tag { background: var(--bg-body); padding: 4px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: 600; color: var(--text-muted); border: 1px solid var(--border); }
-        
-        .foot-bottom { border-top: 1px solid var(--border); padding-top: 1.5rem; text-align: center; font-size: 0.75rem; color: var(--text-muted); }
-
-        @media (min-width: 768px) { .footer-grid { grid-template-columns: repeat(4, 1fr); } }
-
-        /* Sticky Mobile Bottom CTA */
-        .mobile-cta-bar {
-            position: fixed; bottom: 0; left: 0; width: 100%;
-            background: var(--bg-card);
-            padding: 12px 16px;
-            border-top: 1px solid var(--border);
-            box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
-            z-index: 100;
-            display: flex; gap: 10px;
+        /* --- Footer --- */
+        footer {
+            border-top: 1px solid var(--glass-border);
+            padding: 4rem 0 2rem;
+            background: rgba(0,0,0,0.3);
+            margin-top: 5rem;
         }
-        @media (min-width: 768px) { .mobile-cta-bar { display: none; } body { padding-bottom: 0; } }
-        body { padding-bottom: 60px; } /* Space for mobile bar */
+        .footer-grid {
+            display: grid; gap: 3rem; margin-bottom: 3rem;
+        }
+        @media (min-width: 768px) { .footer-grid { grid-template-columns: 2fr 1fr 1fr; } }
+        
+        .footer-col h4 { color: #fff; font-size: 1.1rem; margin-bottom: 1.5rem; }
+        .footer-col p, .footer-col a { color: var(--text-muted); display: block; margin-bottom: 0.75rem; text-decoration: none; font-size: 0.9rem; }
+        .footer-col a:hover { color: var(--accent); }
+        
+        .trust-badges { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 1.5rem; }
+        .t-badge { background: var(--glass-bg); border: 1px solid var(--glass-border); padding: 5px 12px; border-radius: 6px; font-size: 0.8rem; color: #fff;}
 
-        /* Smooth Fades */
-        .fade-up { opacity: 0; transform: translateY(15px); transition: 0.6s ease; }
-        .fade-up.visible { opacity: 1; transform: translateY(0); }
+        /* --- Mobile Sticky CTA --- */
+        .mobile-cta {
+            position: fixed; bottom: 0; left: 0; right: 0;
+            padding: 1rem; background: rgba(3, 7, 18, 0.8);
+            backdrop-filter: blur(20px); border-top: 1px solid var(--glass-border);
+            z-index: 100; display: flex; justify-content: center;
+        }
+        .mobile-cta .btn-primary { width: 100%; }
+        @media (min-width: 768px) { .mobile-cta { display: none; } }
+
+        /* --- Animations --- */
+        .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
     </style>
 </head>
 <body>
 
-    <div class="ticker-wrap">
-        <div class="ticker">
-            <span class="ticker-item">✅ Just paid: ₹4,500 to Priya (Mumbai)</span>
-            <span class="ticker-item">⭐ New member joined from Delhi</span>
-            <span class="ticker-item">✅ Just paid: ₹12,000 to Rahul (Pune)</span>
-            <span class="ticker-item">🚀 15+ assignments available today</span>
-            <span class="ticker-item">✅ Just paid: ₹7,200 to Anjali (Gujarat)</span>
-            <span class="ticker-item">🏛️ MSME Registered & Verified</span>
-            <span class="ticker-item">✅ Just paid: ₹4,500 to Priya (Mumbai)</span>
-            <span class="ticker-item">⭐ New member joined from Delhi</span>
-            <span class="ticker-item">✅ Just paid: ₹12,000 to Rahul (Pune)</span>
-            <span class="ticker-item">🚀 15+ assignments available today</span>
-            <span class="ticker-item">✅ Just paid: ₹7,200 to Anjali (Gujarat)</span>
-            <span class="ticker-item">🏛️ MSME Registered & Verified</span>
-        </div>
+    <div class="ambient-bg">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
     </div>
 
     <header>
-        <div class="container header-inner">
-            <div class="logo-box">
-                <img src="images/logo.jpeg" alt="Aliya Publication" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSIjMEExMTI4Ii8+PHRleHQgeD0iMTYiIHk9IjIxIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgZmlsbD0iI2ZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+QVA8L3RleHQ+PC9zdmc+'">
-                <div class="logo-text">
+        <div class="container header-content">
+            <a href="#" class="logo">
+                <img src="images/logo.jpeg" alt="Logo" onerror="this.src='https://placehold.co/100x100/F59E0B/000?text=AP'">
+                <div>
                     <h1>Aliya Publication</h1>
-                    <p>Genuine Projects</p>
+                    <p>Verified Platform</p>
                 </div>
-            </div>
-            <nav class="desktop-nav">
-                <a href="#about">Trust</a>
-                <a href="#pricing">Plans</a>
+            </a>
+            <nav class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#pricing">Earnings</a>
                 <a href="#faq">FAQ</a>
             </nav>
-            <a href="https://t.me/YOUR_TELEGRAM_USERNAME?text=Hello%20sir%2C%20I%20am%20interested%20in%20the%20handwriting%20project.%20Could%20you%20please%20provide%20more%20details%3F" target="_blank" class="btn btn-accent desktop-btn">Join Telegram</a>
+            <a href="https://t.me/YOUR_TELEGRAM_USERNAME?text=Hello%20sir%2C%20I%20am%20interested%20in%20the%20handwriting%20project.%20Could%20you%20please%20provide%20more%20details%3F" target="_blank" class="btn-primary nav-btn">Join Telegram</a>
         </div>
     </header>
 
     <section class="hero container">
-        <div class="hero-grid fade-up">
-            <div>
-                <span class="hero-badge">★ Govt. Approved Publication</span>
-                <h2>Earn From Home Through Handwriting Work</h2>
-                <p>Transform your beautiful handwriting into a steady income stream. Join thousands of verified workers securing a reliable income with zero hidden conditions.</p>
-                <div class="desktop-btn">
-                    <a href="https://t.me/YOUR_TELEGRAM_USERNAME?text=Hello%20sir%2C%20I%20am%20interested%20in%20the%20handwriting%20project.%20Could%20you%20please%20provide%20more%20details%3F" target="_blank" class="btn btn-accent">Message on Telegram</a>
+        <div class="hero-grid">
+            <div class="reveal">
+                <div class="badge">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    Government Approved & MSME Registered
+                </div>
+                <h2 class="heading-lg">Turn Your Handwriting Into A Steady Income.</h2>
+                <p class="text-muted" style="margin-bottom: 2.5rem; font-size: 1.2rem; max-width: 90%;">
+                    Join thousands of verified workers across India. Simple page writing tasks with guaranteed direct bank payouts. No hidden fees.
+                </p>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <a href="https://t.me/YOUR_TELEGRAM_USERNAME?text=Hello%20sir%2C%20I%20am%20interested%20in%20the%20handwriting%20project.%20Could%20you%20please%20provide%20more%20details%3F" target="_blank" class="btn-primary">
+                        Message on Telegram
+                        <svg style="margin-left: 8px;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
                 </div>
             </div>
-            <div class="hero-visual">
-                <div class="carousel-slide active"><img src="images/slide1.jpeg" alt="Handwriting Sample" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MDAiIGhlaWdodD0iNDUwIj48cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ1MCIgZmlsbD0iI2Y0ZjVmOCIvPjx0ZXh0IHg9IjQwMCIgeT0iMjI1IiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIyNCIgZmlsbD0iI2FhYSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+SW1hZ2UgMTwvdGV4dD48L3N2Zz4='"></div>
-                <div class="carousel-slide"><img src="images/slide2.jpeg" alt="Payouts" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MDAiIGhlaWdodD0iNDUwIj48cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ1MCIgZmlsbD0iI2Y0ZjVmOCIvPjx0ZXh0IHg9IjQwMCIgeT0iMjI1IiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIyNCIgZmlsbD0iI2FhYSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+SW1hZ2UgMjwvdGV4dD48L3N2Zz4='"></div>
-                <div class="carousel-slide"><img src="images/slide3.jpeg" alt="Happy Workers" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MDAiIGhlaWdodD0iNDUwIj48cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ1MCIgZmlsbD0iI2Y0ZjVmOCIvPjx0ZXh0IHg9IjQwMCIgeT0iMjI1IiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIyNCIgZmlsbD0iI2FhYSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+SW1hZ2UgMzwvdGV4dD48L3N2Zz4='"></div>
+            
+            <div class="hero-image-wrapper reveal">
+                <img src="images/slide1.jpeg" alt="Handwriting Project" class="hero-image" onerror="this.src='https://placehold.co/800x600/111827/F59E0B?text=Genuine+Handwriting+Projects'">
+            </div>
+        </div>
+
+        <div class="stats-grid reveal">
+            <div class="glass-card stat-card">
+                <div class="stat-num" data-val="2500">0</div>
+                <div class="stat-label">Active Members</div>
+            </div>
+            <div class="glass-card stat-card">
+                <div class="stat-num" data-val="18000">0</div>
+                <div class="stat-label">Projects Done</div>
+            </div>
+            <div class="glass-card stat-card">
+                <div class="stat-num" data-val="24">0</div>
+                <div class="stat-label">Hour Payouts</div>
+            </div>
+            <div class="glass-card stat-card">
+                <div class="stat-num" data-val="100">0</div>
+                <div class="stat-label">% Genuine</div>
             </div>
         </div>
     </section>
 
-    <section class="section-pad container" id="about">
-        <div class="section-header fade-up">
-            <h3 class="section-title">Why Trust Aliya Publication?</h3>
-            <p class="section-subtitle">Transparency, timely payouts, and genuine work.</p>
+    <section class="section-padding container" id="features">
+        <div class="text-center reveal" style="max-width: 600px; margin: 0 auto;">
+            <h2 class="heading-md">Why Trust Aliya Publication?</h2>
+            <p class="text-muted">We prioritize transparency and secure, timely payouts over everything else.</p>
         </div>
-        <div class="swipe-grid fade-up">
-            <div class="card">
+        
+        <div class="grid-3 reveal">
+            <div class="glass-card">
                 <div class="feature-icon">🏛️</div>
-                <div class="feature-title">Legitimate & Registered</div>
-                <div class="feature-desc">Operating since 2018 with MSME registration. A verified entity providing authentic work.</div>
+                <h3 class="feature-title">Legitimate Entity</h3>
+                <p class="feature-desc">Operating since 2018 with MSME registration. A verified publication providing authentic work.</p>
             </div>
-            <div class="card">
-                <div class="feature-icon">✍️</div>
-                <div class="feature-title">Simple Handwriting</div>
-                <div class="feature-desc">Copy and rewrite content by hand. No tech skills required—just neat handwriting.</div>
-            </div>
-            <div class="card">
+            <div class="glass-card">
                 <div class="feature-icon">🏦</div>
-                <div class="feature-title">Secure Payouts</div>
-                <div class="feature-desc">Earn ₹3,000 daily to ₹20,000 weekly. Payments wired straight to your bank account.</div>
+                <h3 class="feature-title">Direct Bank Payouts</h3>
+                <p class="feature-desc">Earn ₹3,000 daily to ₹20,000 weekly. Payments are wired straight to your account after verification.</p>
             </div>
-            <div class="card">
+            <div class="glass-card">
                 <div class="feature-icon">📱</div>
-                <div class="feature-title">Telegram Support</div>
-                <div class="feature-desc">Real-time assistance, project updates, and direct communication through Telegram.</div>
+                <h3 class="feature-title">24/7 Telegram Support</h3>
+                <p class="feature-desc">Get real-time assistance, project updates, and direct communication through our official channel.</p>
+            </div>
+            <div class="glass-card">
+                <div class="feature-icon">✍️</div>
+                <h3 class="feature-title">Simple Guidelines</h3>
+                <p class="feature-desc">Copy and rewrite content by hand. No tech skills required—just neat, readable handwriting.</p>
+            </div>
+            <div class="glass-card">
+                <div class="feature-icon">⏰</div>
+                <h3 class="feature-title">Absolute Flexibility</h3>
+                <p class="feature-desc">Work at your own pace. Perfect for students, housewives, or anyone seeking a side income.</p>
+            </div>
+            <div class="glass-card">
+                <div class="feature-icon">🎯</div>
+                <h3 class="feature-title">Fair Evaluation</h3>
+                <p class="feature-desc">Transparent quality checks within 24-48 hours. Clear guidelines ensure you know exactly how to succeed.</p>
             </div>
         </div>
     </section>
 
-    <section class="section-pad container" style="background: var(--bg-card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);" id="pricing">
-        <div class="section-header fade-up">
-            <h3 class="section-title">Earning Goals</h3>
-            <p class="section-subtitle">Select a target that matches your availability</p>
+    <section class="section-padding container" id="pricing">
+        <div class="text-center reveal" style="max-width: 600px; margin: 0 auto;">
+            <h2 class="heading-md">Choose Your Target</h2>
+            <p class="text-muted">Select an assignment package based on the time you have available.</p>
         </div>
-        <div class="swipe-grid fade-up">
-            <div class="card pricing-card">
-                <div class="pricing-badge">Basic</div>
-                <div class="pricing-pages">50 Pages</div>
-                <div class="pricing-row"><span>Daily Goal</span><span class="pricing-val">₹3,000+</span></div>
-                <div class="pricing-row"><span>Weekly Goal</span><span class="pricing-val">₹18,000+</span></div>
-                <div class="pricing-row"><span>Monthly</span><span class="pricing-val">₹72,000+</span></div>
+
+        <div class="grid-3 reveal">
+            <div class="glass-card pricing-card">
+                <h3 class="plan-name">Starter Plan</h3>
+                <div class="plan-price">50<span> pages</span></div>
+                <ul class="plan-list">
+                    <li>Earn ₹3,000+ Daily</li>
+                    <li>Earn ₹18,000+ Weekly</li>
+                    <li>Flexible submission time</li>
+                    <li>Standard Support</li>
+                </ul>
+                <a href="https://t.me/YOUR_TELEGRAM_USERNAME?text=Hello%20sir%2C%20I%20am%20interested%20in%20the%20handwriting%20project.%20Could%20you%20please%20provide%20more%20details%3F" target="_blank" class="btn-primary" style="width: 100%; background: var(--glass-border); color: #fff; box-shadow: none;">Select Plan</a>
             </div>
-            <div class="card pricing-card featured">
-                <div class="pricing-badge" style="color: var(--accent);">Most Popular</div>
-                <div class="pricing-pages">90 Pages</div>
-                <div class="pricing-row"><span>Daily Goal</span><span class="pricing-val">₹5,000+</span></div>
-                <div class="pricing-row"><span>Weekly Goal</span><span class="pricing-val">₹30,000+</span></div>
-                <div class="pricing-row"><span>Monthly</span><span class="pricing-val">₹1.2 Lakh+</span></div>
+
+            <div class="glass-card pricing-card featured">
+                <div style="position: absolute; top: 1rem; right: 1rem; background: var(--accent); color: #000; font-size: 0.7rem; font-weight: 700; padding: 4px 10px; border-radius: 100px;">POPULAR</div>
+                <h3 class="plan-name" style="color: var(--accent);">Standard Plan</h3>
+                <div class="plan-price">90<span> pages</span></div>
+                <ul class="plan-list">
+                    <li style="color: #fff; font-weight: 500;">Earn ₹5,000+ Daily</li>
+                    <li>Earn ₹30,000+ Weekly</li>
+                    <li>Flexible submission time</li>
+                    <li>Priority Verification</li>
+                </ul>
+                <a href="https://t.me/YOUR_TELEGRAM_USERNAME?text=Hello%20sir%2C%20I%20am%20interested%20in%20the%20handwriting%20project.%20Could%20you%20please%20provide%20more%20details%3F" target="_blank" class="btn-primary" style="width: 100%;">Select Plan</a>
             </div>
-            <div class="card pricing-card">
-                <div class="pricing-badge">Premium</div>
-                <div class="pricing-pages">120 Pages</div>
-                <div class="pricing-row"><span>Daily Goal</span><span class="pricing-val">₹7,000+</span></div>
-                <div class="pricing-row"><span>Weekly Goal</span><span class="pricing-val">₹50,000+</span></div>
-                <div class="pricing-row"><span>Monthly</span><span class="pricing-val">₹2.0 Lakh+</span></div>
+
+            <div class="glass-card pricing-card">
+                <h3 class="plan-name">Elite Plan</h3>
+                <div class="plan-price">120<span> pages</span></div>
+                <ul class="plan-list">
+                    <li>Earn ₹7,000+ Daily</li>
+                    <li>Earn ₹50,000+ Weekly</li>
+                    <li>Flexible submission time</li>
+                    <li>VIP Support Line</li>
+                </ul>
+                <a href="https://t.me/YOUR_TELEGRAM_USERNAME?text=Hello%20sir%2C%20I%20am%20interested%20in%20the%20handwriting%20project.%20Could%20you%20please%20provide%20more%20details%3F" target="_blank" class="btn-primary" style="width: 100%; background: var(--glass-border); color: #fff; box-shadow: none;">Select Plan</a>
             </div>
         </div>
     </section>
 
-    <section class="section-pad container">
-        <div class="section-header fade-up">
-            <h3 class="section-title">How It Works</h3>
-            <p class="section-subtitle">5 simple steps to your first bank transfer</p>
+    <section class="section-padding container">
+        <div class="text-center reveal" style="max-width: 600px; margin: 0 auto 3rem;">
+            <h2 class="heading-md">How It Works</h2>
+            <p class="text-muted">A streamlined, transparent 4-step process.</p>
         </div>
-        <div class="swipe-grid fade-up">
-            <div class="card">
-                <div class="step-num">Step 01</div>
-                <div class="step-title">Message Us</div>
-                <div class="feature-desc">Connect on Telegram to get details and register.</div>
+        <div class="grid-3 reveal" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+            <div class="glass-card step-card">
+                <div class="step-num">01</div>
+                <h3 class="feature-title">Message Us</h3>
+                <p class="feature-desc">Connect on Telegram to get project details and register your profile.</p>
             </div>
-            <div class="card">
-                <div class="step-num">Step 02</div>
-                <div class="step-title">Get Materials</div>
-                <div class="feature-desc">Receive digital files and writing guidelines.</div>
+            <div class="glass-card step-card">
+                <div class="step-num">02</div>
+                <h3 class="feature-title">Get Files</h3>
+                <p class="feature-desc">Receive your digital assignment files and strict writing guidelines.</p>
             </div>
-            <div class="card">
-                <div class="step-num">Step 03</div>
-                <div class="step-title">Start Writing</div>
-                <div class="feature-desc">Write neatly following formatting rules.</div>
+            <div class="glass-card step-card">
+                <div class="step-num">03</div>
+                <h3 class="feature-title">Write & Scan</h3>
+                <p class="feature-desc">Write neatly in your own time. Scan your completed pages clearly.</p>
             </div>
-            <div class="card">
-                <div class="step-num">Step 04</div>
-                <div class="step-title">Upload Work</div>
-                <div class="feature-desc">Scan and submit pages for quality check.</div>
-            </div>
-            <div class="card">
-                <div class="step-num">Step 05</div>
-                <div class="step-title">Get Paid</div>
-                <div class="feature-desc">Payments credited to your bank account.</div>
+            <div class="glass-card step-card">
+                <div class="step-num">04</div>
+                <h3 class="feature-title">Get Paid</h3>
+                <p class="feature-desc">After a 24-48hr quality check, funds are wired to your bank.</p>
             </div>
         </div>
     </section>
 
-    <section class="container fade-up">
-        <div class="stats-wrapper">
-            <div class="section-header" style="text-align: center;">
-                <h3 class="section-title" style="color: #fff;">Our Community</h3>
-            </div>
-            <div class="stats-grid-inner">
-                <div class="stat-item">
-                    <h4 data-target="2500">0</h4>
-                    <p>Active Workers</p>
+    <section class="section-padding container" id="faq">
+        <div class="text-center reveal">
+            <h2 class="heading-md">Frequently Asked Questions</h2>
+        </div>
+        
+        <div class="faq-wrapper reveal">
+            <div class="faq-item">
+                <button class="faq-btn">Who is eligible to apply? <span>+</span></button>
+                <div class="faq-content">
+                    <p>Anyone with neat, legible handwriting can apply. This includes students, housewives, retired individuals, or anyone looking for a flexible work-from-home setup. No prior experience is required.</p>
                 </div>
-                <div class="stat-item">
-                    <h4 data-target="18000">0</h4>
-                    <p>Projects Done</p>
-                </div>
-                <div class="stat-item">
-                    <h4>₹<span data-target="75">0</span>K</h4>
-                    <p>Avg Monthly</p>
-                </div>
-                <div class="stat-item">
-                    <h4><span data-target="98">0</span>%</h4>
-                    <p>Satisfaction</p>
+            </div>
+            <div class="faq-item">
+                <button class="faq-btn">How and when do I receive my payments? <span>+</span></button>
+                <div class="faq-content">
+                    <p>Payments are processed weekly. Once your submitted pages pass the quality check (which takes 24-48 hours), the funds are wired directly to your provided bank account.</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section class="section-pad container">
-        <div class="section-header fade-up">
-            <h3 class="section-title">Worker Stories</h3>
-            <p class="section-subtitle">Real people, genuine earnings</p>
-        </div>
-        <div class="swipe-grid fade-up">
-            <div class="card testimo-card">
-                <div class="testimo-text">"Aliya Publication is 100% genuine. My first payout arrived exactly on time. Now I'm making ₹40,000 a month comfortably from home."</div>
-                <div class="testimo-author">Priya Sharma</div>
-                <div class="testimo-role">Housewife, Mumbai</div>
-            </div>
-            <div class="card testimo-card">
-                <div class="testimo-text">"Their Telegram support is best. I work 2-3 hours between my college classes and it covers all my expenses."</div>
-                <div class="testimo-author">Rahul Kumar</div>
-                <div class="testimo-role">Student, Delhi</div>
-            </div>
-            <div class="card testimo-card">
-                <div class="testimo-text">"Been working here for 6 months. Transparent structure. You write, they check, you get paid. Highly recommended."</div>
-                <div class="testimo-author">Anjali Patel</div>
-                <div class="testimo-role">Freelancer, Gujarat</div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section-pad container" id="faq">
-        <div class="section-header text-center fade-up">
-            <h3 class="section-title">FAQ</h3>
-            <p class="section-subtitle">Common questions answered</p>
-        </div>
-        <div class="faq-box fade-up">
             <div class="faq-item">
-                <div class="faq-q">Who is eligible to apply? <span class="faq-icon">▼</span></div>
-                <div class="faq-a">Anyone with neat, legible handwriting can apply. This includes students, housewives, retired individuals. No prior experience is required.</div>
+                <button class="faq-btn">Do I need to buy any special materials? <span>+</span></button>
+                <div class="faq-content">
+                    <p>No expensive equipment is needed. You only need standard ruled paper, a good quality pen, and a smartphone to scan and submit your completed pages via Telegram.</p>
+                </div>
             </div>
             <div class="faq-item">
-                <div class="faq-q">How much can I earn? <span class="faq-icon">▼</span></div>
-                <div class="faq-a">Earnings reflect your output. Minimum starts at ₹3,000 per day if you complete the starter quota. Dedicated workers clear ₹20,000+ per week.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-q">How and when do I get paid? <span class="faq-icon">▼</span></div>
-                <div class="faq-a">Payments are processed weekly. Once submitted pages pass the quality check (24-48 hours), funds are wired directly to your bank account.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-q">Do I need special materials? <span class="faq-icon">▼</span></div>
-                <div class="faq-a">No expensive equipment needed. Standard ruled paper, a good quality pen, and a smartphone to scan and submit pages via Telegram.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-q">Is this a legitimate company? <span class="faq-icon">▼</span></div>
-                <div class="faq-a">Yes, Aliya Publication is an MSME-registered and government-approved entity operating successfully since 2018.</div>
+                <button class="faq-btn">How do I know this is a legitimate company? <span>+</span></button>
+                <div class="faq-content">
+                    <p>Aliya Publication is an MSME-registered and government-approved entity operating successfully since 2018. We process thousands of payouts monthly and maintain complete transparency.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <footer>
         <div class="container footer-grid">
-            <div class="foot-col">
-                <h5>Aliya Publication</h5>
+            <div class="footer-col">
+                <img src="images/logo.jpeg" alt="Logo" style="height: 40px; border-radius: 8px; margin-bottom: 1rem;" onerror="this.style.display='none'">
+                <h4>Aliya Publication</h4>
                 <p>Empowering individuals across India to achieve financial independence through genuine handwriting projects since 2018.</p>
-                <div class="trust-tags">
-                    <span class="tag">MSME Reg.</span>
-                    <span class="tag">ISO 9001:2015</span>
-                    <span class="tag">Govt Approved</span>
+                <div class="trust-badges">
+                    <span class="t-badge">🏛️ Govt Approved</span>
+                    <span class="t-badge">📜 MSME Registered</span>
+                    <span class="t-badge">✅ ISO 9001:2015</span>
                 </div>
             </div>
-            <div class="foot-col">
-                <h5>Quick Links</h5>
-                <a href="#about">Trust & Transparency</a>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <a href="#features">Platform Features</a>
                 <a href="#pricing">Earning Plans</a>
-                <a href="#faq">FAQ</a>
-            </div>
-            <div class="foot-col">
-                <h5>Legal</h5>
-                <a href="#">Privacy Policy</a>
+                <a href="#faq">Help & FAQ</a>
                 <a href="#">Terms & Conditions</a>
-                <a href="#">Worker Agreement</a>
+                <a href="#">Privacy Policy</a>
             </div>
-            <div class="foot-col">
-                <h5>Contact</h5>
+            <div class="footer-col">
+                <h4>Contact Support</h4>
                 <p>contact@aliyapublication.com</p>
                 <p>Support: Telegram Only</p>
-                <p>24/7 Virtual Assistance</p>
+                <a href="https://t.me/YOUR_TELEGRAM_USERNAME?text=Hello%20sir%2C%20I%20am%20interested%20in%20the%20handwriting%20project.%20Could%20you%20please%20provide%20more%20details%3F" target="_blank" style="color: var(--accent); margin-top: 1rem; font-weight: 600;">Message us on Telegram →</a>
             </div>
         </div>
-        <div class="container foot-bottom">
-            © 2018 - 2026 Aliya Publication. All Rights Reserved. | GST Compliant | PAN Verified Entity
+        <div class="container" style="border-top: 1px solid var(--glass-border); padding-top: 2rem; text-align: center; color: var(--text-muted); font-size: 0.85rem;">
+            © 2018 - 2026 Aliya Publication. All Rights Reserved. | GST Compliant | PAN Verified
         </div>
     </footer>
 
-    <div class="mobile-cta-bar">
-        <a href="https://t.me/YOUR_TELEGRAM_USERNAME?text=Hello%20sir%2C%20I%20am%20interested%20in%20the%20handwriting%20project.%20Could%20you%20please%20provide%20more%20details%3F" target="_blank" class="btn btn-accent">Join Now on Telegram</a>
+    <div class="mobile-cta">
+        <a href="https://t.me/YOUR_TELEGRAM_USERNAME?text=Hello%20sir%2C%20I%20am%20interested%20in%20the%20handwriting%20project.%20Could%20you%20please%20provide%20more%20details%3F" target="_blank" class="btn-primary">Join Now on Telegram</a>
     </div>
 
     <script>
-        // Image Carousel
-        const slides = document.querySelectorAll('.carousel-slide');
-        let currentSlide = 0;
-        if(slides.length > 0) {
-            setInterval(() => {
-                slides.forEach(s => s.classList.remove('active'));
-                currentSlide = (currentSlide + 1) % slides.length;
-                slides[currentSlide].classList.add('active');
-            }, 3000);
-        }
-
-        // FAQ Toggle
-        document.querySelectorAll('.faq-item').forEach(item => {
-            item.querySelector('.faq-q').addEventListener('click', () => {
-                const isActive = item.classList.contains('active');
-                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
-                if(!isActive) item.classList.add('active');
-            });
-        });
-
-        // Intersection Observer for Fades & Stats
-        const observer = new IntersectionObserver((entries) => {
+        // Smooth Reveal Animation on Scroll
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const revealCallback = (entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    // Check for stats inside the entry
-                    const statCounters = entry.target.querySelectorAll('[data-target]');
-                    if(statCounters.length > 0) {
-                        statCounters.forEach(counter => {
-                            if(!counter.dataset.animated) {
-                                counter.dataset.animated = "true";
-                                const target = parseInt(counter.getAttribute('data-target'));
-                                let current = 0;
-                                const increment = target / 40; // speed
-                                const timer = setInterval(() => {
-                                    current += increment;
-                                    if(current >= target) {
-                                        counter.innerText = target.toLocaleString('en-IN');
-                                        clearInterval(timer);
-                                    } else {
-                                        counter.innerText = Math.floor(current).toLocaleString('en-IN');
-                                    }
-                                }, 30);
-                            }
-                        });
-                    }
+                    entry.target.classList.add('active');
+                    
+                    // Trigger number counter if it contains stats
+                    const statNums = entry.target.querySelectorAll('.stat-num');
+                    statNums.forEach(num => {
+                        if (!num.classList.contains('counted')) {
+                            num.classList.add('counted');
+                            const target = parseInt(num.getAttribute('data-val'));
+                            let current = 0;
+                            const increment = target / 50;
+                            const timer = setInterval(() => {
+                                current += increment;
+                                if (current >= target) {
+                                    clearInterval(timer);
+                                    num.innerText = target + (target > 100 ? '+' : '');
+                                } else {
+                                    num.innerText = Math.floor(current);
+                                }
+                            }, 30);
+                        }
+                    });
                 }
             });
-        }, { threshold: 0.1, rootMargin: '0px 0px -20px 0px' });
+        };
 
-        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+        const revealOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+        const revealObserver = new IntersectionObserver(revealCallback, revealOptions);
+        
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const btn = item.querySelector('.faq-btn');
+            btn.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                // Close all
+                faqItems.forEach(faq => {
+                    faq.classList.remove('active');
+                    faq.querySelector('span').innerText = '+';
+                });
+                // Open clicked if it wasn't already open
+                if (!isActive) {
+                    item.classList.add('active');
+                    item.querySelector('span').innerText = '×';
+                }
+            });
+        });
     </script>
 </body>
 </html>
