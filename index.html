@@ -1,660 +1,1057 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="description" content="Aliya Publication - Earn from home through handwriting projects.">
-    <title>Aliya Publication | Genuine Handwriting Projects</title>
-    
+    <meta name="description" content="Aliya Publication - India's Most Trusted Handwriting Project Platform. Earn ₹3,000 to ₹20,000 weekly from home.">
+    <meta name="theme-color" content="#030712">
+    <title>Aliya Publication | Professional Handwriting Solutions</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
+        /* ========================================
+        1. DESIGN SYSTEM & VARIABLES
+        ========================================
+        */
         :root {
-            --bg-base: #030712;
-            --glass-bg: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(255, 255, 255, 0.08);
-            --glass-hover: rgba(255, 255, 255, 0.06);
-            --accent: #F59E0B; /* Premium Gold/Amber */
-            --accent-glow: rgba(245, 158, 11, 0.5);
-            --text-main: #F9FAFB;
-            --text-muted: #9CA3AF;
+            /* Colors - Ultra Dark Premium Theme */
+            --bg-deep: #030712;
+            --bg-surface: #090e1a;
+            --bg-card: rgba(17, 24, 39, 0.7);
+            
+            --primary: #fbbf24; /* Amber 400 */
+            --primary-glow: rgba(251, 191, 36, 0.15);
+            --primary-text: #fef3c7;
+            
+            --text-main: #f9fafb;
+            --text-muted: #9ca3af;
+            --text-dim: #6b7280;
+            
+            --accent-blue: #3b82f6;
+            --accent-green: #10b981;
+            
+            --border: rgba(255, 255, 255, 0.08);
+            --border-bright: rgba(255, 255, 255, 0.15);
+            
+            /* Spacing & Sizing */
+            --header-h: 70px;
+            --radius-lg: 24px;
+            --radius-md: 16px;
+            --radius-sm: 8px;
+            
+            /* Transitions */
+            --ease: cubic-bezier(0.16, 1, 0.3, 1);
+            --transition: 0.4s var(--ease);
         }
 
+        /* ========================================
+        2. RESET & BASE STYLES
+        ========================================
+        */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Outfit', sans-serif;
-            -webkit-tap-highlight-color: transparent;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background-color: var(--bg-deep);
         }
 
         body {
-            background-color: var(--bg-base);
             color: var(--text-main);
             line-height: 1.6;
             overflow-x: hidden;
+            font-size: 15px; /* Professional base size */
+        }
+
+        section {
+            padding: 100px 0;
             position: relative;
         }
 
-        /* --- Ambient Background Animations --- */
-        .ambient-bg {
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            z-index: -1;
-            overflow: hidden;
-            background: #030712;
+        @media (max-width: 768px) {
+            section { padding: 60px 0; }
         }
 
-        .blob {
-            position: absolute;
-            filter: blur(100px);
-            opacity: 0.4;
-            border-radius: 50%;
-            animation: float 20s infinite alternate ease-in-out;
-        }
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        button { border: none; background: none; cursor: pointer; font: inherit; }
+        ul { list-style: none; }
+        img { max-width: 100%; height: auto; display: block; }
 
-        .blob-1 {
-            top: -10%; left: -10%;
-            width: 500px; height: 500px;
-            background: rgba(245, 158, 11, 0.3); /* Gold */
-        }
-
-        .blob-2 {
-            bottom: -20%; right: -10%;
-            width: 600px; height: 600px;
-            background: rgba(59, 130, 246, 0.2); /* Soft Blue */
-            animation-delay: -5s;
-        }
-
-        @keyframes float {
-            0% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(5%, 5%) scale(1.1); }
-            100% { transform: translate(-5%, 10%) scale(0.9); }
-        }
-
-        /* --- Global Utilities --- */
+        /* ========================================
+        3. CUSTOM UTILITIES (BENTO GRID)
+        ========================================
+        */
         .container {
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 1.5rem;
+            padding: 0 24px;
         }
 
-        .glass-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            padding: 2rem;
-            transition: all 0.3s ease;
+        .glass {
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
         }
 
-        .glass-card:hover {
-            background: var(--glass-hover);
-            border-color: rgba(255, 255, 255, 0.15);
-            transform: translateY(-4px);
-        }
-
-        .section-padding { padding: 5rem 0; }
-        
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(245, 158, 11, 0.1);
-            border: 1px solid rgba(245, 158, 11, 0.2);
-            color: var(--accent);
-            padding: 0.5rem 1rem;
-            border-radius: 100px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            letter-spacing: 0.5px;
-        }
-
-        .heading-lg {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(to right, #fff, #a1a1aa);
+        .flex-center { display: flex; align-items: center; justify-content: center; }
+        .text-gradient {
+            background: linear-gradient(135deg, #fff 0%, #9ca3af 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .heading-md {
-            font-size: clamp(2rem, 4vw, 2.5rem);
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: #fff;
+        /* ========================================
+        4. ANIMATED BACKGROUND
+        ========================================
+        */
+        .bg-glow {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            overflow: hidden;
         }
 
-        .text-muted { color: var(--text-muted); font-size: 1.1rem; }
-        
-        .text-center { text-align: center; }
+        .glow-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.15;
+            animation: orbMove 25s infinite alternate var(--ease);
+        }
 
-        /* --- Buttons --- */
-        .btn-primary {
+        .orb-1 { width: 500px; height: 500px; background: var(--primary); top: -10%; left: -10%; }
+        .orb-2 { width: 600px; height: 600px; background: var(--accent-blue); bottom: -10%; right: -10%; animation-delay: -5s; }
+
+        @keyframes orbMove {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(10%, 15%) scale(1.2); }
+        }
+
+        /* ========================================
+        5. BUTTON SYSTEM
+        ========================================
+        */
+        .btn {
             display: inline-flex;
             align-items: center;
-            justify-content: center;
-            background: var(--accent);
-            color: #000;
-            font-weight: 700;
-            padding: 1rem 2rem;
+            gap: 10px;
+            padding: 14px 28px;
             border-radius: 100px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            font-size: 1.05rem;
-            box-shadow: 0 0 20px var(--accent-glow);
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #000;
+            box-shadow: 0 10px 25px -5px var(--primary-glow);
         }
 
         .btn-primary:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 30px var(--accent-glow);
-            background: #fbbf24;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px -5px var(--primary-glow);
+            background: #fcd34d;
         }
 
-        /* --- Header --- */
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border-bright);
+            color: var(--text-main);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: #fff;
+        }
+
+        /* ========================================
+        6. HEADER (STAMP LOGO)
+        ========================================
+        */
         header {
+            height: var(--header-h);
             position: fixed;
-            top: 0; left: 0; right: 0;
-            z-index: 50;
-            background: rgba(3, 7, 18, 0.5);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--glass-border);
+            top: 0; left: 0; width: 100%;
+            z-index: 1000;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
         }
 
-        .header-content {
+        header.scrolled {
+            background: rgba(3, 7, 18, 0.8);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border);
+            height: 65px;
+        }
+
+        .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 70px;
+            width: 100%;
         }
 
-        .logo {
+        .logo-wrap {
             display: flex;
             align-items: center;
             gap: 12px;
-            text-decoration: none;
         }
 
-        .logo img {
-            height: 36px;
-            width: 36px;
-            border-radius: 8px;
+        .logo-icon {
+            width: 40px; height: 40px;
+            border-radius: 10px;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            color: #000;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 12px rgba(251, 191, 36, 0.3);
         }
 
-        .logo div h1 { font-size: 1.2rem; color: #fff; font-weight: 700; line-height: 1.2;}
-        .logo div p { font-size: 0.7rem; color: var(--accent); font-weight: 600; text-transform: uppercase;}
-
-        .nav-links { display: none; }
-        .nav-btn { display: none; }
-
-        @media (min-width: 768px) {
-            .nav-links { display: flex; gap: 2rem; }
-            .nav-links a { color: var(--text-muted); text-decoration: none; font-weight: 500; transition: 0.3s; }
-            .nav-links a:hover { color: #fff; }
-            .nav-btn { display: block; padding: 0.6rem 1.5rem; font-size: 0.9rem; }
+        .logo-text h1 {
+            font-size: 1.1rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            line-height: 1;
         }
 
-        /* --- Hero Section --- */
+        .logo-text span {
+            font-size: 0.65rem;
+            color: var(--primary);
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+        }
+
+        .desktop-nav { display: none; }
+
+        @media (min-width: 1024px) {
+            .desktop-nav {
+                display: flex;
+                align-items: center;
+                gap: 40px;
+            }
+            .nav-link {
+                font-size: 0.9rem;
+                font-weight: 600;
+                color: var(--text-muted);
+            }
+            .nav-link:hover { color: #fff; }
+        }
+
+        /* ========================================
+        7. HERO SECTION (GLASSMORPHISM)
+        ========================================
+        */
         .hero {
-            padding-top: 150px;
-            padding-bottom: 5rem;
+            padding-top: calc(var(--header-h) + 60px);
+            padding-bottom: 80px;
         }
 
-        .hero-grid {
+        .hero-layout {
             display: grid;
-            gap: 3rem;
+            grid-template-columns: 1fr;
+            gap: 60px;
             align-items: center;
         }
 
-        @media (min-width: 992px) {
-            .hero-grid { grid-template-columns: 1fr 1fr; }
+        @media (min-width: 1024px) {
+            .hero-layout { grid-template-columns: 1.1fr 0.9fr; }
         }
 
-        .hero-image-wrapper {
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            background: rgba(251, 191, 36, 0.1);
+            border: 1px solid rgba(251, 191, 36, 0.2);
+            border-radius: 100px;
+            color: var(--primary);
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .hero h2 {
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            line-height: 1.1;
+            font-weight: 800;
+            margin-bottom: 24px;
+            letter-spacing: -1.5px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 36px;
+            max-width: 550px;
+        }
+
+        .hero-btns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        /* Hero Image Slider */
+        .slider-container {
             position: relative;
-            border-radius: 24px;
-            padding: 1rem;
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            backdrop-filter: blur(10px);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--border-bright);
+            aspect-ratio: 4/3;
+            background: var(--bg-surface);
+            box-shadow: 0 40px 80px -20px rgba(0,0,0,0.5);
         }
 
-        .hero-image {
+        .slider-track {
+            display: flex;
+            height: 100%;
+            transition: transform 0.6s var(--ease);
+        }
+
+        .slide {
+            min-width: 100%;
+            height: 100%;
+            padding: 20px;
+        }
+
+        .slide img {
             width: 100%;
-            height: auto;
-            border-radius: 16px;
+            height: 100%;
+            object-fit: contain; /* Professional Fit */
+            border-radius: var(--radius-md);
+        }
+
+        .slider-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .dot {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .dot.active {
+            width: 24px;
+            border-radius: 10px;
+            background: var(--primary);
+        }
+
+        /* ========================================
+        8. TRUST SECTION (BADGES)
+        ========================================
+        */
+        .trust-strip {
+            padding: 40px 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            background: rgba(255,255,255,0.01);
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        @media (min-width: 768px) {
+            .trust-grid { grid-template-columns: repeat(4, 1fr); }
+        }
+
+        .trust-item {
+            text-align: center;
+        }
+
+        .trust-icon {
+            font-size: 1.8rem;
+            margin-bottom: 12px;
             display: block;
         }
 
-        /* --- Stats Grid --- */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-            margin-top: 3rem;
+        .trust-item h4 {
+            font-size: 0.85rem;
+            color: var(--text-main);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        @media (min-width: 768px) { .stats-grid { grid-template-columns: repeat(4, 1fr); gap: 1.5rem; } }
-
-        .stat-card { text-align: center; padding: 1.5rem; }
-        .stat-num { font-size: 2.5rem; font-weight: 800; color: #fff; line-height: 1; margin-bottom: 0.5rem; }
-        .stat-label { font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; font-weight: 600;}
-
-        /* --- Features Grid --- */
-        .grid-3 {
-            display: grid;
-            gap: 1.5rem;
-            margin-top: 3rem;
+        .trust-item p {
+            font-size: 0.75rem;
+            color: var(--text-muted);
         }
-        @media (min-width: 768px) { .grid-3 { grid-template-columns: repeat(3, 1fr); } }
 
-        .feature-icon {
-            width: 50px; height: 50px;
-            border-radius: 12px;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid var(--glass-border);
+        /* ========================================
+        9. FEATURES (BENTO STYLE)
+        ========================================
+        */
+        .section-head {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .section-head h3 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+
+        .section-head p { color: var(--text-muted); font-size: 1rem; }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .feature-card {
+            padding: 40px;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .feature-card:hover {
+            border-color: var(--primary);
+            background: rgba(251, 191, 36, 0.03);
+        }
+
+        .f-icon {
+            width: 54px; height: 54px;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-bright);
+            border-radius: 14px;
             display: flex; align-items: center; justify-content: center;
             font-size: 1.5rem;
-            margin-bottom: 1.5rem;
         }
 
-        .feature-title { font-size: 1.25rem; color: #fff; font-weight: 600; margin-bottom: 0.75rem; }
-        .feature-desc { color: var(--text-muted); font-size: 0.95rem; }
+        .feature-card h4 { font-size: 1.3rem; font-weight: 700; }
+        .feature-card p { color: var(--text-muted); font-size: 0.95rem; }
 
-        /* --- Pricing Grid --- */
-        .pricing-card { position: relative; overflow: hidden; display: flex; flex-direction: column; }
-        .pricing-card.featured {
-            border-color: rgba(245, 158, 11, 0.3);
-            background: rgba(245, 158, 11, 0.05);
-        }
-        .pricing-card.featured::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--accent);
-        }
-        .plan-name { font-size: 1.1rem; color: var(--text-muted); font-weight: 600; margin-bottom: 0.5rem; }
-        .plan-price { font-size: 3rem; font-weight: 800; color: #fff; line-height: 1; margin-bottom: 2rem; }
-        .plan-price span { font-size: 1rem; color: var(--text-muted); font-weight: 500; }
-        
-        .plan-list { list-style: none; margin-bottom: 2rem; flex-grow: 1; }
-        .plan-list li {
-            display: flex; align-items: center; gap: 10px;
-            color: var(--text-muted); margin-bottom: 1rem; font-size: 0.95rem;
-        }
-        .plan-list li::before { content: '✓'; color: var(--accent); font-weight: bold; }
-
-        /* --- Steps --- */
-        .step-card { display: flex; flex-direction: column; align-items: flex-start; }
-        .step-num {
-            font-size: 3rem; font-weight: 800; color: rgba(255,255,255,0.1);
-            line-height: 1; margin-bottom: 1rem;
+        /* ========================================
+        10. PRICING PLANS (CHART STYLE)
+        ========================================
+        */
+        .plans-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
         }
 
-        /* --- FAQ Accordion --- */
-        .faq-wrapper { max-width: 800px; margin: 3rem auto 0; }
+        @media (min-width: 1024px) {
+            .plans-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        .plan-card {
+            padding: 48px 32px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .plan-card.popular {
+            border: 2px solid var(--primary);
+            background: rgba(251, 191, 36, 0.04);
+            transform: scale(1.03);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: 20px; right: 20px;
+            background: var(--primary);
+            color: #000;
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 800;
+        }
+
+        .plan-type {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .plan-pages {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 24px;
+            line-height: 1;
+        }
+
+        .plan-pages span { font-size: 1rem; color: var(--text-muted); font-weight: 500; }
+
+        .plan-stats {
+            margin-bottom: 32px;
+            flex-grow: 1;
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.95rem;
+        }
+
+        .stat-row:last-child { border: none; }
+        .stat-label { color: var(--text-muted); }
+        .stat-value { font-weight: 700; color: var(--primary); }
+
+        /* ========================================
+        11. GUIDANCE (HOW IT WORKS)
+        ========================================
+        */
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            position: relative;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-count {
+            width: 50px; height: 50px;
+            margin: 0 auto 20px;
+            background: var(--bg-surface);
+            border: 1px solid var(--primary);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 800;
+            color: var(--primary);
+            font-size: 1.2rem;
+            box-shadow: 0 0 15px var(--primary-glow);
+        }
+
+        .step h5 { font-size: 1.1rem; margin-bottom: 10px; font-weight: 700;}
+        .step p { font-size: 0.85rem; color: var(--text-muted); }
+
+        /* ========================================
+        12. FAQ SYSTEM
+        ========================================
+        */
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
         .faq-item {
-            border-bottom: 1px solid var(--glass-border);
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            transition: var(--transition);
         }
-        .faq-btn {
-            width: 100%; text-align: left; background: none; border: none;
-            padding: 1.5rem 0; font-size: 1.1rem; font-weight: 600; color: #fff;
-            display: flex; justify-content: space-between; align-items: center;
-            cursor: pointer;
-        }
-        .faq-content {
-            max-height: 0; overflow: hidden; transition: all 0.3s ease;
-            color: var(--text-muted); font-size: 0.95rem;
-        }
-        .faq-item.active .faq-content { padding-bottom: 1.5rem; max-height: 200px; }
-        .faq-item.active .faq-btn span { transform: rotate(45deg); color: var(--accent); }
-        .faq-btn span { transition: 0.3s; font-size: 1.5rem; font-weight: 300; }
 
-        /* --- Footer --- */
+        .faq-q {
+            padding: 24px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            text-align: left;
+            font-size: 1rem;
+        }
+
+        .faq-icon {
+            width: 24px; height: 24px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+            display: flex; align-items: center; justify-content: center;
+            transition: 0.3s;
+        }
+
+        .faq-item.active .faq-icon { transform: rotate(45deg); background: var(--primary); color: #000; }
+        .faq-item.active { border-color: var(--primary-bright); }
+
+        .faq-a {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s var(--ease);
+            padding: 0 24px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .faq-item.active .faq-a { max-height: 200px; padding-bottom: 24px; }
+
+        /* ========================================
+        13. PREMIUM FOOTER (CERTIFICATES)
+        ========================================
+        */
         footer {
-            border-top: 1px solid var(--glass-border);
-            padding: 4rem 0 2rem;
-            background: rgba(0,0,0,0.3);
-            margin-top: 5rem;
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border);
+            padding-top: 80px;
         }
-        .footer-grid {
-            display: grid; gap: 3rem; margin-bottom: 3rem;
-        }
-        @media (min-width: 768px) { .footer-grid { grid-template-columns: 2fr 1fr 1fr; } }
-        
-        .footer-col h4 { color: #fff; font-size: 1.1rem; margin-bottom: 1.5rem; }
-        .footer-col p, .footer-col a { color: var(--text-muted); display: block; margin-bottom: 0.75rem; text-decoration: none; font-size: 0.9rem; }
-        .footer-col a:hover { color: var(--accent); }
-        
-        .trust-badges { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 1.5rem; }
-        .t-badge { background: var(--glass-bg); border: 1px solid var(--glass-border); padding: 5px 12px; border-radius: 6px; font-size: 0.8rem; color: #fff;}
 
-        /* --- Mobile Sticky CTA --- */
-        .mobile-cta {
-            position: fixed; bottom: 0; left: 0; right: 0;
-            padding: 1rem; background: rgba(3, 7, 18, 0.8);
-            backdrop-filter: blur(20px); border-top: 1px solid var(--glass-border);
-            z-index: 100; display: flex; justify-content: center;
+        .footer-main {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
         }
-        .mobile-cta .btn-primary { width: 100%; }
-        @media (min-width: 768px) { .mobile-cta { display: none; } }
 
-        /* --- Animations --- */
-        .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
-        .reveal.active { opacity: 1; transform: translateY(0); }
+        @media (min-width: 1024px) {
+            .footer-main { grid-template-columns: 1.5fr 1fr 1fr 1fr; }
+        }
+
+        .foot-brand h4 { font-size: 1.4rem; font-weight: 800; margin-bottom: 20px; }
+        .foot-brand p { color: var(--text-muted); margin-bottom: 30px; }
+
+        .foot-links h5 { color: #fff; margin-bottom: 24px; font-weight: 700; font-size: 0.95rem; text-transform: uppercase; }
+        .foot-links a { display: block; margin-bottom: 14px; color: var(--text-muted); font-size: 0.9rem; }
+        .foot-links a:hover { color: var(--primary); }
+
+        .cert-vault {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .cert-badge {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border);
+            padding: 8px 16px;
+            border-radius: 8px;
+            display: flex; align-items: center; gap: 8px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .cert-badge svg { color: var(--primary); }
+
+        .footer-bottom {
+            padding: 30px 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-dim);
+        }
+
+        /* ========================================
+        14. MOBILE CTA BAR
+        ========================================
+        */
+        .sticky-mobile {
+            position: fixed;
+            bottom: 20px; left: 20px; right: 20px;
+            z-index: 999;
+            display: flex;
+        }
+
+        @media (min-width: 768px) { .sticky-mobile { display: none; } }
+
+        .sticky-mobile .btn { width: 100%; justify-content: center; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+
+        /* ========================================
+        15. ANIMATIONS (SCROLL REVEAL)
+        ========================================
+        */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
     </style>
 </head>
 <body>
 
-    <div class="ambient-bg">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
+    <div class="bg-glow">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
     </div>
 
-    <header>
-        <div class="container header-content">
-            <a href="#" class="logo">
-                <img src="images/logo.jpeg" alt="Logo" onerror="this.src='https://placehold.co/100x100/F59E0B/000?text=AP'">
-                <div>
+    <header id="mainHeader">
+        <div class="container nav-container">
+            <a href="#" class="logo-wrap">
+                <div class="logo-icon">A</div>
+                <div class="logo-text">
                     <h1>Aliya Publication</h1>
-                    <p>Verified Platform</p>
+                    <span>Handwriting Experts</span>
                 </div>
             </a>
-            <nav class="nav-links">
-                <a href="#features">Features</a>
-                <a href="#pricing">Earnings</a>
-                <a href="#faq">FAQ</a>
+
+            <nav class="desktop-nav">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#plans" class="nav-link">Plans</a>
+                <a href="#process" class="nav-link">Process</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+                <a href="https://t.me/YOUR_TELEGRAM_USERNAME?text=Hello%20sir%2C%20I%20am%20interested%20in%20the%20handwriting%20project.%20Could%20you%20please%20provide%20more%20details%3F" target="_blank" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.85rem;">
+                    Telegram Support
+                </a>
             </nav>
-            <a href="https://t.me/YOUR_TELEGRAM_USERNAME?text=Hello%20sir%2C%20I%20am%20interested%20in%20the%20handwriting%20project.%20Could%20you%20please%20provide%20more%20details%3F" target="_blank" class="btn-primary nav-btn">Join Telegram</a>
+
+            <a href="https://t.me/YOUR_TELEGRAM_USERNAME" target="_blank" class="btn btn-primary" style="padding: 8px 16px; font-size: 0.75rem; display: flex; @media(min-width:1024px){display:none;}">
+                Join Now
+            </a>
         </div>
     </header>
 
     <section class="hero container">
-        <div class="hero-grid">
-            <div class="reveal">
-                <div class="badge">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                    Government Approved & MSME Registered
+        <div class="hero-layout">
+            <div class="hero-content reveal">
+                <div class="hero-tag">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+                    MSME Registered & Govt Approved
                 </div>
-                <h2 class="heading-lg">Turn Your Handwriting Into A Steady Income.</h2>
-                <p class="text-muted" style="margin-bottom: 2.5rem; font-size: 1.2rem; max-width: 90%;">
-                    Join thousands of verified workers across India. Simple page writing tasks with guaranteed direct bank payouts. No hidden fees.
-                </p>
-                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                    <a href="https://t.me/YOUR_TELEGRAM_USERNAME?text=Hello%20sir%2C%20I%20am%20interested%20in%20the%20handwriting%20project.%20Could%20you%20please%20provide%20more%20details%3F" target="_blank" class="btn-primary">
-                        Message on Telegram
-                        <svg style="margin-left: 8px;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                <h2 class="text-gradient">Professional Handwriting Projects at Home.</h2>
+                <p>Turn your neat handwriting into a reliable revenue stream. We provide authentic page-writing assignments with guaranteed direct-to-bank weekly payouts.</p>
+                <div class="hero-btns">
+                    <a href="https://t.me/YOUR_TELEGRAM_USERNAME?text=Hello%20sir%2C%20I%20am%20interested%20in%20the%20handwriting%20project.%20Could%20you%20please%20provide%20more%20details%3F" target="_blank" class="btn btn-primary">
+                        Start Earning Today
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </a>
+                    <a href="#plans" class="btn btn-outline">View Plans</a>
                 </div>
             </div>
-            
-            <div class="hero-image-wrapper reveal">
-                <img src="images/slide1.jpeg" alt="Handwriting Project" class="hero-image" onerror="this.src='https://placehold.co/800x600/111827/F59E0B?text=Genuine+Handwriting+Projects'">
-            </div>
-        </div>
 
-        <div class="stats-grid reveal">
-            <div class="glass-card stat-card">
-                <div class="stat-num" data-val="2500">0</div>
-                <div class="stat-label">Active Members</div>
-            </div>
-            <div class="glass-card stat-card">
-                <div class="stat-num" data-val="18000">0</div>
-                <div class="stat-label">Projects Done</div>
-            </div>
-            <div class="glass-card stat-card">
-                <div class="stat-num" data-val="24">0</div>
-                <div class="stat-label">Hour Payouts</div>
-            </div>
-            <div class="glass-card stat-card">
-                <div class="stat-num" data-val="100">0</div>
-                <div class="stat-label">% Genuine</div>
+            <div class="hero-visual reveal stagger-1">
+                <div class="slider-container">
+                    <div class="slider-track" id="sliderTrack">
+                        <div class="slide"><img src="images/slide1.jpeg" alt="Sample 1" onerror="this.src='https://placehold.co/600x450/111827/fbbf24?text=Quality+Writing'"></div>
+                        <div class="slide"><img src="images/slide2.jpeg" alt="Sample 2" onerror="this.src='https://placehold.co/600x450/111827/fbbf24?text=Transparent+Payouts'"></div>
+                        <div class="slide"><img src="images/slide3.jpeg" alt="Sample 3" onerror="this.src='https://placehold.co/600x450/111827/fbbf24?text=Student+Support'"></div>
+                    </div>
+                    <div class="slider-dots" id="sliderDots"></div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="section-padding container" id="features">
-        <div class="text-center reveal" style="max-width: 600px; margin: 0 auto;">
-            <h2 class="heading-md">Why Trust Aliya Publication?</h2>
-            <p class="text-muted">We prioritize transparency and secure, timely payouts over everything else.</p>
+    <div class="trust-strip">
+        <div class="container trust-grid">
+            <div class="trust-item reveal stagger-1">
+                <span class="trust-icon">🏛️</span>
+                <h4>Registered</h4>
+                <p>MSME / Govt Approved</p>
+            </div>
+            <div class="trust-item reveal stagger-2">
+                <span class="trust-icon">🏦</span>
+                <h4>Secure</h4>
+                <p>Direct Bank Transfers</p>
+            </div>
+            <div class="trust-item reveal stagger-3">
+                <span class="trust-icon">⭐</span>
+                <h4>4.9 Rating</h4>
+                <p>2500+ Active Members</p>
+            </div>
+            <div class="trust-item reveal stagger-4">
+                <span class="trust-icon">⚡</span>
+                <h4>Support</h4>
+                <p>24/7 Telegram Assist</p>
+            </div>
         </div>
-        
-        <div class="grid-3 reveal">
-            <div class="glass-card">
-                <div class="feature-icon">🏛️</div>
-                <h3 class="feature-title">Legitimate Entity</h3>
-                <p class="feature-desc">Operating since 2018 with MSME registration. A verified publication providing authentic work.</p>
+    </div>
+
+    <section id="about" class="container">
+        <div class="section-head reveal">
+            <h3>Why Aliya Publication?</h3>
+            <p>We are India's leading handwriting services agency, connecting quality writers with academic and corporate documentation needs.</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card glass reveal stagger-1">
+                <div class="f-icon">✍️</div>
+                <h4>Zero Tech Skills</h4>
+                <p>If you can write neatly on paper, you're qualified. No complex software or expensive laptops required.</p>
             </div>
-            <div class="glass-card">
-                <div class="feature-icon">🏦</div>
-                <h3 class="feature-title">Direct Bank Payouts</h3>
-                <p class="feature-desc">Earn ₹3,000 daily to ₹20,000 weekly. Payments are wired straight to your account after verification.</p>
+            <div class="feature-card glass reveal stagger-2">
+                <div class="f-icon">📅</div>
+                <h4>Absolute Freedom</h4>
+                <p>Choose your own hours. Work early morning or late night. We only care about the quality of your ink.</p>
             </div>
-            <div class="glass-card">
-                <div class="feature-icon">📱</div>
-                <h3 class="feature-title">24/7 Telegram Support</h3>
-                <p class="feature-desc">Get real-time assistance, project updates, and direct communication through our official channel.</p>
-            </div>
-            <div class="glass-card">
-                <div class="feature-icon">✍️</div>
-                <h3 class="feature-title">Simple Guidelines</h3>
-                <p class="feature-desc">Copy and rewrite content by hand. No tech skills required—just neat, readable handwriting.</p>
-            </div>
-            <div class="glass-card">
-                <div class="feature-icon">⏰</div>
-                <h3 class="feature-title">Absolute Flexibility</h3>
-                <p class="feature-desc">Work at your own pace. Perfect for students, housewives, or anyone seeking a side income.</p>
-            </div>
-            <div class="glass-card">
-                <div class="feature-icon">🎯</div>
-                <h3 class="feature-title">Fair Evaluation</h3>
-                <p class="feature-desc">Transparent quality checks within 24-48 hours. Clear guidelines ensure you know exactly how to succeed.</p>
+            <div class="feature-card glass reveal stagger-3">
+                <div class="f-icon">🔐</div>
+                <h4>Guaranteed Pay</h4>
+                <p>Every page submitted is a page paid. No hidden deductions or "credits"—pure cash to your bank.</p>
             </div>
         </div>
     </section>
 
-    <section class="section-padding container" id="pricing">
-        <div class="text-center reveal" style="max-width: 600px; margin: 0 auto;">
-            <h2 class="heading-md">Choose Your Target</h2>
-            <p class="text-muted">Select an assignment package based on the time you have available.</p>
-        </div>
-
-        <div class="grid-3 reveal">
-            <div class="glass-card pricing-card">
-                <h3 class="plan-name">Starter Plan</h3>
-                <div class="plan-price">50<span> pages</span></div>
-                <ul class="plan-list">
-                    <li>Earn ₹3,000+ Daily</li>
-                    <li>Earn ₹18,000+ Weekly</li>
-                    <li>Flexible submission time</li>
-                    <li>Standard Support</li>
-                </ul>
-                <a href="https://t.me/YOUR_TELEGRAM_USERNAME?text=Hello%20sir%2C%20I%20am%20interested%20in%20the%20handwriting%20project.%20Could%20you%20please%20provide%20more%20details%3F" target="_blank" class="btn-primary" style="width: 100%; background: var(--glass-border); color: #fff; box-shadow: none;">Select Plan</a>
+    <section id="plans" style="background: rgba(255,255,255,0.01);">
+        <div class="container">
+            <div class="section-head reveal">
+                <h3>Assignment Plans</h3>
+                <p>Select a package that fits your daily schedule. Higher page targets lead to premium bonus incentives.</p>
             </div>
 
-            <div class="glass-card pricing-card featured">
-                <div style="position: absolute; top: 1rem; right: 1rem; background: var(--accent); color: #000; font-size: 0.7rem; font-weight: 700; padding: 4px 10px; border-radius: 100px;">POPULAR</div>
-                <h3 class="plan-name" style="color: var(--accent);">Standard Plan</h3>
-                <div class="plan-price">90<span> pages</span></div>
-                <ul class="plan-list">
-                    <li style="color: #fff; font-weight: 500;">Earn ₹5,000+ Daily</li>
-                    <li>Earn ₹30,000+ Weekly</li>
-                    <li>Flexible submission time</li>
-                    <li>Priority Verification</li>
-                </ul>
-                <a href="https://t.me/YOUR_TELEGRAM_USERNAME?text=Hello%20sir%2C%20I%20am%20interested%20in%20the%20handwriting%20project.%20Could%20you%20please%20provide%20more%20details%3F" target="_blank" class="btn-primary" style="width: 100%;">Select Plan</a>
-            </div>
+            <div class="plans-grid">
+                <div class="plan-card glass reveal stagger-1">
+                    <span class="plan-type">Starter Package</span>
+                    <h4 class="plan-pages">50 <span>Pages</span></h4>
+                    <div class="plan-stats">
+                        <div class="stat-row"><span class="stat-label">Daily Earning</span><span class="stat-value">₹3,000+</span></div>
+                        <div class="stat-row"><span class="stat-label">Weekly Payout</span><span class="stat-value">₹18,000+</span></div>
+                        <div class="stat-row"><span class="stat-label">Monthly Potential</span><span class="stat-value">₹72,000+</span></div>
+                    </div>
+                    <a href="https://t.me/YOUR_TELEGRAM_USERNAME?text=I+want+to+join+the+Starter+Plan" target="_blank" class="btn btn-outline" style="width: 100%; justify-content: center;">Choose Plan</a>
+                </div>
 
-            <div class="glass-card pricing-card">
-                <h3 class="plan-name">Elite Plan</h3>
-                <div class="plan-price">120<span> pages</span></div>
-                <ul class="plan-list">
-                    <li>Earn ₹7,000+ Daily</li>
-                    <li>Earn ₹50,000+ Weekly</li>
-                    <li>Flexible submission time</li>
-                    <li>VIP Support Line</li>
-                </ul>
-                <a href="https://t.me/YOUR_TELEGRAM_USERNAME?text=Hello%20sir%2C%20I%20am%20interested%20in%20the%20handwriting%20project.%20Could%20you%20please%20provide%20more%20details%3F" target="_blank" class="btn-primary" style="width: 100%; background: var(--glass-border); color: #fff; box-shadow: none;">Select Plan</a>
+                <div class="plan-card glass popular reveal stagger-2">
+                    <span class="popular-badge">BEST VALUE</span>
+                    <span class="plan-type" style="color: var(--primary);">Standard Package</span>
+                    <h4 class="plan-pages">90 <span>Pages</span></h4>
+                    <div class="plan-stats">
+                        <div class="stat-row"><span class="stat-label">Daily Earning</span><span class="stat-value">₹5,000+</span></div>
+                        <div class="stat-row"><span class="stat-label">Weekly Payout</span><span class="stat-value">₹30,000+</span></div>
+                        <div class="stat-row"><span class="stat-label">Monthly Potential</span><span class="stat-value">₹1,20,000+</span></div>
+                    </div>
+                    <a href="https://t.me/YOUR_TELEGRAM_USERNAME?text=I+want+to+join+the+Standard+Plan" target="_blank" class="btn btn-primary" style="width: 100%; justify-content: center;">Choose Plan</a>
+                </div>
+
+                <div class="plan-card glass reveal stagger-3">
+                    <span class="plan-type">Elite Package</span>
+                    <h4 class="plan-pages">120 <span>Pages</span></h4>
+                    <div class="plan-stats">
+                        <div class="stat-row"><span class="stat-label">Daily Earning</span><span class="stat-value">₹7,000+</span></div>
+                        <div class="stat-row"><span class="stat-label">Weekly Payout</span><span class="stat-value">₹50,000+</span></div>
+                        <div class="stat-row"><span class="stat-label">Monthly Potential</span><span class="stat-value">₹2,00,000+</span></div>
+                    </div>
+                    <a href="https://t.me/YOUR_TELEGRAM_USERNAME?text=I+want+to+join+the+Elite+Plan" target="_blank" class="btn btn-outline" style="width: 100%; justify-content: center;">Choose Plan</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="section-padding container">
-        <div class="text-center reveal" style="max-width: 600px; margin: 0 auto 3rem;">
-            <h2 class="heading-md">How It Works</h2>
-            <p class="text-muted">A streamlined, transparent 4-step process.</p>
+    <section id="process" class="container">
+        <div class="section-head reveal">
+            <h3>Verified Workflow</h3>
+            <p>From registration to your first payout in 4 simple steps.</p>
         </div>
-        <div class="grid-3 reveal" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
-            <div class="glass-card step-card">
-                <div class="step-num">01</div>
-                <h3 class="feature-title">Message Us</h3>
-                <p class="feature-desc">Connect on Telegram to get project details and register your profile.</p>
+
+        <div class="steps-container reveal stagger-1">
+            <div class="step">
+                <div class="step-count">1</div>
+                <h5>Register</h5>
+                <p>Message us on Telegram to setup your worker profile.</p>
             </div>
-            <div class="glass-card step-card">
-                <div class="step-num">02</div>
-                <h3 class="feature-title">Get Files</h3>
-                <p class="feature-desc">Receive your digital assignment files and strict writing guidelines.</p>
+            <div class="step">
+                <div class="step-count">2</div>
+                <h5>Receive</h5>
+                <p>Get digital assignments and handwriting guides.</p>
             </div>
-            <div class="glass-card step-card">
-                <div class="step-num">03</div>
-                <h3 class="feature-title">Write & Scan</h3>
-                <p class="feature-desc">Write neatly in your own time. Scan your completed pages clearly.</p>
+            <div class="step">
+                <div class="step-count">3</div>
+                <h5>Submit</h5>
+                <p>Scan and upload your completed pages for review.</p>
             </div>
-            <div class="glass-card step-card">
-                <div class="step-num">04</div>
-                <h3 class="feature-title">Get Paid</h3>
-                <p class="feature-desc">After a 24-48hr quality check, funds are wired to your bank.</p>
+            <div class="step">
+                <div class="step-count">4</div>
+                <h5>Payout</h5>
+                <p>Funds wired to your bank within 24-48 hours.</p>
             </div>
         </div>
     </section>
 
-    <section class="section-padding container" id="faq">
-        <div class="text-center reveal">
-            <h2 class="heading-md">Frequently Asked Questions</h2>
+    <section id="faq" class="container">
+        <div class="section-head reveal">
+            <h3>Common Inquiries</h3>
+            <p>Find quick answers regarding our handwriting projects.</p>
         </div>
-        
-        <div class="faq-wrapper reveal">
+
+        <div class="faq-list reveal stagger-1">
             <div class="faq-item">
-                <button class="faq-btn">Who is eligible to apply? <span>+</span></button>
-                <div class="faq-content">
-                    <p>Anyone with neat, legible handwriting can apply. This includes students, housewives, retired individuals, or anyone looking for a flexible work-from-home setup. No prior experience is required.</p>
-                </div>
+                <button class="faq-q">Who is eligible for this work? <span class="faq-icon">+</span></button>
+                <div class="faq-a">Anyone with neat, legible handwriting. Students, housewives, and professionals looking for part-time income are all welcome.</div>
             </div>
             <div class="faq-item">
-                <button class="faq-btn">How and when do I receive my payments? <span>+</span></button>
-                <div class="faq-content">
-                    <p>Payments are processed weekly. Once your submitted pages pass the quality check (which takes 24-48 hours), the funds are wired directly to your provided bank account.</p>
-                </div>
+                <button class="faq-q">What materials do I need? <span class="faq-icon">+</span></button>
+                <div class="faq-a">Standard ruled paper, a quality blue/black pen, and a smartphone to scan and send your work via Telegram.</div>
             </div>
             <div class="faq-item">
-                <button class="faq-btn">Do I need to buy any special materials? <span>+</span></button>
-                <div class="faq-content">
-                    <p>No expensive equipment is needed. You only need standard ruled paper, a good quality pen, and a smartphone to scan and submit your completed pages via Telegram.</p>
-                </div>
+                <button class="faq-q">Are there any registration fees? <span class="faq-icon">+</span></button>
+                <div class="faq-a">Connect with our Telegram support for detailed registration guidelines and current open slots.</div>
             </div>
             <div class="faq-item">
-                <button class="faq-btn">How do I know this is a legitimate company? <span>+</span></button>
-                <div class="faq-content">
-                    <p>Aliya Publication is an MSME-registered and government-approved entity operating successfully since 2018. We process thousands of payouts monthly and maintain complete transparency.</p>
-                </div>
+                <button class="faq-q">Is the income guaranteed? <span class="faq-icon">+</span></button>
+                <div class="faq-a">Yes. Every successfully verified page earns a fixed rate as per your selected plan. Payouts are consistent and weekly.</div>
             </div>
         </div>
     </section>
 
     <footer>
-        <div class="container footer-grid">
-            <div class="footer-col">
-                <img src="images/logo.jpeg" alt="Logo" style="height: 40px; border-radius: 8px; margin-bottom: 1rem;" onerror="this.style.display='none'">
+        <div class="container footer-main">
+            <div class="foot-brand">
                 <h4>Aliya Publication</h4>
-                <p>Empowering individuals across India to achieve financial independence through genuine handwriting projects since 2018.</p>
-                <div class="trust-badges">
-                    <span class="t-badge">🏛️ Govt Approved</span>
-                    <span class="t-badge">📜 MSME Registered</span>
-                    <span class="t-badge">✅ ISO 9001:2015</span>
+                <p>The standard in remote handwriting solutions. Empowering thousands across India since 2018.</p>
+                <div class="cert-vault">
+                    <div class="cert-badge">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        Govt Approved
+                    </div>
+                    <div class="cert-badge">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+                        ISO 9001:2015
+                    </div>
                 </div>
             </div>
-            <div class="footer-col">
-                <h4>Quick Links</h4>
-                <a href="#features">Platform Features</a>
-                <a href="#pricing">Earning Plans</a>
-                <a href="#faq">Help & FAQ</a>
-                <a href="#">Terms & Conditions</a>
-                <a href="#">Privacy Policy</a>
+
+            <div class="foot-links">
+                <h5>Platform</h5>
+                <a href="#about">About Agency</a>
+                <a href="#plans">Earning Plans</a>
+                <a href="#process">Work Process</a>
             </div>
-            <div class="footer-col">
-                <h4>Contact Support</h4>
-                <p>contact@aliyapublication.com</p>
-                <p>Support: Telegram Only</p>
-                <a href="https://t.me/YOUR_TELEGRAM_USERNAME?text=Hello%20sir%2C%20I%20am%20interested%20in%20the%20handwriting%20project.%20Could%20you%20please%20provide%20more%20details%3F" target="_blank" style="color: var(--accent); margin-top: 1rem; font-weight: 600;">Message us on Telegram →</a>
+
+            <div class="foot-links">
+                <h5>Legal</h5>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Work</a>
+                <a href="#">MSME Registration</a>
+            </div>
+
+            <div class="foot-links">
+                <h5>Support</h5>
+                <a href="https://t.me/YOUR_TELEGRAM_USERNAME">Telegram Portal</a>
+                <a href="#">Worker Dashboard</a>
+                <p style="font-size: 0.8rem; margin-top: 10px;">Email: contact@aliyapublication.com</p>
             </div>
         </div>
-        <div class="container" style="border-top: 1px solid var(--glass-border); padding-top: 2rem; text-align: center; color: var(--text-muted); font-size: 0.85rem;">
-            © 2018 - 2026 Aliya Publication. All Rights Reserved. | GST Compliant | PAN Verified
+
+        <div class="container footer-bottom">
+            <p>© 2018 - 2026 Aliya Publication. All rights reserved. Registered MSME / GST Verified.</p>
         </div>
     </footer>
 
-    <div class="mobile-cta">
-        <a href="https://t.me/YOUR_TELEGRAM_USERNAME?text=Hello%20sir%2C%20I%20am%20interested%20in%20the%20handwriting%20project.%20Could%20you%20please%20provide%20more%20details%3F" target="_blank" class="btn-primary">Join Now on Telegram</a>
+    <div class="sticky-mobile">
+        <a href="https://t.me/YOUR_TELEGRAM_USERNAME?text=Hello%20sir%2C%20I%20am%20interested%20in%20the%20handwriting%20project.%20Could%20you%20please%20provide%20more%20details%3F" target="_blank" class="btn btn-primary">
+            Get Started on Telegram
+        </a>
     </div>
 
     <script>
-        // Smooth Reveal Animation on Scroll
-        const revealElements = document.querySelectorAll('.reveal');
-        
-        const revealCallback = (entries, observer) => {
+        // 1. Header Scroll Logic
+        const header = document.getElementById('mainHeader');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // 2. Custom Slider Logic
+        const track = document.getElementById('sliderTrack');
+        const slides = Array.from(track.children);
+        const dotsNav = document.getElementById('sliderDots');
+        let currentIdx = 0;
+
+        // Create Dots
+        slides.forEach((_, i) => {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(i));
+            dotsNav.appendChild(dot);
+        });
+
+        const dots = Array.from(dotsNav.children);
+
+        function goToSlide(index) {
+            track.style.transform = `translateX(-${index * 100}%)`;
+            dots.forEach(d => d.classList.remove('active'));
+            dots[index].classList.add('active');
+            currentIdx = index;
+        }
+
+        // Auto play
+        setInterval(() => {
+            currentIdx = (currentIdx + 1) % slides.length;
+            goToSlide(currentIdx);
+        }, 4000);
+
+        // 3. FAQ Accordion Logic
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-q');
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                faqItems.forEach(i => i.classList.remove('active'));
+                if (!isActive) item.classList.add('active');
+            });
+        });
+
+        // 4. Advanced Scroll Reveal Engine
+        const observerOptions = {
+            threshold: 0.12,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
-                    
-                    // Trigger number counter if it contains stats
-                    const statNums = entry.target.querySelectorAll('.stat-num');
-                    statNums.forEach(num => {
-                        if (!num.classList.contains('counted')) {
-                            num.classList.add('counted');
-                            const target = parseInt(num.getAttribute('data-val'));
-                            let current = 0;
-                            const increment = target / 50;
-                            const timer = setInterval(() => {
-                                current += increment;
-                                if (current >= target) {
-                                    clearInterval(timer);
-                                    num.innerText = target + (target > 100 ? '+' : '');
-                                } else {
-                                    num.innerText = Math.floor(current);
-                                }
-                            }, 30);
-                        }
-                    });
                 }
             });
-        };
+        }, observerOptions);
 
-        const revealOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
-        const revealObserver = new IntersectionObserver(revealCallback, revealOptions);
-        
-        revealElements.forEach(el => revealObserver.observe(el));
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-        // FAQ Accordion
-        const faqItems = document.querySelectorAll('.faq-item');
-        faqItems.forEach(item => {
-            const btn = item.querySelector('.faq-btn');
-            btn.addEventListener('click', () => {
-                const isActive = item.classList.contains('active');
-                // Close all
-                faqItems.forEach(faq => {
-                    faq.classList.remove('active');
-                    faq.querySelector('span').innerText = '+';
-                });
-                // Open clicked if it wasn't already open
-                if (!isActive) {
-                    item.classList.add('active');
-                    item.querySelector('span').innerText = '×';
+        // 5. Smooth Anchor Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
                 }
             });
         });
