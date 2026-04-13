@@ -1,672 +1,381 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="description" content="Aliya Publication - Earn from home through handwriting projects. Secure and flexible income.">
-    <title>Aliya Publication | Professional Handwriting Work From Home</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus | Pro Crypto Terminal</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
     <style>
-        /* ========================================
-        1. THEME & CORE DESIGN SYSTEM
-        ========================================
-        */
         :root {
-            /* ORIGINAL COLOR PALETTE */
-            --primary-dark: #0B1120;   /* Navy Blue */
-            --primary: #1E293B;        /* Slate Blue */
-            --gold: #D97706;           /* Professional Gold */
-            --gold-light: #FFF7ED;     /* Light Cream Gold */
-            --white: #FFFFFF;
-            --text-dark: #334155;      /* Slate Grey */
-            --text-light: #64748B;     /* Light Grey */
-            --bg-body: #F8FAFC;        /* Cool Background */
-            
-            /* GLASSMORPHISM & BORDERS */
-            --glass-bg: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --border-std: 1px solid #E2E8F0;
-            
-            /* SHADOWS */
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
-            --shadow-md: 0 10px 15px -3px rgba(0,0,0,0.1);
-            --shadow-lg: 0 25px 50px -12px rgba(0,0,0,0.15);
-            --shadow-gold: 0 10px 20px -5px rgba(217, 119, 6, 0.3);
-
-            /* SPACING */
-            --section-gap: 80px;
-            --container-w: 1200px;
+            --bg: #030712;
+            --card-bg: rgba(17, 24, 39, 0.6);
+            --border: rgba(255, 255, 255, 0.08);
+            --primary: #3b82f6; /* Electric Blue */
+            --secondary: #a855f7; /* Purple Glow */
+            --accent: #22d3ee;
+            --text-main: #f9fafb;
+            --text-muted: #9ca3af;
+            --positive: #10b981;
+            --negative: #ef4444;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* ========================================
-        2. GLOBAL RESET
-        ========================================
-        */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
-            -webkit-font-smoothing: antialiased;
+            font-family: 'Inter', sans-serif;
         }
 
         body {
-            background-color: var(--bg-body);
-            color: var(--text-dark);
-            line-height: 1.6;
-            font-size: 14px; /* Scaled down for mobile friendliness */
+            background-color: var(--bg);
+            color: var(--text-main);
             overflow-x: hidden;
+            scroll-behavior: smooth;
+            /* Neon Ambient Glows */
+            background-image: 
+                radial-gradient(circle at 10% 10%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 90% 90%, rgba(168, 85, 247, 0.05) 0%, transparent 50%);
         }
 
-        @media (min-width: 768px) {
-            body { font-size: 16px; }
-        }
-
-        a { text-decoration: none; transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-        ul { list-style: none; }
-
-        /* ========================================
-        3. DYNAMIC UTILITIES
-        ========================================
-        */
-        .container {
+        /* --- GLASS NAVIGATION --- */
+        nav {
+            position: fixed;
+            top: 0;
             width: 100%;
-            max-width: var(--container-w);
-            margin: 0 auto;
-            padding: 0 1.5rem;
+            height: 70px;
+            background: rgba(3, 7, 18, 0.7);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+            z-index: 1000;
         }
 
-        .text-gradient {
-            background: linear-gradient(135deg, var(--white) 0%, #CBD5E1 100%);
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-        }
-
-        .btn {
-            display: inline-flex;
+            display: flex;
             align-items: center;
-            justify-content: center;
-            padding: 12px 24px;
-            border-radius: 12px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            cursor: pointer;
-            border: none;
             gap: 10px;
         }
 
-        .btn-gold {
-            background: linear-gradient(135deg, var(--gold) 0%, #B45309 100%);
-            color: var(--white);
-            box-shadow: var(--shadow-md);
+        .nav-links {
+            display: flex;
+            gap: 2rem;
         }
 
-        .btn-gold:hover {
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover { color: var(--primary); }
+
+        .btn-glow {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+            transition: var(--transition);
+        }
+
+        .btn-glow:hover {
             transform: translateY(-2px);
-            box-shadow: var(--shadow-gold);
-            filter: brightness(110%);
+            box-shadow: 0 0 25px rgba(59, 130, 246, 0.5);
         }
 
-        /* ========================================
-        4. PREMIUM HEADER
-        ========================================
-        */
-        header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            height: 70px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: var(--border-std);
-            display: flex;
-            align-items: center;
+        /* --- DASHBOARD LAYOUT --- */
+        main {
+            padding: 100px 5% 50px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 20px;
         }
 
-        .header-wrap {
+        .glass-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 24px;
+            transition: var(--transition);
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .glass-card:hover {
+            border-color: rgba(255, 255, 255, 0.15);
+            background: rgba(17, 24, 39, 0.8);
+        }
+
+        /* Bento Grid Specifics */
+        .col-span-2 { grid-column: span 2; }
+        .col-span-3 { grid-column: span 3; }
+        .row-span-2 { grid-row: span 2; }
+
+        /* --- COMPONENT STYLES --- */
+        .card-title {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            gap: 8px;
+        }
+
+        .balance-amount {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .trend {
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .trend.up { color: var(--positive); }
+        .trend.down { color: var(--negative); }
+
+        /* Simulated Chart Area */
+        .chart-placeholder {
             width: 100%;
+            height: 200px;
+            margin-top: 20px;
+            background: linear-gradient(transparent 80%, rgba(59, 130, 246, 0.1));
+            border-bottom: 2px solid var(--primary);
+            position: relative;
+            overflow: hidden;
         }
 
-        .logo-group {
+        .chart-placeholder::after {
+            content: '';
+            position: absolute;
+            top: 40%;
+            left: 0;
+            width: 200%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            animation: moveLine 4s infinite linear;
+        }
+
+        /* Market Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            text-align: left;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            padding-bottom: 15px;
+        }
+
+        td {
+            padding: 15px 0;
+            border-top: 1px solid var(--border);
+            font-size: 0.95rem;
+        }
+
+        .coin-info {
             display: flex;
             align-items: center;
             gap: 12px;
         }
 
-        .logo-img {
-            height: 40px;
-            width: auto;
-            border-radius: 8px;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .brand-meta h1 {
-            color: var(--primary-dark);
-            font-size: 1.1rem;
-            font-weight: 800;
-            line-height: 1.1;
-        }
-
-        .brand-meta span {
-            color: var(--gold);
-            font-size: 0.65rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        nav { display: none; }
-
-        @media (min-width: 1024px) {
-            nav { display: flex; align-items: center; gap: 2.5rem; }
-            nav a { color: var(--text-dark); font-weight: 600; font-size: 0.9rem; }
-            nav a:hover { color: var(--gold); }
-        }
-
-        /* ========================================
-        5. HERO SECTION (BENTO STYLE)
-        ========================================
-        */
-        .hero {
-            padding: 4rem 0;
-            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
-            color: var(--white);
-            overflow: hidden;
-            position: relative;
-        }
-
-        .hero-layout {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        @media (min-width: 992px) {
-            .hero-layout { grid-template-columns: 1.2fr 0.8fr; }
-        }
-
-        .hero-content h2 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-content p {
-            font-size: 1.1rem;
-            color: #94A3B8;
-            margin-bottom: 2.5rem;
-            max-width: 600px;
-        }
-
-        .hero-image-box {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            padding: 10px;
-            aspect-ratio: 4/3;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .slider-track {
-            display: flex;
-            height: 100%;
-            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .slide {
-            min-width: 100%;
-            height: 100%;
+        .coin-icon {
+            width: 32px;
+            height: 32px;
+            background: #1f2937;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            color: var(--accent);
         }
 
-        .slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain; /* NO CROPPING */
-            border-radius: 16px;
+        /* --- ANIMATIONS --- */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        /* ========================================
-        6. FEATURES (COMPACT GRID)
-        ========================================
-        */
-        .section-padding { padding: var(--section-gap) 0; }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 3.5rem;
+        @keyframes moveLine {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(0); }
         }
 
-        .section-header h3 {
-            font-size: 2.2rem;
-            color: var(--primary-dark);
-            font-weight: 800;
+        /* --- RESPONSIVE --- */
+        @media (max-width: 1024px) {
+            main { grid-template-columns: repeat(2, 1fr); }
+            .col-span-3, .col-span-2 { grid-column: span 2; }
         }
 
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .feature-card {
-            background: var(--white);
-            padding: 2.5rem 2rem;
-            border-radius: 20px;
-            border: var(--border-std);
-            transition: 0.4s;
-            text-align: center;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--gold);
-        }
-
-        .f-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        /* ========================================
-        7. EARNING PLANS (CHART TYPE)
-        ========================================
-        */
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-        }
-
-        .plan-card {
-            background: var(--white);
-            padding: 3rem 2rem;
-            border-radius: 24px;
-            border: var(--border-std);
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            text-align: center;
-        }
-
-        .plan-card.featured {
-            border: 2px solid var(--gold);
-            transform: scale(1.03);
-            box-shadow: var(--shadow-gold);
-        }
-
-        .plan-badge {
-            background: var(--primary-dark);
-            color: var(--white);
-            padding: 6px 16px;
-            border-radius: 100px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            display: inline-block;
-            margin-bottom: 1rem;
-        }
-
-        .plan-card.featured .plan-badge { background: var(--gold); }
-
-        .plan-title { font-size: 1.1rem; color: var(--text-light); font-weight: 600; }
-        .plan-pages { font-size: 3rem; font-weight: 800; color: var(--primary-dark); margin: 0.5rem 0;}
-
-        .plan-list { margin: 2rem 0; flex-grow: 1; }
-        .plan-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px 0;
-            border-bottom: 1px dashed #E2E8F0;
-            font-size: 1rem;
-        }
-        .plan-item span:first-child { color: var(--text-light); }
-        .plan-item span:last-child { font-weight: 700; color: var(--gold); }
-
-        /* ========================================
-        8. ORIGINAL FOOTER RECONSTRUCTION
-        ========================================
-        */
-        footer {
-            background: var(--primary-dark);
-            color: #94A3B8;
-            padding: 5rem 1.5rem 1.5rem;
-            width: 100%;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 4rem;
-        }
-
-        .footer-section h3 {
-            color: var(--white);
-            margin-bottom: 1.5rem;
-            font-size: 1.3rem;
-            font-weight: 700;
-            position: relative;
-            padding-bottom: 0.5rem;
-        }
-        
-        .footer-section h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 3px;
-            background: var(--gold);
-        }
-
-        .footer-section p, .footer-section a:not(.highlight-link) {
-            color: #94A3B8;
-            line-height: 2.2;
-            display: block;
-            font-size: 0.95rem;
-        }
-
-        .footer-section a:hover { color: var(--gold); }
-
-        .highlight-link {
-            display: inline-block;
-            background: var(--gold);
-            color: var(--primary-dark) !important;
-            padding: 8px 20px;
-            border-radius: 4px;
-            font-weight: 800;
-            text-transform: uppercase;
-            margin-top: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-            font-size: 0.9rem;
-        }
-
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 0 auto;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 3rem;
-            text-align: center;
-        }
-
-        .footer-certifications {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            margin-bottom: 2rem;
-        }
-
-        .certification {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.9rem;
-            color: var(--white);
-        }
-
-        .cert-icon { color: var(--gold); font-size: 1.2rem; }
-
-        .footer-badges {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-top: 1rem;
-        }
-
-        .footer-badge {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            font-size: 0.85rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: #CBD5E1;
-        }
-
-        /* ========================================
-        9. MOBILE OPTIMIZATIONS
-        ========================================
-        */
-        .mobile-join-strip {
-            position: fixed;
-            bottom: 0; left: 0; right: 0;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            padding: 12px 20px;
-            z-index: 999;
-            border-top: var(--border-std);
-            display: flex;
-        }
-
-        @media (min-width: 1024px) {
-            .mobile-join-strip { display: none; }
-        }
-
-        .mobile-join-strip .btn { width: 100%; }
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
+        @media (max-width: 640px) {
+            main { grid-template-columns: 1fr; }
+            .col-span-3, .col-span-2 { grid-column: span 1; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="container header-wrap">
-            <div class="logo-group">
-                <img src="images/logo.jpeg" alt="Aliya Publication" class="logo-img" onerror="this.src='https://placehold.co/100x100/1E293B/D97706?text=AP'">
-                <div class="brand-meta">
-                    <h1>Aliya Publication</h1>
-                    <span>Genuine Projects</span>
-                </div>
-            </div>
-            <nav>
-                <a href="#about">Benefits</a>
-                <a href="#pricing">Plans</a>
-                <a href="#faq">FAQ</a>
-                <a href="https://t.me/YOUR_TELEGRAM_USERNAME?text=Hello%20sir%2C%20I%20am%20interested%20in%20the%20handwriting%20project.%20Could%20you%20please%20provide%20more%20details%3F" target="_blank" class="btn btn-gold">Telegram Support</a>
-            </nav>
+    <nav>
+        <div class="logo">
+            <i data-lucide="shield-check"></i> NEXUS
         </div>
-    </header>
+        <div class="nav-links">
+            <a href="#">Market</a>
+            <a href="#">Exchange</a>
+            <a href="#">Wallet</a>
+            <a href="#">Nodes</a>
+        </div>
+        <button class="btn-glow">Connect Wallet</button>
+    </nav>
 
-    <section class="hero">
-        <div class="container hero-layout">
-            <div class="hero-content reveal">
-                <h2 class="text-gradient">Premium Handwriting Projects For You.</h2>
-                <p>Convert your beautiful writing into a reliable source of income. Join thousands of verified workers securing direct bank payouts since 2018.</p>
-                <div style="display: flex; gap: 1rem;">
-                    <a href="https://t.me/YOUR_TELEGRAM_USERNAME?text=Hello%20sir%2C%20I%20am%20interested%20in%20the%20handwriting%20project.%20Could%20you%20please%20provide%20more%20details%3F" target="_blank" class="btn btn-gold">Join Now On Telegram</a>
-                </div>
+    <main>
+        <div class="glass-card col-span-2">
+            <div class="card-title"><i data-lucide="wallet" size="16"></i> Portfolio Balance</div>
+            <div class="balance-amount">$128,432.50</div>
+            <div class="trend up">
+                <i data-lucide="trending-up" size="14"></i> +12.4% <span style="color: var(--text-muted); font-size: 0.8rem; margin-left: 5px;">(24h)</span>
             </div>
-            <div class="hero-image-box reveal">
-                <div class="slider-track" id="mainSlider">
-                    <div class="slide"><img src="images/slide1.jpeg" alt="Writing Sample 1" onerror="this.src='https://placehold.co/600x400/1E293B/D97706?text=Handwriting+01'"></div>
-                    <div class="slide"><img src="images/slide2.jpeg" alt="Writing Sample 2" onerror="this.src='https://placehold.co/600x400/1E293B/D97706?text=Handwriting+02'"></div>
-                    <div class="slide"><img src="images/slide3.jpeg" alt="Writing Sample 3" onerror="this.src='https://placehold.co/600x400/1E293B/D97706?text=Handwriting+03'"></div>
-                </div>
-            </div>
+            <div class="chart-placeholder"></div>
         </div>
-    </section>
 
-    <section class="section-padding container" id="about">
-        <div class="section-header reveal">
-            <h3>Why Aliya Publication?</h3>
+        <div class="glass-card">
+            <div class="card-title"><i data-lucide="repeat" size="16"></i> Quick Swap</div>
+            <div style="margin-top: 10px;">
+                <label style="font-size: 0.75rem; color: var(--text-muted);">From ETH</label>
+                <div style="background: rgba(0,0,0,0.2); padding: 10px; border-radius: 8px; margin-top: 5px; border: 1px solid var(--border);">
+                    2.45
+                </div>
+            </div>
+            <div style="text-align: center; margin: 10px 0;">
+                <i data-lucide="arrow-down" size="16" style="color: var(--primary);"></i>
+            </div>
+            <div>
+                <label style="font-size: 0.75rem; color: var(--text-muted);">To USDT</label>
+                <div style="background: rgba(0,0,0,0.2); padding: 10px; border-radius: 8px; margin-top: 5px; border: 1px solid var(--border);">
+                    6,125.00
+                </div>
+            </div>
+            <button class="btn-glow" style="width: 100%; margin-top: 20px;">Execute Swap</button>
         </div>
-        <div class="feature-grid">
-            <div class="feature-card reveal">
-                <span class="f-icon">🏢</span>
-                <h4>Govt. Approved</h4>
-                <p>MSME Registered entity operating since 2018 with complete transparency.</p>
-            </div>
-            <div class="feature-card reveal">
-                <span class="f-icon">✍️</span>
-                <h4>Simple Work</h4>
-                <p>Just copy and rewrite content by hand. No tech skills or laptops required.</p>
-            </div>
-            <div class="feature-card reveal">
-                <span class="f-icon">🏦</span>
-                <h4>Direct Payouts</h4>
-                <p>Weekly earnings transferred directly to your bank account with zero delays.</p>
-            </div>
-        </div>
-    </section>
 
-    <section class="section-padding container" id="pricing">
-        <div class="section-header reveal">
-            <h3>Earning Targets</h3>
-        </div>
-        <div class="pricing-grid">
-            <div class="plan-card reveal">
-                <div class="plan-badge">STARTER</div>
-                <h4 class="plan-pages">50 Pages</h4>
-                <div class="plan-list">
-                    <div class="plan-item"><span>Daily Earning</span><span>₹3,000+</span></div>
-                    <div class="plan-item"><span>Weekly Earning</span><span>₹18,000+</span></div>
+        <div class="glass-card">
+            <div class="card-title"><i data-lucide="pie-chart" size="16"></i> Allocation</div>
+            <div style="display: flex; flex-direction: column; gap: 15px; margin-top: 10px;">
+                <div>
+                    <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 5px;">
+                        <span>Bitcoin</span>
+                        <span>45%</span>
+                    </div>
+                    <div style="width: 100%; height: 6px; background: rgba(255,255,255,0.05); border-radius: 10px;">
+                        <div style="width: 45%; height: 100%; background: var(--primary); border-radius: 10px;"></div>
+                    </div>
                 </div>
-                <a href="https://t.me/YOUR_TELEGRAM_USERNAME" class="btn btn-gold">Join Plan</a>
-            </div>
-            <div class="plan-card featured reveal">
-                <div class="plan-badge">POPULAR</div>
-                <h4 class="plan-pages">90 Pages</h4>
-                <div class="plan-list">
-                    <div class="plan-item"><span>Daily Earning</span><span>₹5,000+</span></div>
-                    <div class="plan-item"><span>Weekly Earning</span><span>₹30,000+</span></div>
+                <div>
+                    <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 5px;">
+                        <span>Ethereum</span>
+                        <span>30%</span>
+                    </div>
+                    <div style="width: 100%; height: 6px; background: rgba(255,255,255,0.05); border-radius: 10px;">
+                        <div style="width: 30%; height: 100%; background: var(--secondary); border-radius: 10px;"></div>
+                    </div>
                 </div>
-                <a href="https://t.me/YOUR_TELEGRAM_USERNAME" class="btn btn-gold">Join Plan</a>
-            </div>
-            <div class="plan-card reveal">
-                <div class="plan-badge">ELITE</div>
-                <h4 class="plan-pages">120 Pages</h4>
-                <div class="plan-list">
-                    <div class="plan-item"><span>Daily Earning</span><span>₹7,000+</span></div>
-                    <div class="plan-item"><span>Weekly Earning</span><span>₹50,000+</span></div>
-                </div>
-                <a href="https://t.me/YOUR_TELEGRAM_USERNAME" class="btn btn-gold">Join Plan</a>
             </div>
         </div>
-    </section>
 
-    <footer id="contact">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Aliya Publication</h3>
-                <p>Empowering people to earn from home through handwriting projects since 2018.</p>
-                <p><strong>Support:</strong> Telegram Portal</p>
-            </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <a href="#home">Home</a>
-                <a href="#about">About Us</a>
-                <a href="#pricing">Pricing Plans</a>
-                <a href="https://t.me/YOUR_TELEGRAM_USERNAME" target="_blank" class="highlight-link">Join Now</a>
-            </div>
-            <div class="footer-section">
-                <h3>Legal</h3>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms & Conditions</a>
-                <a href="#">Worker Agreement</a>
-            </div>
-            <div class="footer-section">
-                <h3>Contact Info</h3>
-                <p>📧 contact@aliyapublication.com</p>
-                <p>📱 Support: Telegram Only</p>
-                <p>🕐 24/7 Support Available</p>
-            </div>
+        <div class="glass-card col-span-3 row-span-2">
+            <div class="card-title"><i data-lucide="bar-chart-3" size="16"></i> Live Market</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Asset</th>
+                        <th>Price</th>
+                        <th>Change</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="market-body">
+                    </tbody>
+            </table>
         </div>
-        
-        <div class="footer-bottom">
-            <div class="footer-certifications">
-                <div class="certification">
-                    <span class="cert-icon">🏛️</span>
-                    <span>Government Approved</span>
-                </div>
-                <div class="certification">
-                    <span class="cert-icon">✅</span>
-                    <span>ISO 9001:2015 Certified</span>
-                </div>
-                <div class="certification">
-                    <span class="cert-icon">📜</span>
-                    <span>MSME Registered</span>
-                </div>
-                <div class="certification">
-                    <span class="cert-icon">🔒</span>
-                    <span>SSL Secured</span>
-                </div>
-            </div>
-            <div class="footer-badges">
-                <span class="footer-badge">🛡️ Verified Company</span>
-                <span class="footer-badge">⭐ 5 Star Rating</span>
-                <span class="footer-badge">✓ Trusted by 2500+ Workers</span>
-                <span class="footer-badge">💯 100% Genuine</span>
-            </div>
-            <p style="margin-top: 2rem; font-size: 0.95rem;">
-                © 2018 - 2026 Aliya Publication. All Rights Reserved.
-            </p>
-            <p style="font-size: 0.85rem; margin-top: 0.5rem; color: rgba(255, 255, 255, 0.4);">
-                Registered under Companies Act | GST Registered | PAN Verified
-            </p>
-        </div>
-    </footer>
 
-    <div class="mobile-join-strip">
-        <a href="https://t.me/YOUR_TELEGRAM_USERNAME" class="btn btn-gold">Join Now on Telegram</a>
-    </div>
+        <div class="glass-card">
+            <div class="card-title"><i data-lucide="activity" size="16"></i> System Status</div>
+            <div style="display: flex; align-items: center; gap: 10px; color: var(--positive); font-weight: 600;">
+                <div style="width: 10px; height: 10px; background: var(--positive); border-radius: 50%; box-shadow: 0 0 10px var(--positive);"></div>
+                Nodes Operational
+            </div>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 10px;">Latency: 14ms</p>
+        </div>
+    </main>
 
     <script>
-        // Hero Slider Engine
-        const slider = document.getElementById('mainSlider');
-        let index = 0;
-        
-        setInterval(() => {
-            index = (index + 1) % 3;
-            slider.style.transform = `translateX(-${index * 100}%)`;
-        }, 4000);
+        // Initialize Icons
+        lucide.createIcons();
 
-        // Scroll Reveal Engine
-        const observerOptions = { threshold: 0.15 };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, observerOptions);
+        // Simulated Market Data
+        const coins = [
+            { name: 'Bitcoin', symbol: 'BTC', price: '$64,231.00', change: '+2.4%', up: true },
+            { name: 'Ethereum', symbol: 'ETH', price: '$3,450.12', change: '-1.2%', up: false },
+            { name: 'Solana', symbol: 'SOL', price: '$145.67', change: '+8.9%', up: true },
+            { name: 'Cardano', symbol: 'ADA', price: '$0.45', change: '+0.1%', up: true }
+        ];
 
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        const marketBody = document.getElementById('market-body');
 
-        // Smooth Scroll Logic
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
+        coins.forEach(coin => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>
+                    <div class="coin-info">
+                        <div class="coin-icon">${coin.symbol[0]}</div>
+                        <div>
+                            <div style="font-weight: 600;">${coin.name}</div>
+                            <div style="font-size: 0.75rem; color: var(--text-muted);">${coin.symbol}</div>
+                        </div>
+                    </div>
+                </td>
+                <td>${coin.price}</td>
+                <td class="${coin.up ? 'trend up' : 'trend down'}">
+                    ${coin.change}
+                </td>
+                <td>
+                    <span style="background: rgba(255,255,255,0.05); padding: 4px 10px; border-radius: 6px; font-size: 0.75rem;">Verified</span>
+                </td>
+            `;
+            marketBody.appendChild(row);
         });
+
+        // Add a bit of "life" to the dashboard numbers
+        setInterval(() => {
+            const balance = document.querySelector('.balance-amount');
+            let current = parseFloat(balance.innerText.replace('$', '').replace(',', ''));
+            current += (Math.random() - 0.5) * 10;
+            balance.innerText = '$' + current.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+        }, 3000);
     </script>
 </body>
 </html>
