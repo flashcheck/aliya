@@ -215,6 +215,44 @@
         .amt { font-weight: 800; color: var(--primary-dark); }
         .status { color: var(--success); font-size: 0.7rem; font-weight: 700; display: flex; align-items: center; gap: 4px; justify-content: flex-end;}
 
+        /* --- VIDEO SLIDER --- */
+        .video-slider-wrapper {
+            position: relative;
+            max-width: 100%;
+        }
+        .video-slider {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 20px;
+            padding: 10px 5px 30px 5px; /* Bottom padding for scrollbar space */
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+        /* Custom styling for slider scrollbar */
+        .video-slider::-webkit-scrollbar {
+            height: 6px;
+        }
+        .video-slider::-webkit-scrollbar-track {
+            background: #F1F5F9;
+            border-radius: 10px;
+        }
+        .video-slider::-webkit-scrollbar-thumb {
+            background: var(--gold);
+            border-radius: 10px;
+        }
+        .video-slide {
+            flex: 0 0 100%;
+            scroll-snap-align: center;
+            max-width: 400px;
+        }
+        @media (min-width: 768px) {
+            .video-slide { flex: 0 0 calc(50% - 10px); max-width: none; }
+        }
+        @media (min-width: 992px) {
+            .video-slide { flex: 0 0 calc(33.333% - 14px); }
+        }
+
         /* --- NEW USER GUIDE (CHART) --- */
         .flow-chart { display: flex; flex-direction: column; gap: 12px; max-width: 600px; margin: 0 auto; }
         .flow-step {
@@ -428,36 +466,74 @@
         </div>
     </section>
 
-    <!-- NEW USER REVIEWS VIDEO SECTION -->
+    <!-- NEW USER REVIEWS VIDEO SLIDER SECTION -->
     <section class="container" style="padding-top: 60px; padding-bottom: 20px;">
         <div class="section-title reveal">Worker Reviews</div>
         <div class="section-subtitle reveal">Listen to what our community says about their experience and earnings.</div>
         
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;" class="reveal delay-1">
-            <div style="background: var(--white); padding: 15px; border-radius: 12px; box-shadow: var(--shadow-md); border: 1px solid #E2E8F0;">
-                <video controls style="width: 100%; border-radius: 8px; display: block;">
-                    <source src="images/1.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <div style="margin-top: 15px; text-align: center;">
-                    <h3 style="color: var(--primary-dark); font-size: 1.1rem; margin-bottom: 4px;">Verified Worker</h3>
-                    <p style="color: var(--text-light); font-size: 0.85rem;">Sharing their weekly payout experience</p>
+        <div class="video-slider-wrapper reveal delay-1">
+            <div class="video-slider">
+                
+                <!-- Video 1 -->
+                <div class="video-slide">
+                    <div style="background: var(--white); padding: 15px; border-radius: 12px; box-shadow: var(--shadow-md); border: 1px solid #E2E8F0; height: 100%;">
+                        <video controls preload="metadata" style="width: 100%; border-radius: 8px; display: block; background: #0B1120;">
+                            <source src="images/1.mp4#t=0.001" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div style="margin-top: 15px; text-align: center;">
+                            <h3 style="color: var(--primary-dark); font-size: 1.1rem; margin-bottom: 4px;">Verified Worker</h3>
+                            <p style="color: var(--text-light); font-size: 0.85rem;">Sharing their weekly payout experience</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            
-            <div style="background: var(--white); padding: 15px; border-radius: 12px; box-shadow: var(--shadow-md); border: 1px solid #E2E8F0;">
-                <video controls style="width: 100%; border-radius: 8px; display: block;">
-                    <source src="images/2.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <div style="margin-top: 15px; text-align: center;">
-                    <h3 style="color: var(--primary-dark); font-size: 1.1rem; margin-bottom: 4px;">Verified Worker</h3>
-                    <p style="color: var(--text-light); font-size: 0.85rem;">Explaining the simple writing process</p>
+                
+                <!-- Video 2 -->
+                <div class="video-slide">
+                    <div style="background: var(--white); padding: 15px; border-radius: 12px; box-shadow: var(--shadow-md); border: 1px solid #E2E8F0; height: 100%;">
+                        <video controls preload="metadata" style="width: 100%; border-radius: 8px; display: block; background: #0B1120;">
+                            <source src="images/2.mp4#t=0.001" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div style="margin-top: 15px; text-align: center;">
+                            <h3 style="color: var(--primary-dark); font-size: 1.1rem; margin-bottom: 4px;">Verified Worker</h3>
+                            <p style="color: var(--text-light); font-size: 0.85rem;">Explaining the simple writing process</p>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Video 3 -->
+                <div class="video-slide">
+                    <div style="background: var(--white); padding: 15px; border-radius: 12px; box-shadow: var(--shadow-md); border: 1px solid #E2E8F0; height: 100%;">
+                        <video controls preload="metadata" style="width: 100%; border-radius: 8px; display: block; background: #0B1120;">
+                            <source src="images/3.mp4#t=0.001" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div style="margin-top: 15px; text-align: center;">
+                            <h3 style="color: var(--primary-dark); font-size: 1.1rem; margin-bottom: 4px;">Verified Worker</h3>
+                            <p style="color: var(--text-light); font-size: 0.85rem;">How I started earning from home</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 4 -->
+                <div class="video-slide">
+                    <div style="background: var(--white); padding: 15px; border-radius: 12px; box-shadow: var(--shadow-md); border: 1px solid #E2E8F0; height: 100%;">
+                        <video controls preload="metadata" style="width: 100%; border-radius: 8px; display: block; background: #0B1120;">
+                            <source src="images/4.mp4#t=0.001" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div style="margin-top: 15px; text-align: center;">
+                            <h3 style="color: var(--primary-dark); font-size: 1.1rem; margin-bottom: 4px;">Verified Worker</h3>
+                            <p style="color: var(--text-light); font-size: 0.85rem;">My direct bank payment proof</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
-    <!-- END OF NEW USER REVIEWS SECTION -->
+    <!-- END OF NEW USER REVIEWS SLIDER SECTION -->
 
     <section id="guide">
         <div class="container">
@@ -650,16 +726,14 @@
             });
         });
 
-        // 2. Dynamic Payout Generator (Creates 40 Professional Entries)
+        // 2. Dynamic Payout Generator
         const payoutTrack = document.getElementById('payoutTrack');
         const firstNames = ['P***', 'R***', 'A***', 'S***', 'V***', 'M***', 'K***', 'N***', 'D***', 'T***', 'H***', 'J***'];
         const lastInitials = ['S.', 'K.', 'P.', 'M.', 'D.', 'T.', 'R.', 'J.', 'L.', 'B.', 'G.', 'N.'];
-        // UPDATED ARRAY WITH SOUTH INDIAN CITIES
         const locations = ['Hyderabad', 'Chennai', 'Bangalore', 'Kochi', 'Trivandrum', 'Coimbatore', 'Mysore', 'Mumbai', 'Delhi', 'Pune'];
         const amounts = ['₹4,500', '₹7,200', '₹12,000', '₹3,000', '₹5,500', '₹9,000', '₹15,000', '₹6,800', '₹18,000', '₹4,200'];
         
         let payoutHTML = '';
-        // Create 40 items
         for(let i = 0; i < 40; i++) {
             let fName = firstNames[Math.floor(Math.random() * firstNames.length)];
             let lName = lastInitials[Math.floor(Math.random() * lastInitials.length)];
@@ -667,7 +741,6 @@
             let amt = amounts[Math.floor(Math.random() * amounts.length)];
             let initial = fName.charAt(0);
             
-            // Randomize Status to look organic
             let statusText = Math.random() > 0.3 ? 'Paid Today' : 'Paid Yesterday';
             
             payoutHTML += `
@@ -686,7 +759,6 @@
             `;
         }
         
-        // Duplicate the list inside the track so it scrolls infinitely without jumping
         payoutTrack.innerHTML = payoutHTML + payoutHTML;
 
         // 3. FAQ Logic
@@ -714,7 +786,6 @@
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
                     
-                    // Trigger number counters
                     const counters = entry.target.querySelectorAll('.counter');
                     counters.forEach(counter => {
                         if (!counter.hasAttribute('data-counted')) {
