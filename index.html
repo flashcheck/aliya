@@ -428,6 +428,37 @@
         </div>
     </section>
 
+    <!-- NEW USER REVIEWS VIDEO SECTION -->
+    <section class="container" style="padding-top: 60px; padding-bottom: 20px;">
+        <div class="section-title reveal">Worker Reviews</div>
+        <div class="section-subtitle reveal">Listen to what our community says about their experience and earnings.</div>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;" class="reveal delay-1">
+            <div style="background: var(--white); padding: 15px; border-radius: 12px; box-shadow: var(--shadow-md); border: 1px solid #E2E8F0;">
+                <video controls style="width: 100%; border-radius: 8px; display: block;">
+                    <source src="images/1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div style="margin-top: 15px; text-align: center;">
+                    <h3 style="color: var(--primary-dark); font-size: 1.1rem; margin-bottom: 4px;">Verified Worker</h3>
+                    <p style="color: var(--text-light); font-size: 0.85rem;">Sharing their weekly payout experience</p>
+                </div>
+            </div>
+            
+            <div style="background: var(--white); padding: 15px; border-radius: 12px; box-shadow: var(--shadow-md); border: 1px solid #E2E8F0;">
+                <video controls style="width: 100%; border-radius: 8px; display: block;">
+                    <source src="images/2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div style="margin-top: 15px; text-align: center;">
+                    <h3 style="color: var(--primary-dark); font-size: 1.1rem; margin-bottom: 4px;">Verified Worker</h3>
+                    <p style="color: var(--text-light); font-size: 0.85rem;">Explaining the simple writing process</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END OF NEW USER REVIEWS SECTION -->
+
     <section id="guide">
         <div class="container">
             <div class="section-title reveal">New User Guide</div>
@@ -623,7 +654,8 @@
         const payoutTrack = document.getElementById('payoutTrack');
         const firstNames = ['P***', 'R***', 'A***', 'S***', 'V***', 'M***', 'K***', 'N***', 'D***', 'T***', 'H***', 'J***'];
         const lastInitials = ['S.', 'K.', 'P.', 'M.', 'D.', 'T.', 'R.', 'J.', 'L.', 'B.', 'G.', 'N.'];
-        const locations = ['Mumbai', 'Delhi', 'Pune', 'Gujarat', 'Bangalore', 'Jaipur', 'Lucknow', 'Patna', 'Indore', 'Surat'];
+        // UPDATED ARRAY WITH SOUTH INDIAN CITIES
+        const locations = ['Hyderabad', 'Chennai', 'Bangalore', 'Kochi', 'Trivandrum', 'Coimbatore', 'Mysore', 'Mumbai', 'Delhi', 'Pune'];
         const amounts = ['₹4,500', '₹7,200', '₹12,000', '₹3,000', '₹5,500', '₹9,000', '₹15,000', '₹6,800', '₹18,000', '₹4,200'];
         
         let payoutHTML = '';
